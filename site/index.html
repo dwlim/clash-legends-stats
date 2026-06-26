@@ -90,11 +90,23 @@
       width: 100%;
       border: 1px solid var(--line);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text);
       padding: 10px 12px;
       font: inherit;
       outline: none;
+      accent-color: var(--accent);
+    }
+
+    .controls select option {
+      background: #0c1427;
+      color: var(--text);
+    }
+
+    .controls select option:checked,
+    .controls select option:focus {
+      background: #12203a;
+      color: var(--text);
     }
 
     .day-meta {
