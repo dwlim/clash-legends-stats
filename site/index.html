@@ -494,23 +494,24 @@
 
     function youtubeSearchUrl(fullArmy) {
       const sections = fullArmy?.sections || {};
-      const parts = [];
+      const rawParts = [];
 
-      const troops = [...(sections.troops || [])]
-        .sort((a, b) => ((TROOP_HOUSING_SPACE[b.name] || 0) * (b.count || 0)) - ((TROOP_HOUSING_SPACE[a.name] || 0) * (a.count || 0)))
-        .slice(0, 3)
-        .map(entry => `"${entry.name}"`);
+      const pushRaw = entry => {
+        const name = entry?.name;
+        const count = Math.max(1, Number(entry?.count || 1));
+        if (!name) return;
+        for (let i = 0; i < count; i += 1) rawParts.push(name);
+      };
 
-      const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])]
-        .slice(0, 2)
-        .map(entry => `"${shortSpellName(entry.name)}"`);
+      [...(sections.troops || [])].forEach(pushRaw);
+      [...(sections.spells || [])].forEach(pushRaw);
+      [...(sections.clanCastleTroops || [])].forEach(pushRaw);
+      [...(sections.reinforcements || [])].forEach(pushRaw);
+      [...(sections.clanCastleSpells || [])].forEach(pushRaw);
+      [...(sections.heroes || [])].forEach(pushRaw);
 
-      const heroes = [...(sections.heroes || [])]
-        .slice(0, 2)
-        .map(hero => `"${hero.name}"`);
-
-      parts.push(...troops, ...spells, ...heroes);
-      if (!parts.length) return '';
+      if (!rawParts.length) return '';
+      const parts = rawParts.slice(0, 12).map(part => `"${part}"`);
       parts.push('"Clash of Clans"');
       return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' OR '))}`;
     }
