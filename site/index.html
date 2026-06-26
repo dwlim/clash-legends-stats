@@ -597,8 +597,10 @@
                 </td>
                 <td class="army">
                   ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
-                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
-                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
+                  <div class="army-links">
+                    ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
+                    ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
+                  </div>
                 </td>
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
