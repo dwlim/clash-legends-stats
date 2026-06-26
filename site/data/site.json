@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-26T16:00:57.142367+00:00",
+  "generated_at": "2026-06-26T17:01:00.727411+00:00",
   "groups": [
     {
-      "count": 263,
+      "count": 266,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -611,12 +611,12 @@
           "tag": "#YYJ2JCGV2"
         },
         {
-          "attack_count": 5,
+          "attack_count": 8,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h2m1p16e4_34-4p4e6_13-6p17e43_49-7p10e52_59i1x188-1x5-2x65d1x9-1x98-1x5u4x1-3x63-1x17-8x65-1x10-6x57-1x23-1x6-1x12-1x0s6x35-2x120-1x70-1x5",
+              "raw": "h2m1p16e4_34-4p4e6_13-6p17e43_49-7p10e52_59i1x188-1x5-2x65d1x9-1x98-1x5u1x0-4x1-1x6-1x12-3x63-1x17-8x65-1x23-6x57-1x10s6x35-2x120-1x70-1x5",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -758,9 +758,24 @@
                 ],
                 "troops": [
                   {
+                    "count": 1,
+                    "id": 0,
+                    "name": "Barbarian"
+                  },
+                  {
                     "count": 4,
                     "id": 1,
                     "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 6,
+                    "name": "Wizard"
+                  },
+                  {
+                    "count": 1,
+                    "id": 12,
+                    "name": "Valkyrie"
                   },
                   {
                     "count": 3,
@@ -779,8 +794,8 @@
                   },
                   {
                     "count": 1,
-                    "id": 10,
-                    "name": "Minion"
+                    "id": 23,
+                    "name": "Baby Dragon"
                   },
                   {
                     "count": 6,
@@ -789,52 +804,37 @@
                   },
                   {
                     "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 6,
-                    "name": "Wizard"
-                  },
-                  {
-                    "count": 1,
-                    "id": 12,
-                    "name": "Valkyrie"
-                  },
-                  {
-                    "count": 1,
-                    "id": 0,
-                    "name": "Barbarian"
+                    "id": 10,
+                    "name": "Minion"
                   }
                 ]
               }
             },
             "armyLabel": "Dragon Rider Air (DD Electro Fangs)",
-            "armyShareCode": "h2m1p16e4_34-4p4e6_13-6p17e43_49-7p10e52_59i1x188-1x5-2x65d1x9-1x98-1x5u4x1-3x63-1x17-8x65-1x10-6x57-1x23-1x6-1x12-1x0s6x35-2x120-1x70-1x5",
-            "battleTime": 173,
-            "battleTimestamp": "20260626T155246.000Z",
+            "armyShareCode": "h2m1p16e4_34-4p4e6_13-6p17e43_49-7p10e52_59i1x188-1x5-2x65d1x9-1x98-1x5u1x0-4x1-1x6-1x12-3x63-1x17-8x65-1x23-6x57-1x10s6x35-2x120-1x70-1x5",
+            "battleTime": 179,
+            "battleTimestamp": "20260626T163100.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "ÈĻÎ⊥È",
-            "opponentTag": "#82PRPLP2R",
+            "opponentName": "PPPPP",
+            "opponentTag": "#UJJ2UPPU",
             "opponentTownHallLevel": 17,
             "playerName": "pastel",
             "playerTag": "#YJRJ9GV8L",
             "playerTownHallLevel": null,
-            "polled_at": "2026-06-26T16:00:05.546618+00:00",
-            "sourcePollAt": "2026-06-26T16:00:05.546618+00:00",
+            "polled_at": "2026-06-26T17:00:06.500080+00:00",
+            "sourcePollAt": "2026-06-26T17:00:06.500080+00:00",
             "spellStyle": "Invis Charge",
             "stars": 3,
             "tracking_day": "2026-06-26"
           },
           "name": "pastel",
           "stats": {
-            "attack_count": 5,
+            "attack_count": 8,
             "avg_destruction": 100.0,
             "avg_stars": 3.0,
-            "destruction_total": 500,
-            "stars_total": 15,
+            "destruction_total": 800,
+            "stars_total": 24,
             "three_star_rate": 100.0
           },
           "tag": "#YJRJ9GV8L"
@@ -9038,12 +9038,12 @@
         }
       ],
       "stats": {
-        "attack_count": 263,
-        "avg_destruction": 95.7,
-        "avg_stars": 2.586,
-        "destruction_total": 25169,
-        "stars_total": 680,
-        "three_star_rate": 61.977
+        "attack_count": 266,
+        "avg_destruction": 95.748,
+        "avg_stars": 2.59,
+        "destruction_total": 25469,
+        "stars_total": 689,
+        "three_star_rate": 62.406
       },
       "uniqueUsers": 41
     },
@@ -47735,13 +47735,13 @@
       }
     },
     "#YJRJ9GV8L": {
-      "best_army_count": 5,
+      "best_army_count": 8,
       "stats": {
-        "attack_count": 5,
+        "attack_count": 8,
         "avg_destruction": 100.0,
         "avg_stars": 3.0,
-        "destruction_total": 500,
-        "stars_total": 15,
+        "destruction_total": 800,
+        "stars_total": 24,
         "three_star_rate": 100.0
       }
     },
@@ -47851,17 +47851,17 @@
     "tracking_day": "2026-06-26"
   },
   "stats": {
-    "attack_records": 1532,
+    "attack_records": 1535,
     "avg_attacks_per_player": 6.2,
     "favorite_groups": 19,
-    "most_popular_army": 263,
+    "most_popular_army": 266,
     "overall": {
-      "attack_count": 1193,
-      "avg_destruction": 95.711,
-      "avg_stars": 2.594,
-      "destruction_total": 114183,
-      "stars_total": 3095,
-      "three_star_rate": 62.531
+      "attack_count": 1196,
+      "avg_destruction": 95.722,
+      "avg_stars": 2.595,
+      "destruction_total": 114483,
+      "stars_total": 3104,
+      "three_star_rate": 62.625
     },
     "top_players": 200
   },
