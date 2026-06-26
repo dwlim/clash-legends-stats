@@ -492,6 +492,11 @@
       return `https://link.clashofclans.com/en?action=CopyArmy&army=${encodeURIComponent(armyShareCode)}`;
     }
 
+    function youtubeSearchUrl(armyShareCode) {
+      if (!armyShareCode) return '';
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent(`"${armyShareCode}" "CopyArmy"`)}`;
+    }
+
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
       const sections = decoded?.sections || {};
       const lines = [];
@@ -548,11 +553,13 @@
       const heroStart = lines.indexOf('Heroes:');
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
+      const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
       armyBlockEl.innerHTML = `
         <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
         <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
         <div class="army-chip"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
         ${link ? `<a class="army-link" href="${link}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
+        ${youtubeLink ? `<a class="army-link" href="${youtubeLink}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
       `;
     }
 
@@ -583,6 +590,7 @@
                 <td class="army">
                   ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
                   ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
+                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
                 </td>
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
