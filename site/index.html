@@ -501,8 +501,8 @@
       const heroes = rawParts.slice(2).join('-') || '';
       const parts = [troops, spells, heroes].filter(Boolean).map(part => `"${part}"`);
       if (!parts.length) return '';
-      parts.push('"Clash of Clans"');
-      return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' OR '))}`;
+      parts.push('Clash of Clans');
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' '))}`;
     }
 
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
