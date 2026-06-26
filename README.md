@@ -43,6 +43,12 @@ Or use the launcher script:
 ./run_hourly_poll.sh
 ```
 
+To poll, publish, commit, and push in one step:
+
+```bash
+./run_hourly_sync.sh
+```
+
 Publish the latest raw files into the GitHub Pages site:
 
 ```bash
@@ -57,10 +63,10 @@ Example hourly cron entry:
 0 * * * * cd /Users/daniel/clash-legends-stats && . .venv/bin/activate && python poll_legends.py poll >> work/tracker_data/cron.log 2>&1
 ```
 
-If you want the site to update on every successful poll, run publish right after the poll and then commit/push the repo:
+If you want the site to update on every successful poll, run the sync helper from cron:
 
 ```cron
-0 * * * * cd /Users/daniel/clash-legends-stats && . .venv/bin/activate && python poll_legends.py poll && python poll_legends.py publish && git add site work/tracker_data && git commit -m "Update legend data" && git push >> work/tracker_data/cron.log 2>&1
+0 * * * * cd /Users/daniel/clash-legends-stats && ./run_hourly_sync.sh >> work/tracker_data/cron.log 2>&1
 ```
 
 ## GitHub Pages
