@@ -492,26 +492,15 @@
       return `https://link.clashofclans.com/en?action=CopyArmy&army=${encodeURIComponent(armyShareCode)}`;
     }
 
-    function youtubeSearchUrl(fullArmy) {
-      const sections = fullArmy?.sections || {};
-      const rawParts = [];
-
-      const pushRaw = entry => {
-        const name = entry?.name;
-        const count = Math.max(1, Number(entry?.count || 1));
-        if (!name) return;
-        for (let i = 0; i < count; i += 1) rawParts.push(name);
-      };
-
-      [...(sections.troops || [])].forEach(pushRaw);
-      [...(sections.spells || [])].forEach(pushRaw);
-      [...(sections.clanCastleTroops || [])].forEach(pushRaw);
-      [...(sections.reinforcements || [])].forEach(pushRaw);
-      [...(sections.clanCastleSpells || [])].forEach(pushRaw);
-      [...(sections.heroes || [])].forEach(pushRaw);
-
-      if (!rawParts.length) return '';
-      const parts = rawParts.slice(0, 12).map(part => `"${part}"`);
+    function youtubeSearchUrl(armyShareCode) {
+      if (!armyShareCode) return '';
+      const normalized = String(armyShareCode).replace(/^https?:\/\/link\.clashofclans\.com\/en\/?\?action=CopyArmy&army=/i, '');
+      const rawParts = normalized.split('-');
+      const troops = rawParts[0] || '';
+      const spells = rawParts[1] || '';
+      const heroes = rawParts.slice(2).join('-') || '';
+      const parts = [troops, spells, heroes].filter(Boolean).map(part => `"${part}"`);
+      if (!parts.length) return '';
       parts.push('"Clash of Clans"');
       return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' OR '))}`;
     }
@@ -572,7 +561,7 @@
       const heroStart = lines.indexOf('Heroes:');
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
-      const youtubeLink = fullArmy ? youtubeSearchUrl(fullArmy) : '';
+      const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
       armyBlockEl.innerHTML = `
         <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
         <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
@@ -609,7 +598,7 @@
                 <td class="army">
                   ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
                   ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
-                  ${player.best_attack.armyDecoded ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyDecoded)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
+                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
                 </td>
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
