@@ -209,15 +209,20 @@
       letter-spacing: .08em;
     }
 
-    .army-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .army-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       margin-top: 10px;
+    }
+
+    .army-link {
+      display: block;
       color: var(--accent);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 600;
+      line-height: 1.3;
     }
 
     .army-link:hover {
