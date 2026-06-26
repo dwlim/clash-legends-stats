@@ -73,6 +73,36 @@
       font-size: 0.95rem;
     }
 
+    .controls {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .controls label {
+      color: var(--muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .controls select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+      outline: none;
+    }
+
+    .day-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
     .group-list {
       display: grid;
       gap: 8px;
@@ -283,6 +313,11 @@
       <aside class="panel left">
         <h1>Clash Legends Summary</h1>
         <p class="sub">Browse the most popular army groups from the top 200 Legends players.</p>
+        <div class="controls">
+          <label for="day-select">Day</label>
+          <select id="day-select"></select>
+        </div>
+        <div class="day-meta" id="day-meta"></div>
 
         <div class="group-list" id="group-list"></div>
       </aside>
@@ -303,6 +338,8 @@
   </main>
 
   <script>
+    const daySelect = document.getElementById('day-select');
+    const dayMeta = document.getElementById('day-meta');
     const listEl = document.getElementById('group-list');
     const titleEl = document.getElementById('detail-title');
     const subEl = document.getElementById('detail-sub');
@@ -565,15 +602,41 @@
       });
     }
 
-    async function init() {
-      const res = await fetch('./data/site.json', { cache: 'no-store' });
+    async function loadDay(day) {
+      const item = window.dayItems.find(entry => entry.date === day);
+      if (!item) return;
+      const res = await fetch(`./${item.payload}`, { cache: 'no-store' });
       window.siteData = await res.json();
+      dayMeta.textContent = `Showing ${item.date}`;
       renderList();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
       } else {
         titleEl.textContent = 'No groups found';
         subEl.textContent = 'Run the poller and publish data to populate the site.';
+        bodyEl.innerHTML = '';
+      }
+    }
+
+    async function init() {
+      const manifestRes = await fetch('./data/manifest.json', { cache: 'no-store' });
+      const manifest = await manifestRes.json();
+      window.dayItems = (manifest.days || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+      daySelect.innerHTML = window.dayItems.map(item => `<option value="${item.date}">${item.date}</option>`).join('');
+      const defaultDay = window.dayItems[window.dayItems.length - 1]?.date || '';
+      daySelect.value = defaultDay;
+      daySelect.addEventListener('change', () => {
+        loadDay(daySelect.value).catch(err => {
+          titleEl.textContent = 'Failed to load day';
+          subEl.textContent = String(err);
+          bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
+        });
+      });
+      if (defaultDay) {
+        await loadDay(defaultDay);
+      } else {
+        titleEl.textContent = 'No days found';
+        subEl.textContent = 'Publish at least one daily file first.';
       }
     }
 
