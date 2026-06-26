@@ -1,582 +1,611 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Clash Legends Stats</title>
-    <style>
-      :root {
-        --bg: #0b1020;
-        --panel: rgba(18, 25, 48, 0.86);
-        --panel-2: rgba(27, 36, 66, 0.92);
-        --line: rgba(148, 163, 184, 0.18);
-        --text: #e5eefb;
-        --muted: #93a4c3;
-        --accent: #7dd3fc;
-        --accent-2: #a78bfa;
-        --good: #34d399;
-        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clash Legends Stats</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08101f;
+      --panel: rgba(13, 19, 38, 0.78);
+      --panel-strong: rgba(16, 23, 45, 0.94);
+      --line: rgba(159, 176, 208, 0.16);
+      --line-strong: rgba(114, 214, 255, 0.22);
+      --text: #ecf2ff;
+      --muted: #9fb0d0;
+      --accent: #72d6ff;
+      --accent-soft: rgba(114, 214, 255, 0.12);
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(114, 214, 255, 0.12), transparent 26%),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.11), transparent 24%),
+        linear-gradient(180deg, #08101f 0%, #060b15 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .left {
+      padding: 14px;
+      position: sticky;
+      top: 16px;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .stat .value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .group-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .group-btn {
+      text-align: left;
+      border: 1px solid transparent;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .group-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .group-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .group-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .group-meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .right {
+      padding: 18px;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .detail-title {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .detail-count {
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+
+    .army-block {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .army-chip {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .army-chip strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .hero-line {
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    tbody td {
+      padding: 13px 10px;
+      border-bottom: 1px solid rgba(159, 176, 208, 0.09);
+      vertical-align: top;
+    }
+
+    .player-name {
+      font-weight: 700;
+    }
+
+    .tag {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .army {
+      color: #d9e7ff;
+    }
+
+    .loading, .error, .empty {
+      padding: 18px 20px;
+      border: 1px dashed var(--line-strong);
+      border-radius: 16px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
       }
 
-      * {
-        box-sizing: border-box;
+      .left {
+        position: static;
+        max-height: none;
       }
+    }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--text);
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(125, 211, 252, 0.22), transparent 30%),
-          radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 28%),
-          linear-gradient(180deg, #0b1020 0%, #0a0f1b 55%, #070b14 100%);
-      }
-
+    @media (max-width: 720px) {
       .shell {
-        width: min(1240px, calc(100vw - 32px));
-        margin: 0 auto;
-        padding: 28px 0 48px;
+        padding: 16px;
       }
 
-      .hero {
-        display: flex;
-        gap: 18px;
-        align-items: end;
-        justify-content: space-between;
-        padding: 22px 24px;
-        margin-bottom: 18px;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-        background: linear-gradient(145deg, rgba(18, 25, 48, 0.92), rgba(21, 31, 58, 0.72));
-        box-shadow: var(--shadow);
+      .stats {
+        grid-template-columns: 1fr;
       }
 
-      h1 {
-        margin: 0;
-        font-size: clamp(2rem, 4vw, 3.25rem);
-        letter-spacing: -0.04em;
-        line-height: 1;
+      .topline {
+        flex-direction: column;
       }
 
-      .subtitle {
-        margin-top: 10px;
-        color: var(--muted);
-        max-width: 70ch;
-      }
-
-      .meta {
-        color: var(--muted);
-        font-size: 0.92rem;
-        text-align: right;
-      }
-
-      .metrics {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 12px;
-        margin: 18px 0 24px;
-      }
-
-      .metric {
-        padding: 16px 18px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background: var(--panel);
-        box-shadow: var(--shadow);
-      }
-
-      .metric .label {
-        color: var(--muted);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-      }
-
-      .metric .value {
-        margin-top: 8px;
-        font-size: 1.55rem;
-        font-weight: 700;
-      }
-
-      .groups {
-        display: grid;
-        gap: 14px;
-      }
-
-      .group {
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        background: var(--panel);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .group button {
-        width: 100%;
-        border: 0;
-        background: transparent;
-        color: inherit;
-        padding: 18px 20px;
-        text-align: left;
-        cursor: pointer;
-        display: grid;
-        gap: 10px;
-      }
-
-      .group button:hover {
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .group-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: start;
-      }
-
-      .group-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      .group-stats {
-        color: var(--muted);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        font-size: 0.92rem;
-      }
-
-      .army-lines {
-        display: grid;
-        gap: 6px;
-        color: #d8e2f2;
-      }
-
-      .army-line {
-        padding-left: 12px;
-        border-left: 2px solid rgba(125, 211, 252, 0.24);
-      }
-
-      .group-body {
-        display: none;
-        border-top: 1px solid var(--line);
-        background: var(--panel-2);
-        padding: 18px 20px 20px;
-      }
-
-      .group.open .group-body {
+      table, thead, tbody, tr, td, th {
         display: block;
       }
 
-      .group.open .chev {
-        transform: rotate(90deg);
+      thead {
+        display: none;
       }
 
-      .chev {
-        transition: transform 0.2s ease;
-        color: var(--accent);
-        font-size: 1.2rem;
-        margin-left: 10px;
+      tbody td {
+        border-bottom: 0;
+        padding: 8px 0;
       }
 
-      .player-grid {
+      tbody tr {
         display: grid;
-        gap: 10px;
+        gap: 8px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(159, 176, 208, 0.09);
       }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="layout">
+      <aside class="panel left">
+        <h1>Clash Legends Summary</h1>
+        <p class="sub">Browse the most popular army groups from the top 200 Legends players.</p>
 
-      .player {
-        padding: 14px 14px 12px;
-        border: 1px solid rgba(148, 163, 184, 0.14);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.02);
-      }
+        <section class="stats" id="stats"></section>
+        <div class="group-list" id="group-list"></div>
+      </aside>
 
-      .player-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 14px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      .player-name {
-        font-weight: 700;
-      }
-
-      .player-meta {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .player-army {
-        margin-top: 10px;
-        display: grid;
-        gap: 4px;
-        color: #dbe7f9;
-        font-size: 0.94rem;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: rgba(125, 211, 252, 0.12);
-        color: #d9f2ff;
-        border: 1px solid rgba(125, 211, 252, 0.2);
-      }
-
-      .empty, .loading, .error {
-        padding: 24px;
-        border: 1px dashed rgba(148, 163, 184, 0.28);
-        border-radius: 20px;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      @media (max-width: 980px) {
-        .metrics {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .hero {
-          flex-direction: column;
-          align-items: start;
-        }
-
-        .meta {
-          text-align: left;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .shell {
-          width: min(100vw - 18px, 1240px);
-          padding-top: 12px;
-        }
-
-        .metrics {
-          grid-template-columns: 1fr;
-        }
-
-        .group-head {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="shell">
-      <section class="hero">
-        <div>
-          <h1>Clash Legends Stats</h1>
-          <div class="subtitle">
-            Popular army groups from the top 200 Legends players. Each player is assigned their most common army, then the groups are ranked by unique users and attack volume.
+      <main class="panel right">
+        <div class="topline">
+          <div>
+            <h2 class="detail-title" id="detail-title"></h2>
+            <p class="detail-sub" id="detail-sub"></p>
           </div>
+          <div class="detail-count" id="detail-count"></div>
         </div>
-        <div class="meta" id="meta">Loading latest data...</div>
-      </section>
 
-      <section class="metrics" id="metrics"></section>
-      <section class="groups" id="groups">
-        <div class="loading">Loading site data…</div>
-      </section>
-    </main>
+        <div class="army-block" id="army-block"></div>
+        <div id="detail-body"></div>
+      </main>
+    </div>
+  </main>
 
-    <script>
-      const TROOP_HOUSING_SPACE = {
-        "Apprentice Warden": 20,
-        "Archer": 1,
-        "Azure Dragon": 40,
-        "Baby Dragon": 10,
-        "Balloon": 5,
-        "Barbarian": 1,
-        "Barbarian Kicker": 12,
-        "Battle Ram": 4,
-        "Bowler": 6,
-        "Broom Witch": 20,
-        "Dragon": 20,
-        "Dragon Rider": 25,
-        "Druid": 16,
-        "Electro Dragon": 30,
-        "Electro Titan": 32,
-        "Firecracker": 10,
-        "Furnace": 18,
-        "Giant": 5,
-        "Giant Skeleton": 20,
-        "Giant Thrower": 15,
-        "Goblin": 1,
-        "Golem": 30,
-        "Headhunter": 6,
-        "Healer": 14,
-        "Hog Rider": 5,
-        "Ice Golem": 15,
-        "Ice Hound": 40,
-        "Inferno Dragon": 15,
-        "Lava Hound": 30,
-        "Meteor Golem": 40,
-        "Miner": 6,
-        "Minion": 2,
-        "P.E.K.K.A": 25,
-        "Party Wizard": 4,
-        "Pumpkin Barbarian": 1,
-        "Rocket Balloon": 8,
-        "Root Rider": 20,
-        "Ruin Witch": 26,
-        "Skeleton Barrel": 5,
-        "Sky Wagon": 1,
-        "Sneaky Goblin": 3,
-        "Super Archer": 12,
-        "Super Barbarian": 5,
-        "Super Bowler": 30,
-        "Super Dragon": 40,
-        "Super Giant": 10,
-        "Super Hog Rider": 12,
-        "Super Miner": 24,
-        "Super Minion": 12,
-        "Super Valkyrie": 20,
-        "Super Wall Breaker": 8,
-        "Super Witch": 40,
-        "Super Wizard": 10,
-        "Super Yeti": 35,
-        "Thrower": 16,
-        "Valkyrie": 8,
-        "Wall Breaker": 2,
-        "Witch": 12,
-        "Wizard": 4,
-        "Yeti": 18,
-      };
+  <script>
+    const statsEl = document.getElementById('stats');
+    const listEl = document.getElementById('group-list');
+    const titleEl = document.getElementById('detail-title');
+    const subEl = document.getElementById('detail-sub');
+    const countEl = document.getElementById('detail-count');
+    const bodyEl = document.getElementById('detail-body');
+    const armyBlockEl = document.getElementById('army-block');
 
-      const HERO_ABBREVIATIONS = {
-        "Barbarian King": "BK",
-        "Archer Queen": "AQ",
-        "Grand Warden": "GW",
-        "Royal Champion": "RC",
-        "Minion Prince": "MP",
-        "Dragon Duke": "DD",
-      };
+    const TROOP_HOUSING_SPACE = {
+      "Apprentice Warden": 20,
+      "Archer": 1,
+      "Azure Dragon": 40,
+      "Baby Dragon": 10,
+      "Balloon": 5,
+      "Barbarian": 1,
+      "Barbarian Kicker": 12,
+      "Battle Ram": 4,
+      "Bowler": 6,
+      "Broom Witch": 20,
+      "Dragon": 20,
+      "Dragon Rider": 25,
+      "Druid": 16,
+      "Electro Dragon": 30,
+      "Electro Titan": 32,
+      "Firecracker": 10,
+      "Furnace": 18,
+      "Giant": 5,
+      "Giant Skeleton": 20,
+      "Giant Thrower": 15,
+      "Goblin": 1,
+      "Golem": 30,
+      "Headhunter": 6,
+      "Healer": 14,
+      "Hog Rider": 5,
+      "Ice Golem": 15,
+      "Ice Hound": 40,
+      "Inferno Dragon": 15,
+      "Lava Hound": 30,
+      "Meteor Golem": 40,
+      "Miner": 6,
+      "Minion": 2,
+      "P.E.K.K.A": 25,
+      "Party Wizard": 4,
+      "Pumpkin Barbarian": 1,
+      "Rocket Balloon": 8,
+      "Root Rider": 20,
+      "Ruin Witch": 26,
+      "Skeleton Barrel": 5,
+      "Sky Wagon": 1,
+      "Sneaky Goblin": 3,
+      "Super Archer": 12,
+      "Super Barbarian": 5,
+      "Super Bowler": 30,
+      "Super Dragon": 40,
+      "Super Giant": 10,
+      "Super Hog Rider": 12,
+      "Super Miner": 24,
+      "Super Minion": 12,
+      "Super Valkyrie": 20,
+      "Super Wall Breaker": 8,
+      "Super Witch": 40,
+      "Super Wizard": 10,
+      "Super Yeti": 35,
+      "Thrower": 16,
+      "Valkyrie": 8,
+      "Wall Breaker": 2,
+      "Witch": 12,
+      "Wizard": 4,
+      "Yeti": 18
+    };
 
-      const EQUIPMENT_ABBREVIATIONS = {
-        "Barbarian Puppet": "BP",
-        "Rage Vial": "RV",
-        "Archer Puppet": "AP",
-        "Invisibility Vial": "IV",
-        "Eternal Tome": "ET",
-        "Life Gem": "LG",
-        "Seeking Shield": "SS",
-        "Royal Gem": "RG",
-        "Earthquake Boots": "EB",
-        "Hog Rider Puppet": "HRP",
-        "Giant Gauntlet": "GG",
-        "Vampstache": "VS",
-        "Haste Vial": "HV",
-        "Rocket Spear": "RS",
-        "Spiky Ball": "SB",
-        "Frozen Arrow": "FA",
-        "Monolith Arrow": "MA",
-        "Giant Arrow": "GA",
-        "Heroic Torch": "HT",
-        "Healer Puppet": "HeP",
-        "Fireball": "FB",
-        "Rage Gem": "RG",
-        "Snake Bracelet": "SnB",
-        "Healing Tome": "HT",
-        "Dark Crown": "DC",
-        "Magic Mirror": "MM",
-        "Electro Boots": "EB",
-        "Lavaloon Puppet": "LP",
-        "Henchmen Puppet": "HP",
-        "Dark Orb": "DO",
-        "Metal Pants": "MP",
-        "Noble Iron": "NI",
-        "Action Figure": "AF",
-        "Meteor Staff": "MS",
-        "Frost Flake": "FF",
-        "Stick Horse": "SH",
-        "Fire Heart": "FH",
-        "Rocket Backpack": "RB",
-        "Stun Blaster": "StB",
-        "Flame Blower": "FBw",
-        "Electro Fangs": "EF",
-      };
+    const HERO_ABBREVIATIONS = {
+      "Barbarian King": "BK",
+      "Archer Queen": "AQ",
+      "Grand Warden": "GW",
+      "Royal Champion": "RC",
+      "Minion Prince": "MP",
+      "Dragon Duke": "DD"
+    };
 
-      function initials(text) {
-        return String(text || "")
-          .split(/[^A-Za-z0-9]+/)
-          .filter(Boolean)
-          .map((part) => part[0].toUpperCase())
-          .join("");
-      }
+    const EQUIPMENT_ABBREVIATIONS = {
+      "Barbarian Puppet": "BP",
+      "Rage Vial": "RV",
+      "Archer Puppet": "AP",
+      "Invisibility Vial": "IV",
+      "Eternal Tome": "ET",
+      "Life Gem": "LG",
+      "Seeking Shield": "SS",
+      "Royal Gem": "RG",
+      "Earthquake Boots": "EB",
+      "Hog Rider Puppet": "HRP",
+      "Giant Gauntlet": "GG",
+      "Vampstache": "VS",
+      "Haste Vial": "HV",
+      "Rocket Spear": "RS",
+      "Spiky Ball": "SB",
+      "Frozen Arrow": "FA",
+      "Monolith Arrow": "MA",
+      "Giant Arrow": "GA",
+      "Heroic Torch": "HT",
+      "Healer Puppet": "HeP",
+      "Fireball": "FB",
+      "Rage Gem": "RG",
+      "Snake Bracelet": "SnB",
+      "Healing Tome": "HT",
+      "Dark Crown": "DC",
+      "Magic Mirror": "MM",
+      "Electro Boots": "EB",
+      "Lavaloon Puppet": "LP",
+      "Henchmen Puppet": "HP",
+      "Dark Orb": "DO",
+      "Metal Pants": "MP",
+      "Noble Iron": "NI",
+      "Action Figure": "AF",
+      "Meteor Staff": "MS",
+      "Frost Flake": "FF",
+      "Stick Horse": "SH",
+      "Fire Heart": "FH",
+      "Rocket Backpack": "RB",
+      "Stun Blaster": "StB",
+      "Flame Blower": "FBw",
+      "Electro Fangs": "EF"
+    };
 
-      function shortSpellName(name) {
-        return String(name || "").replace(/ Spell$/, "");
-      }
+    function initials(text) {
+      return String(text || '')
+        .split(/[^A-Za-z0-9]+/)
+        .filter(Boolean)
+        .map(part => part[0].toUpperCase())
+        .join('');
+    }
 
-      function formatFullArmy(decoded) {
-        const sections = decoded?.sections || {};
-        const lines = [];
-        if (sections.troops?.length) {
-          lines.push(`Troops: ${sections.troops.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
-        }
-        const cc = [...(sections.clanCastleTroops || []), ...(sections.reinforcements || [])];
-        if (cc.length) {
-          lines.push(`Clan Castle: ${cc.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
-        }
-        const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])];
-        if (spells.length) {
-          lines.push(`Spells: ${spells.map((entry) => `${entry.count} ${shortSpellName(entry.name)}`).join(", ")}`);
-        }
-        if (sections.heroes?.length) {
-          lines.push("Heroes:");
-          for (const hero of sections.heroes) {
-            const equip = (hero.equipment || []).map((piece) => piece.name).filter(Boolean);
-            const pet = (hero.pets || []).map((piece) => piece.name).filter(Boolean);
-            const extra = [];
-            if (equip.length) extra.push(equip.join(", "));
-            if (pet.length) extra.push(`pet: ${pet.join(", ")}`);
-            lines.push(extra.length ? `${hero.name} (${extra.join("; ")})` : hero.name);
-          }
-        }
-        return lines;
-      }
+    function shortSpellName(name) {
+      return String(name || '').replace(/ Spell$/, '');
+    }
 
-      function formatPlayerArmy(decoded) {
-        const sections = decoded?.sections || {};
-        const troops = [...(sections.troops || [])].sort((a, b) => {
-          const weightA = (TROOP_HOUSING_SPACE[a.name] || 0) * (a.count || 0);
-          const weightB = (TROOP_HOUSING_SPACE[b.name] || 0) * (b.count || 0);
-          return weightB - weightA || a.name.localeCompare(b.name);
+    function formatArmyLines(decoded, { shortHeroes = false } = {}) {
+      const sections = decoded?.sections || {};
+      const lines = [];
+
+      if (sections.troops?.length) {
+        const troops = [...sections.troops].sort((a, b) => {
+          const wa = (TROOP_HOUSING_SPACE[a.name] || 0) * (a.count || 0);
+          const wb = (TROOP_HOUSING_SPACE[b.name] || 0) * (b.count || 0);
+          return wb - wa || a.name.localeCompare(b.name);
         });
-        const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])];
-        const heroes = sections.heroes || [];
-        const lines = [];
-        if (troops.length) {
-          lines.push(`Troops: ${troops.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
-        }
-        if (spells.length) {
-          lines.push(`Spells: ${spells.map((entry) => `${entry.count} ${shortSpellName(entry.name)}`).join(", ")}`);
-        }
-        if (heroes.length) {
-          lines.push(
-            "Heroes: " +
-              heroes
-                .map((hero) => {
-                  const heroShort = HERO_ABBREVIATIONS[hero.name] || initials(hero.name);
-                  const equip = (hero.equipment || [])
-                    .map((piece) => EQUIPMENT_ABBREVIATIONS[piece.name] || initials(piece.name))
-                    .filter(Boolean)
-                    .slice(0, 2);
-                  return equip.length ? `${heroShort} (${equip.join(", ")})` : heroShort;
-                })
-                .join(" | ")
-          );
-        }
-        return lines;
+        lines.push(`Troops: ${troops.map(entry => `${entry.count} ${entry.name}`).join(', ')}`);
       }
 
-      function renderMetrics(stats) {
-        const metrics = [
-          ["Top 200 players", stats.top_players],
-          ["Attack records", stats.attack_records],
-          ["Favorite groups", stats.favorite_groups],
-          ["Avg attacks/player", stats.avg_attacks_per_player],
-          ["Most popular army", stats.most_popular_army],
-        ];
-        document.getElementById("metrics").innerHTML = metrics
-          .map(
-            ([label, value]) => `
-              <div class="metric">
-                <div class="label">${label}</div>
-                <div class="value">${value}</div>
-              </div>`
-          )
-          .join("");
+      const cc = [...(sections.clanCastleTroops || []), ...(sections.reinforcements || [])];
+      if (cc.length) {
+        lines.push(`Clan Castle: ${cc.map(entry => `${entry.count} ${entry.name}`).join(', ')}`);
       }
 
-      function renderGroups(groups) {
-        const container = document.getElementById("groups");
-        container.innerHTML = "";
-        if (!groups.length) {
-          container.innerHTML = '<div class="empty">No tracked armies found yet. Run the poller and publish the site data.</div>';
-          return;
-        }
-
-        for (const group of groups) {
-          const el = document.createElement("article");
-          el.className = "group";
-
-          const header = document.createElement("button");
-          header.type = "button";
-          header.innerHTML = `
-            <div class="group-head">
-              <div>
-                <div class="group-title">${group.label}</div>
-                <div class="group-stats">
-                  <span class="pill">${group.uniqueUsers} users</span>
-                  <span>${group.count} attacks</span>
-                  <span>${group.stats.avg_stars.toFixed(2)}★ avg</span>
-                  <span>${group.stats.avg_destruction.toFixed(1)}% destruction</span>
-                </div>
-              </div>
-              <div class="chev">›</div>
-            </div>
-            <div class="army-lines">${formatFullArmy(group.example).map((line) => `<div class="army-line">${line}</div>`).join("")}</div>
-          `;
-
-          const body = document.createElement("div");
-          body.className = "group-body";
-          body.innerHTML = `
-            <div class="player-grid">
-              ${group.players
-                .map((player) => {
-                  const best = player.best_attack || {};
-                  const lines = formatPlayerArmy(best.armyDecoded);
-                  return `
-                    <div class="player">
-                      <div class="player-head">
-                        <div class="player-name">${player.name || player.tag}</div>
-                        <div class="player-meta">${player.attack_count} attacks · ${player.stats.avg_stars.toFixed(2)}★ avg · ${player.stats.avg_destruction.toFixed(1)}% destruction</div>
-                      </div>
-                      <div class="player-army">
-                        ${lines.map((line) => `<div>${line}</div>`).join("")}
-                      </div>
-                    </div>
-                  `;
-                })
-                .join("")}
-            </div>
-          `;
-
-          header.addEventListener("click", () => {
-            el.classList.toggle("open");
-          });
-
-          el.append(header, body);
-          container.appendChild(el);
-        }
+      const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])];
+      if (spells.length) {
+        lines.push(`Spells: ${spells.map(entry => `${entry.count} ${shortSpellName(entry.name)}`).join(', ')}`);
       }
 
-      async function main() {
-        try {
-          const manifestResp = await fetch("./data/manifest.json", { cache: "no-store" });
-          const manifest = await manifestResp.json();
-          const siteResp = await fetch("./data/site.json", { cache: "no-store" });
-          const site = await siteResp.json();
+      if (sections.heroes?.length) {
+        const heroLines = sections.heroes.map(hero => {
+          if (shortHeroes) {
+            const heroShort = HERO_ABBREVIATIONS[hero.name] || initials(hero.name);
+            const equip = (hero.equipment || [])
+              .map(piece => EQUIPMENT_ABBREVIATIONS[piece.name] || initials(piece.name))
+              .filter(Boolean)
+              .slice(0, 2);
+            return equip.length ? `${heroShort} (${equip.join(', ')})` : heroShort;
+          }
 
-          document.getElementById("meta").textContent = `Published ${new Date(manifest.published_at).toLocaleString()} · Tracking day ${site.tracking_day}`;
-          renderMetrics(site.stats);
-          renderGroups(site.groups || []);
-        } catch (error) {
-          document.getElementById("groups").innerHTML = `<div class="error">Could not load site data. ${error.message}</div>`;
-          document.getElementById("meta").textContent = "Data load failed";
-        }
+          const equip = (hero.equipment || []).map(piece => piece.name).filter(Boolean);
+          const pet = (hero.pets || []).map(piece => piece.name).filter(Boolean);
+          const extra = [];
+          if (equip.length) extra.push(equip.join(', '));
+          if (pet.length) extra.push(`pet: ${pet.join(', ')}`);
+          return extra.length ? `${hero.name} (${extra.join('; ')})` : hero.name;
+        });
+
+        lines.push('Heroes:');
+        lines.push(...heroLines);
       }
 
-      main();
-    </script>
-  </body>
+      return lines;
+    }
+
+    function renderStats(site) {
+      const stats = [
+        ['Top 200 players', site.stats.top_players],
+        ['Attack records', site.stats.attack_records],
+        ['Favorite groups', site.stats.favorite_groups],
+        ['Avg attacks/player', site.stats.avg_attacks_per_player],
+        ['Most popular army', site.stats.most_popular_army],
+      ];
+
+      statsEl.innerHTML = stats.map(([label, value]) => `
+        <div class="stat">
+          <div class="label">${label}</div>
+          <div class="value">${value}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderArmyBlock(fullArmy) {
+      const lines = formatArmyLines(fullArmy);
+      const troops = lines.find(line => line.startsWith('Troops: ')) || 'Troops: none';
+      const spells = lines.find(line => line.startsWith('Spells: ')) || 'Spells: none';
+      const heroStart = lines.indexOf('Heroes:');
+      const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
+      armyBlockEl.innerHTML = `
+        <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
+        <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
+        <div class="army-chip"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
+      `;
+    }
+
+    function renderGroup(group, index) {
+      titleEl.textContent = group.label;
+      subEl.textContent = `Avg stars ${group.stats.avg_stars.toFixed(2)} · Avg destruction ${group.stats.avg_destruction.toFixed(1)}% · ${group.uniqueUsers} players · ${group.count} attacks`;
+      countEl.textContent = `${index + 1} of ${window.siteData.groups.length}`;
+      renderArmyBlock(group.example);
+
+      bodyEl.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Full army</th>
+              <th>Attacks</th>
+              <th>Avg stars</th>
+              <th>Avg destruction</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${group.players.map(player => `
+              <tr>
+                <td>
+                  <div class="player-name">${player.name}</div>
+                  <div class="tag">${player.tag}</div>
+                </td>
+                <td class="army">
+                  ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
+                </td>
+                <td>${player.attack_count}</td>
+                <td>${player.stats.avg_stars.toFixed(2)}</td>
+                <td>${player.stats.avg_destruction.toFixed(1)}%</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function renderList() {
+      listEl.innerHTML = window.siteData.groups.map((group, index) => `
+        <button class="group-btn ${index === 0 ? 'active' : ''}" data-index="${index}">
+          <div class="group-title">${group.label}</div>
+          <div class="group-meta">
+            <span>${group.uniqueUsers} players</span>
+            <span>${group.count} attacks</span>
+          </div>
+        </button>
+      `).join('');
+
+      listEl.querySelectorAll('.group-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          listEl.querySelectorAll('.group-btn').forEach(el => el.classList.remove('active'));
+          btn.classList.add('active');
+          renderGroup(window.siteData.groups[Number(btn.dataset.index)], Number(btn.dataset.index));
+        });
+      });
+    }
+
+    async function init() {
+      const res = await fetch('./data/site.json', { cache: 'no-store' });
+      window.siteData = await res.json();
+      renderStats(window.siteData);
+      renderList();
+      if (window.siteData.groups.length) {
+        renderGroup(window.siteData.groups[0], 0);
+      } else {
+        titleEl.textContent = 'No groups found';
+        subEl.textContent = 'Run the poller and publish data to populate the site.';
+      }
+    }
+
+    init().catch(err => {
+      titleEl.textContent = 'Failed to load site data';
+      subEl.textContent = String(err);
+      bodyEl.innerHTML = '<div class="error">Could not load the published JSON.</div>';
+    });
+  </script>
+</body>
 </html>
