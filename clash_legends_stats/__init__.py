@@ -1,0 +1,2 @@
+"""Clash Legends Stats."""
+

@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clash Legends Stats</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(18, 25, 48, 0.86);
+        --panel-2: rgba(27, 36, 66, 0.92);
+        --line: rgba(148, 163, 184, 0.18);
+        --text: #e5eefb;
+        --muted: #93a4c3;
+        --accent: #7dd3fc;
+        --accent-2: #a78bfa;
+        --good: #34d399;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(125, 211, 252, 0.22), transparent 30%),
+          radial-gradient(circle at top right, rgba(167, 139, 250, 0.18), transparent 28%),
+          linear-gradient(180deg, #0b1020 0%, #0a0f1b 55%, #070b14 100%);
+      }
+
+      .shell {
+        width: min(1240px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 28px 0 48px;
+      }
+
+      .hero {
+        display: flex;
+        gap: 18px;
+        align-items: end;
+        justify-content: space-between;
+        padding: 22px 24px;
+        margin-bottom: 18px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(145deg, rgba(18, 25, 48, 0.92), rgba(21, 31, 58, 0.72));
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin-top: 10px;
+        color: var(--muted);
+        max-width: 70ch;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: right;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0 24px;
+      }
+
+      .metric {
+        padding: 16px 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .metric .label {
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .metric .value {
+        margin-top: 8px;
+        font-size: 1.55rem;
+        font-weight: 700;
+      }
+
+      .groups {
+        display: grid;
+        gap: 14px;
+      }
+
+      .group {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .group button {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 18px 20px;
+        text-align: left;
+        cursor: pointer;
+        display: grid;
+        gap: 10px;
+      }
+
+      .group button:hover {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .group-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .group-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .group-stats {
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 0.92rem;
+      }
+
+      .army-lines {
+        display: grid;
+        gap: 6px;
+        color: #d8e2f2;
+      }
+
+      .army-line {
+        padding-left: 12px;
+        border-left: 2px solid rgba(125, 211, 252, 0.24);
+      }
+
+      .group-body {
+        display: none;
+        border-top: 1px solid var(--line);
+        background: var(--panel-2);
+        padding: 18px 20px 20px;
+      }
+
+      .group.open .group-body {
+        display: block;
+      }
+
+      .group.open .chev {
+        transform: rotate(90deg);
+      }
+
+      .chev {
+        transition: transform 0.2s ease;
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-left: 10px;
+      }
+
+      .player-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .player {
+        padding: 14px 14px 12px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .player-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .player-name {
+        font-weight: 700;
+      }
+
+      .player-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .player-army {
+        margin-top: 10px;
+        display: grid;
+        gap: 4px;
+        color: #dbe7f9;
+        font-size: 0.94rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(125, 211, 252, 0.12);
+        color: #d9f2ff;
+        border: 1px solid rgba(125, 211, 252, 0.2);
+      }
+
+      .empty, .loading, .error {
+        padding: 24px;
+        border: 1px dashed rgba(148, 163, 184, 0.28);
+        border-radius: 20px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      @media (max-width: 980px) {
+        .metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .meta {
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(100vw - 18px, 1240px);
+          padding-top: 12px;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .group-head {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <h1>Clash Legends Stats</h1>
+          <div class="subtitle">
+            Popular army groups from the top 200 Legends players. Each player is assigned their most common army, then the groups are ranked by unique users and attack volume.
+          </div>
+        </div>
+        <div class="meta" id="meta">Loading latest data...</div>
+      </section>
+
+      <section class="metrics" id="metrics"></section>
+      <section class="groups" id="groups">
+        <div class="loading">Loading site data…</div>
+      </section>
+    </main>
+
+    <script>
+      const TROOP_HOUSING_SPACE = {
+        "Apprentice Warden": 20,
+        "Archer": 1,
+        "Azure Dragon": 40,
+        "Baby Dragon": 10,
+        "Balloon": 5,
+        "Barbarian": 1,
+        "Barbarian Kicker": 12,
+        "Battle Ram": 4,
+        "Bowler": 6,
+        "Broom Witch": 20,
+        "Dragon": 20,
+        "Dragon Rider": 25,
+        "Druid": 16,
+        "Electro Dragon": 30,
+        "Electro Titan": 32,
+        "Firecracker": 10,
+        "Furnace": 18,
+        "Giant": 5,
+        "Giant Skeleton": 20,
+        "Giant Thrower": 15,
+        "Goblin": 1,
+        "Golem": 30,
+        "Headhunter": 6,
+        "Healer": 14,
+        "Hog Rider": 5,
+        "Ice Golem": 15,
+        "Ice Hound": 40,
+        "Inferno Dragon": 15,
+        "Lava Hound": 30,
+        "Meteor Golem": 40,
+        "Miner": 6,
+        "Minion": 2,
+        "P.E.K.K.A": 25,
+        "Party Wizard": 4,
+        "Pumpkin Barbarian": 1,
+        "Rocket Balloon": 8,
+        "Root Rider": 20,
+        "Ruin Witch": 26,
+        "Skeleton Barrel": 5,
+        "Sky Wagon": 1,
+        "Sneaky Goblin": 3,
+        "Super Archer": 12,
+        "Super Barbarian": 5,
+        "Super Bowler": 30,
+        "Super Dragon": 40,
+        "Super Giant": 10,
+        "Super Hog Rider": 12,
+        "Super Miner": 24,
+        "Super Minion": 12,
+        "Super Valkyrie": 20,
+        "Super Wall Breaker": 8,
+        "Super Witch": 40,
+        "Super Wizard": 10,
+        "Super Yeti": 35,
+        "Thrower": 16,
+        "Valkyrie": 8,
+        "Wall Breaker": 2,
+        "Witch": 12,
+        "Wizard": 4,
+        "Yeti": 18,
+      };
+
+      const HERO_ABBREVIATIONS = {
+        "Barbarian King": "BK",
+        "Archer Queen": "AQ",
+        "Grand Warden": "GW",
+        "Royal Champion": "RC",
+        "Minion Prince": "MP",
+        "Dragon Duke": "DD",
+      };
+
+      const EQUIPMENT_ABBREVIATIONS = {
+        "Barbarian Puppet": "BP",
+        "Rage Vial": "RV",
+        "Archer Puppet": "AP",
+        "Invisibility Vial": "IV",
+        "Eternal Tome": "ET",
+        "Life Gem": "LG",
+        "Seeking Shield": "SS",
+        "Royal Gem": "RG",
+        "Earthquake Boots": "EB",
+        "Hog Rider Puppet": "HRP",
+        "Giant Gauntlet": "GG",
+        "Vampstache": "VS",
+        "Haste Vial": "HV",
+        "Rocket Spear": "RS",
+        "Spiky Ball": "SB",
+        "Frozen Arrow": "FA",
+        "Monolith Arrow": "MA",
+        "Giant Arrow": "GA",
+        "Heroic Torch": "HT",
+        "Healer Puppet": "HeP",
+        "Fireball": "FB",
+        "Rage Gem": "RG",
+        "Snake Bracelet": "SnB",
+        "Healing Tome": "HT",
+        "Dark Crown": "DC",
+        "Magic Mirror": "MM",
+        "Electro Boots": "EB",
+        "Lavaloon Puppet": "LP",
+        "Henchmen Puppet": "HP",
+        "Dark Orb": "DO",
+        "Metal Pants": "MP",
+        "Noble Iron": "NI",
+        "Action Figure": "AF",
+        "Meteor Staff": "MS",
+        "Frost Flake": "FF",
+        "Stick Horse": "SH",
+        "Fire Heart": "FH",
+        "Rocket Backpack": "RB",
+        "Stun Blaster": "StB",
+        "Flame Blower": "FBw",
+        "Electro Fangs": "EF",
+      };
+
+      function initials(text) {
+        return String(text || "")
+          .split(/[^A-Za-z0-9]+/)
+          .filter(Boolean)
+          .map((part) => part[0].toUpperCase())
+          .join("");
+      }
+
+      function shortSpellName(name) {
+        return String(name || "").replace(/ Spell$/, "");
+      }
+
+      function formatFullArmy(decoded) {
+        const sections = decoded?.sections || {};
+        const lines = [];
+        if (sections.troops?.length) {
+          lines.push(`Troops: ${sections.troops.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
+        }
+        const cc = [...(sections.clanCastleTroops || []), ...(sections.reinforcements || [])];
+        if (cc.length) {
+          lines.push(`Clan Castle: ${cc.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
+        }
+        const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])];
+        if (spells.length) {
+          lines.push(`Spells: ${spells.map((entry) => `${entry.count} ${shortSpellName(entry.name)}`).join(", ")}`);
+        }
+        if (sections.heroes?.length) {
+          lines.push("Heroes:");
+          for (const hero of sections.heroes) {
+            const equip = (hero.equipment || []).map((piece) => piece.name).filter(Boolean);
+            const pet = (hero.pets || []).map((piece) => piece.name).filter(Boolean);
+            const extra = [];
+            if (equip.length) extra.push(equip.join(", "));
+            if (pet.length) extra.push(`pet: ${pet.join(", ")}`);
+            lines.push(extra.length ? `${hero.name} (${extra.join("; ")})` : hero.name);
+          }
+        }
+        return lines;
+      }
+
+      function formatPlayerArmy(decoded) {
+        const sections = decoded?.sections || {};
+        const troops = [...(sections.troops || [])].sort((a, b) => {
+          const weightA = (TROOP_HOUSING_SPACE[a.name] || 0) * (a.count || 0);
+          const weightB = (TROOP_HOUSING_SPACE[b.name] || 0) * (b.count || 0);
+          return weightB - weightA || a.name.localeCompare(b.name);
+        });
+        const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])];
+        const heroes = sections.heroes || [];
+        const lines = [];
+        if (troops.length) {
+          lines.push(`Troops: ${troops.map((entry) => `${entry.count} ${entry.name}`).join(", ")}`);
+        }
+        if (spells.length) {
+          lines.push(`Spells: ${spells.map((entry) => `${entry.count} ${shortSpellName(entry.name)}`).join(", ")}`);
+        }
+        if (heroes.length) {
+          lines.push(
+            "Heroes: " +
+              heroes
+                .map((hero) => {
+                  const heroShort = HERO_ABBREVIATIONS[hero.name] || initials(hero.name);
+                  const equip = (hero.equipment || [])
+                    .map((piece) => EQUIPMENT_ABBREVIATIONS[piece.name] || initials(piece.name))
+                    .filter(Boolean)
+                    .slice(0, 2);
+                  return equip.length ? `${heroShort} (${equip.join(", ")})` : heroShort;
+                })
+                .join(" | ")
+          );
+        }
+        return lines;
+      }
+
+      function renderMetrics(stats) {
+        const metrics = [
+          ["Top 200 players", stats.top_players],
+          ["Attack records", stats.attack_records],
+          ["Favorite groups", stats.favorite_groups],
+          ["Avg attacks/player", stats.avg_attacks_per_player],
+          ["Most popular army", stats.most_popular_army],
+        ];
+        document.getElementById("metrics").innerHTML = metrics
+          .map(
+            ([label, value]) => `
+              <div class="metric">
+                <div class="label">${label}</div>
+                <div class="value">${value}</div>
+              </div>`
+          )
+          .join("");
+      }
+
+      function renderGroups(groups) {
+        const container = document.getElementById("groups");
+        container.innerHTML = "";
+        if (!groups.length) {
+          container.innerHTML = '<div class="empty">No tracked armies found yet. Run the poller and publish the site data.</div>';
+          return;
+        }
+
+        for (const group of groups) {
+          const el = document.createElement("article");
+          el.className = "group";
+
+          const header = document.createElement("button");
+          header.type = "button";
+          header.innerHTML = `
+            <div class="group-head">
+              <div>
+                <div class="group-title">${group.label}</div>
+                <div class="group-stats">
+                  <span class="pill">${group.uniqueUsers} users</span>
+                  <span>${group.count} attacks</span>
+                  <span>${group.stats.avg_stars.toFixed(2)}★ avg</span>
+                  <span>${group.stats.avg_destruction.toFixed(1)}% destruction</span>
+                </div>
+              </div>
+              <div class="chev">›</div>
+            </div>
+            <div class="army-lines">${formatFullArmy(group.example).map((line) => `<div class="army-line">${line}</div>`).join("")}</div>
+          `;
+
+          const body = document.createElement("div");
+          body.className = "group-body";
+          body.innerHTML = `
+            <div class="player-grid">
+              ${group.players
+                .map((player) => {
+                  const best = player.best_attack || {};
+                  const lines = formatPlayerArmy(best.armyDecoded);
+                  return `
+                    <div class="player">
+                      <div class="player-head">
+                        <div class="player-name">${player.name || player.tag}</div>
+                        <div class="player-meta">${player.attack_count} attacks · ${player.stats.avg_stars.toFixed(2)}★ avg · ${player.stats.avg_destruction.toFixed(1)}% destruction</div>
+                      </div>
+                      <div class="player-army">
+                        ${lines.map((line) => `<div>${line}</div>`).join("")}
+                      </div>
+                    </div>
+                  `;
+                })
+                .join("")}
+            </div>
+          `;
+
+          header.addEventListener("click", () => {
+            el.classList.toggle("open");
+          });
+
+          el.append(header, body);
+          container.appendChild(el);
+        }
+      }
+
+      async function main() {
+        try {
+          const manifestResp = await fetch("./data/manifest.json", { cache: "no-store" });
+          const manifest = await manifestResp.json();
+          const siteResp = await fetch("./data/site.json", { cache: "no-store" });
+          const site = await siteResp.json();
+
+          document.getElementById("meta").textContent = `Published ${new Date(manifest.published_at).toLocaleString()} · Tracking day ${site.tracking_day}`;
+          renderMetrics(site.stats);
+          renderGroups(site.groups || []);
+        } catch (error) {
+          document.getElementById("groups").innerHTML = `<div class="error">Could not load site data. ${error.message}</div>`;
+          document.getElementById("meta").textContent = "Data load failed";
+        }
+      }
+
+      main();
+    </script>
+  </body>
+</html>
