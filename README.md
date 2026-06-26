@@ -69,6 +69,24 @@ If you want the site to update on every successful poll, run the sync helper fro
 0 * * * * cd /Users/daniel/clash-legends-stats && ./run_hourly_sync.sh >> work/tracker_data/cron.log 2>&1
 ```
 
+## Launchd
+
+On macOS, the actual hourly job can run as a LaunchAgent:
+
+```bash
+launchctl bootstrap gui/$(id -u) /Users/daniel/Library/LaunchAgents/com.daniel.clash-legends-stats.sync.plist
+launchctl enable gui/$(id -u)/com.daniel.clash-legends-stats.sync
+launchctl kickstart -k gui/$(id -u)/com.daniel.clash-legends-stats.sync
+```
+
+To stop it later:
+
+```bash
+launchctl bootout gui/$(id -u) /Users/daniel/Library/LaunchAgents/com.daniel.clash-legends-stats.sync.plist
+```
+
+Logs land in `work/tracker_data/launchd.log` and `work/tracker_data/launchd.err`.
+
 ## GitHub Pages
 
 The repo includes a Pages workflow at `.github/workflows/pages.yml`. Once this repository is on GitHub and Pages is enabled for the repo, pushing updated `site/` files to `main` will deploy the site automatically.
