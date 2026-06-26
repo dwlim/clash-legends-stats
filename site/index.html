@@ -73,33 +73,6 @@
       font-size: 0.95rem;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .stat {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .stat .label {
-      color: var(--muted);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .stat .value {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
     .group-list {
       display: grid;
       gap: 8px;
@@ -296,7 +269,6 @@
         <h1>Clash Legends Summary</h1>
         <p class="sub">Browse the most popular army groups from the top 200 Legends players.</p>
 
-        <section class="stats" id="stats"></section>
         <div class="group-list" id="group-list"></div>
       </aside>
 
@@ -316,7 +288,6 @@
   </main>
 
   <script>
-    const statsEl = document.getElementById('stats');
     const listEl = document.getElementById('group-list');
     const titleEl = document.getElementById('detail-title');
     const subEl = document.getElementById('detail-sub');
@@ -501,23 +472,6 @@
       return lines;
     }
 
-    function renderStats(site) {
-      const stats = [
-        ['Top 200 players', site.stats.top_players],
-        ['Attack records', site.stats.attack_records],
-        ['Favorite groups', site.stats.favorite_groups],
-        ['Avg attacks/player', site.stats.avg_attacks_per_player],
-        ['Most popular army', site.stats.most_popular_army],
-      ];
-
-      statsEl.innerHTML = stats.map(([label, value]) => `
-        <div class="stat">
-          <div class="label">${label}</div>
-          <div class="value">${value}</div>
-        </div>
-      `).join('');
-    }
-
     function renderArmyBlock(fullArmy) {
       const lines = formatArmyLines(fullArmy);
       const troops = lines.find(line => line.startsWith('Troops: ')) || 'Troops: none';
@@ -591,7 +545,6 @@
     async function init() {
       const res = await fetch('./data/site.json', { cache: 'no-store' });
       window.siteData = await res.json();
-      renderStats(window.siteData);
       renderList();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
