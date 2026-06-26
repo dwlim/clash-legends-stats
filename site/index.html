@@ -492,9 +492,27 @@
       return `https://link.clashofclans.com/en?action=CopyArmy&army=${encodeURIComponent(armyShareCode)}`;
     }
 
-    function youtubeSearchUrl(armyShareCode) {
-      if (!armyShareCode) return '';
-      return `https://www.youtube.com/results?search_query=${encodeURIComponent(`"${armyShareCode}" "CopyArmy"`)}`;
+    function youtubeSearchUrl(fullArmy) {
+      const sections = fullArmy?.sections || {};
+      const parts = [];
+
+      const troops = [...(sections.troops || [])]
+        .sort((a, b) => ((TROOP_HOUSING_SPACE[b.name] || 0) * (b.count || 0)) - ((TROOP_HOUSING_SPACE[a.name] || 0) * (a.count || 0)))
+        .slice(0, 3)
+        .map(entry => `"${entry.name}"`);
+
+      const spells = [...(sections.spells || []), ...(sections.clanCastleSpells || [])]
+        .slice(0, 2)
+        .map(entry => `"${shortSpellName(entry.name)}"`);
+
+      const heroes = [...(sections.heroes || [])]
+        .slice(0, 2)
+        .map(hero => `"${hero.name}"`);
+
+      parts.push(...troops, ...spells, ...heroes);
+      if (!parts.length) return '';
+      parts.push('"Clash of Clans"');
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' OR '))}`;
     }
 
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
@@ -553,7 +571,7 @@
       const heroStart = lines.indexOf('Heroes:');
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
-      const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
+      const youtubeLink = fullArmy ? youtubeSearchUrl(fullArmy) : '';
       armyBlockEl.innerHTML = `
         <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
         <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
@@ -590,7 +608,7 @@
                 <td class="army">
                   ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
                   ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
-                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
+                  ${player.best_attack.armyDecoded ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyDecoded)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
                 </td>
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
