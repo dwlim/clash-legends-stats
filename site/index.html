@@ -167,6 +167,21 @@
       letter-spacing: .08em;
     }
 
+    .army-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .army-link:hover {
+      text-decoration: underline;
+    }
+
     .hero-line {
       display: block;
     }
@@ -423,6 +438,11 @@
       return String(name || '').replace(/ Spell$/, '');
     }
 
+    function armyLinkUrl(armyShareCode) {
+      if (!armyShareCode) return '';
+      return `https://link.clashofclans.com/en?action=CopyArmy&army=${encodeURIComponent(armyShareCode)}`;
+    }
+
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
       const sections = decoded?.sections || {};
       const lines = [];
@@ -478,10 +498,12 @@
       const spells = lines.find(line => line.startsWith('Spells: ')) || 'Spells: none';
       const heroStart = lines.indexOf('Heroes:');
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
+      const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
       armyBlockEl.innerHTML = `
         <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
         <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
         <div class="army-chip"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
+        ${link ? `<a class="army-link" href="${link}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
       `;
     }
 
@@ -511,6 +533,7 @@
                 </td>
                 <td class="army">
                   ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
+                  ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
                 </td>
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
