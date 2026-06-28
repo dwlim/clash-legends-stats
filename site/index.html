@@ -904,6 +904,7 @@
       const query = (playerSearchEl.value || '').trim().toLowerCase();
       if (!query || !window.siteData?.groups?.length) {
         searchResultsEl.innerHTML = '';
+        searchResultsEl.hidden = true;
         return;
       }
       const matches = [];
@@ -914,6 +915,7 @@
           }
         });
       });
+      searchResultsEl.hidden = false;
       searchResultsEl.innerHTML = matches.slice(0, 8).map(match => `
         <button class="search-result" type="button" data-group-index="${match.groupIndex}" data-player-tag="${match.player.tag}">
           ${match.player.name}
@@ -1188,7 +1190,7 @@
           }
           selectedPlayer = player || null;
           searchResultsEl.innerHTML = '';
-          renderSearchResults();
+          searchResultsEl.hidden = true;
           renderList();
           const groupBtn = listEl.querySelector(`.group-btn[data-index="${groupIndex}"]`);
           if (groupBtn) {
