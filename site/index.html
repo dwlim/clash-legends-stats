@@ -1181,14 +1181,20 @@
         btn.addEventListener('click', () => {
           const groupIndex = Number(btn.dataset.groupIndex);
           const playerTag = btn.dataset.playerTag;
+          const group = window.siteData.groups[groupIndex];
+          const player = (group.players || []).find(p => p.tag === playerTag);
+          if (player) {
+            playerSearchEl.value = player.name;
+          }
+          selectedPlayer = player || null;
+          searchResultsEl.innerHTML = '';
+          renderSearchResults();
+          renderList();
           const groupBtn = listEl.querySelector(`.group-btn[data-index="${groupIndex}"]`);
           if (groupBtn) {
             listEl.querySelectorAll('.group-btn').forEach(el => el.classList.remove('active'));
             groupBtn.classList.add('active');
           }
-          const group = window.siteData.groups[groupIndex];
-          const player = (group.players || []).find(p => p.tag === playerTag);
-          selectedPlayer = player || null;
           renderGroup(group, groupIndex, playerTag);
         });
       });
