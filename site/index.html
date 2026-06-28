@@ -50,6 +50,13 @@
       gap: 14px;
     }
 
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
     .hero-controls {
       display: grid;
       gap: 10px;
@@ -57,6 +64,14 @@
 
     .hero-controls .controls {
       margin-bottom: 0;
+      justify-self: end;
+      width: 140px;
+    }
+
+    .hero-controls .controls select {
+      min-height: 34px;
+      padding: 0 10px;
+      font-size: 0.9rem;
     }
 
     .hero-filters {
@@ -80,6 +95,15 @@
     }
 
     @media (max-width: 900px) {
+      .hero-top {
+        flex-direction: column;
+      }
+
+      .hero-controls .controls {
+        width: 100%;
+        justify-self: start;
+      }
+
       .hero-filters .filter-switch {
         grid-template-columns: 1fr;
       }
@@ -566,16 +590,18 @@
 <body>
   <main class="shell">
     <section class="hero-card">
-      <div class="hero-controls">
-        <div>
-          <h1>Clash Legends Summary</h1>
-          <p class="sub">Browse the most popular army groups from the top 200 Legends players.</p>
+      <div class="hero-top">
+        <div class="hero-controls">
+          <div>
+            <h1>Clash Legends Summary</h1>
+            <p class="sub">Browse the most popular army groups from the top 200 Legends players.</p>
+          </div>
+          <div class="day-meta" id="day-meta"></div>
         </div>
         <div class="controls">
           <label for="day-select">Day</label>
           <select id="day-select"></select>
         </div>
-        <div class="day-meta" id="day-meta"></div>
       </div>
       <div class="hero-filters">
         <div class="filter-box">
