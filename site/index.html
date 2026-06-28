@@ -188,6 +188,85 @@
       margin-top: 4px;
     }
 
+    .filter-box {
+      margin-bottom: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      gap: 12px;
+    }
+
+    .filter-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .filter-tab {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .filter-tab.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .filter-pane.hidden {
+      display: none;
+    }
+
+    .filter-pane {
+      display: grid;
+      gap: 8px;
+    }
+
+    .filter-pane input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+      outline: none;
+    }
+
+    .search-results {
+      display: grid;
+      gap: 6px;
+      max-height: 220px;
+      overflow: auto;
+    }
+
+    .search-result {
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .search-result:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .search-result small {
+      display: block;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
     .army-block {
       margin-top: 16px;
       display: grid;
@@ -434,7 +513,6 @@
           <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
           <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
         </div>
-
         <div class="army-block" id="army-block"></div>
         <div id="detail-body"></div>
       </main>
@@ -492,7 +570,6 @@
     function isEpicEquipment(name) {
       return EPIC_EQUIPMENT.has(name) && !COMMON_EQUIPMENT.has(name);
     }
-
     const TROOP_HOUSING_SPACE = {
       "Apprentice Warden": 20,
       "Archer": 1,
@@ -619,6 +696,63 @@
 
     function shortSpellName(name) {
       return String(name || '').replace(/ Spell$/, '');
+    }
+
+    function setFilterMode(mode) {
+      filterMode = mode;
+      filterEquipmentTab.classList.toggle('active', mode === 'equipment');
+      filterPlayerTab.classList.toggle('active', mode === 'player');
+      filterEquipmentPane.classList.toggle('hidden', mode !== 'equipment');
+      filterPlayerPane.classList.toggle('hidden', mode !== 'player');
+      if (mode === 'player') playerSearchEl.focus();
+    }
+
+    function renderEquipmentFilter() {
+      const items = [...new Set((window.siteData?.groups || []).flatMap(group => (group.players || []).flatMap(player => player.best_attack?.armyDecoded?.equipment || [])))]
+        .filter(isEpicEquipment)
+        .sort((a, b) => a.localeCompare(b));
+      equipmentFilterGridEl.innerHTML = items.map(name => `<button class="group-btn ${ownedEpicEquipment.has(name) ? 'active' : ''}" data-equipment="${name}" type="button">${name}</button>`).join('');
+      equipmentSummaryEl.textContent = ownedEpicEquipment.size ? `${ownedEpicEquipment.size} selected` : 'Select the equipment you own to glow matching armies.';
+      equipmentFilterGridEl.querySelectorAll('[data-equipment]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.getAttribute('data-equipment');
+          if (ownedEpicEquipment.has(name)) ownedEpicEquipment.delete(name); else ownedEpicEquipment.add(name);
+          renderEquipmentFilter();
+          renderList();
+          if (window.siteData?.groups?.length) renderGroup(window.siteData.groups[0], 0);
+        });
+      });
+    }
+
+    function renderSearchResults() {
+      const query = (playerSearchEl.value || '').trim().toLowerCase();
+      if (!query || !window.siteData?.groups?.length) {
+        searchResultsEl.innerHTML = '';
+        return;
+      }
+      const matches = [];
+      window.siteData.groups.forEach((group, groupIndex) => {
+        (group.players || []).forEach(player => {
+          if (player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query)) {
+            matches.push({ groupIndex, player });
+          }
+        });
+      });
+      searchResultsEl.innerHTML = matches.slice(0, 8).map(match => `
+        <button class="search-result" type="button" data-group-index="${match.groupIndex}" data-player-tag="${match.player.tag}">
+          ${match.player.name}
+          <small>${match.player.tag} · ${window.siteData.groups[match.groupIndex].label}</small>
+        </button>
+      `).join('') || '<div class="empty">No players found.</div>';
+      searchResultsEl.querySelectorAll('.search-result').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const groupIndex = Number(btn.dataset.groupIndex);
+          const playerTag = btn.dataset.playerTag;
+          const group = window.siteData.groups[groupIndex];
+          selectedPlayer = (group.players || []).find(p => p.tag === playerTag) || null;
+          renderGroup(group, groupIndex);
+        });
+      });
     }
 
     function armyLinkUrl(armyShareCode) {
@@ -787,7 +921,6 @@
             <td>${player.stats.avg_destruction.toFixed(1)}%</td>
           </tr>`;
         }).join('');
-
       bodyEl.innerHTML = `
         <table>
           <thead>
@@ -882,6 +1015,10 @@
       dayMeta.textContent = `Showing ${item.date}`;
       renderList();
       renderEquipmentFilter();
+<<<<<<< HEAD
+=======
+      setFilterMode(filterMode);
+>>>>>>> a276f28 (Move player search into filter box)
       renderSearchResults();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
