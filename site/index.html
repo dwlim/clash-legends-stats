@@ -141,11 +141,6 @@
       background: var(--accent-soft);
     }
 
-    .group-btn.matching {
-      border-color: rgba(114, 214, 255, 0.8);
-      background: rgba(114, 214, 255, 0.12);
-      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.16), 0 0 22px rgba(114, 214, 255, 0.18);
-    }
 
     .group-title {
       font-size: 0.98rem;
@@ -197,14 +192,6 @@
       margin-top: 16px;
       display: grid;
       gap: 10px;
-      border-radius: 18px;
-      transition: box-shadow 0.15s ease, transform 0.15s ease, background 0.15s ease;
-    }
-
-    .army-block.matching {
-      background: rgba(114, 214, 255, 0.06);
-      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.18), 0 0 28px rgba(114, 214, 255, 0.18);
-      transform: translateY(-1px);
     }
 
     .army-chip {
@@ -215,32 +202,7 @@
       transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, background 0.15s ease;
     }
 
-    .army-chip.matching {
-      border-color: rgba(114, 214, 255, 0.65);
-      background: rgba(114, 214, 255, 0.11);
-      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.18), 0 0 24px rgba(114, 214, 255, 0.18);
-    }
 
-    .army-row.matching td {
-      background: rgba(114, 214, 255, 0.08);
-      box-shadow: inset 0 0 0 1px rgba(114, 214, 255, 0.18), 0 0 22px rgba(114, 214, 255, 0.14);
-    }
-
-    .army-row.matching {
-      filter: drop-shadow(0 0 10px rgba(114, 214, 255, 0.12));
-    }
-
-    .army-row.matching .army {
-      color: #f2fbff;
-    }
-
-    .army-row.matching .army-link {
-      color: #9be7ff;
-    }
-
-    .army-row.matching .player-name {
-      color: #ffffff;
-    }
 
     .equipment-filter {
       margin-top: 14px;
@@ -742,12 +704,11 @@
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
       const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
-      const matching = armyMatchesOwnedEquipment(fullArmy?.decoded);
-      armyBlockEl.className = `army-block ${matching ? 'matching' : ''}`;
+      armyBlockEl.className = 'army-block';
       armyBlockEl.innerHTML = `
-        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
-        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
-        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
+        <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
+        <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
+        <div class="army-chip"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
         ${link ? `<a class="army-link" href="${link}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
         ${youtubeLink ? `<a class="army-link" href="${youtubeLink}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
       `;
@@ -777,16 +738,40 @@
       });
 
       equipmentSummaryEl.textContent = ownedEpicEquipment.size
-        ? `${ownedEpicEquipment.size} epic equipment selected. Armies glow only when all required epic equipment is selected.`
-        : 'Select epic equipment to glow matching armies.';
+        ? `${ownedEpicEquipment.size} epic equipment selected. Use these selections to filter which armies show.`
+        : 'Select epic equipment to filter the armies shown.';
     }
 
     function renderGroup(group, index) {
       titleEl.textContent = group.label;
-      const groupMatches = (group.players || []).some(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded));
       subEl.textContent = `Avg stars ${group.stats.avg_stars.toFixed(2)} · Avg destruction ${group.stats.avg_destruction.toFixed(1)}% · ${group.uniqueUsers} players · ${group.count} attacks`;
       countEl.textContent = `${index + 1} of ${window.siteData.groups.length}`;
       renderArmyBlock(group.example);
+
+      const rows = group.players
+        .filter(player => {
+          const matches = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
+          return ownedEpicEquipment.size ? matches : true;
+        })
+        .map(player => {
+          const matched = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
+          return `<tr class="army-row ${matched ? 'matching' : ''}">
+            <td>
+              <div class="player-name">${player.name}</div>
+              <div class="tag">${player.tag}</div>
+            </td>
+            <td class="army">
+              ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
+              <div class="army-links">
+                ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
+                ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
+              </div>
+            </td>
+            <td>${player.attack_count}</td>
+            <td>${player.stats.avg_stars.toFixed(2)}</td>
+            <td>${player.stats.avg_destruction.toFixed(1)}%</td>
+          </tr>`;
+        }).join('');
 
       bodyEl.innerHTML = `
         <table>
@@ -800,25 +785,7 @@
             </tr>
           </thead>
           <tbody>
-            ${group.players.map(player => {
-              const matched = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
-              return `<tr class="army-row ${matched ? 'matching' : ''}">
-                <td>
-                  <div class="player-name">${player.name}</div>
-                  <div class="tag">${player.tag}</div>
-                </td>
-                <td class="army">
-                  ${formatArmyLines(player.best_attack.armyDecoded, { shortHeroes: true }).map(line => `<div>${line}</div>`).join('')}
-                  <div class="army-links">
-                    ${player.best_attack.armyShareCode ? `<a class="army-link" href="${armyLinkUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
-                    ${player.best_attack.armyShareCode ? `<a class="army-link" href="${youtubeSearchUrl(player.best_attack.armyShareCode)}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
-                  </div>
-                </td>
-                <td>${player.attack_count}</td>
-                <td>${player.stats.avg_stars.toFixed(2)}</td>
-                <td>${player.stats.avg_destruction.toFixed(1)}%</td>
-              </tr>`;
-            }).join('')}
+            ${rows || '<tr><td colspan="5" class="error">No armies match the selected equipment.</td></tr>'}
           </tbody>
         </table>
       `;
