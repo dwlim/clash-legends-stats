@@ -407,6 +407,11 @@
           <label for="day-select">Day</label>
           <select id="day-select"></select>
         </div>
+        <div class="search-box">
+          <label for="player-search">Player search</label>
+          <input id="player-search" type="search" placeholder="Search player name or tag">
+          <div class="search-results" id="search-results"></div>
+        </div>
         <div class="day-meta" id="day-meta"></div>
 
         <div class="group-list" id="group-list"></div>
@@ -448,8 +453,11 @@
     const equipmentFilterGridEl = document.getElementById('equipment-filter-grid');
     const equipmentSummaryEl = document.getElementById('equipment-summary');
     const equipmentClearEl = document.getElementById('equipment-clear');
+    const playerSearchEl = document.getElementById('player-search');
+    const searchResultsEl = document.getElementById('search-results');
 
     const ownedEpicEquipment = new Set();
+    let selectedPlayer = null;
 
     const EPIC_EQUIPMENT_GROUPS = [
       ['Giant Gauntlet', 'Spiky Ball', 'Snake Bracelet', 'Stick Horse'],
@@ -749,16 +757,17 @@
     }
 
     function renderGroup(group, index) {
-      titleEl.textContent = group.label;
-      subEl.textContent = `Avg stars ${group.stats.avg_stars.toFixed(2)} · Avg destruction ${group.stats.avg_destruction.toFixed(1)}% · ${group.uniqueUsers} players · ${group.count} attacks`;
+      titleEl.textContent = selectedPlayer ? `${selectedPlayer.name} · ${group.label}` : group.label;
+      subEl.textContent = selectedPlayer ? `Tag ${selectedPlayer.tag} · ${group.stats.avg_stars.toFixed(2)} avg stars · ${group.stats.avg_destruction.toFixed(1)}% avg destruction` : `Avg stars ${group.stats.avg_stars.toFixed(2)} · Avg destruction ${group.stats.avg_destruction.toFixed(1)}% · ${group.uniqueUsers} players · ${group.count} attacks`;
       countEl.textContent = `${index + 1} of ${window.siteData.groups.length}`;
-      renderArmyBlock(group.example);
+      renderArmyBlock(selectedPlayer?.best_attack || group.example);
 
       const rows = group.players
         .filter(player => {
           const matches = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
           return ownedEpicEquipment.size ? matches : true;
         })
+        .filter(player => !selectedPlayer || player.tag === selectedPlayer.tag)
         .map(player => {
           const matched = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
           return `<tr class="army-row ${matched ? 'matching' : ''}">
@@ -806,11 +815,14 @@
       listEl.innerHTML = visibleGroups.length
         ? visibleGroups.map((group, visibleIndex) => {
             const originalIndex = window.siteData.groups.indexOf(group);
+            const visibleCount = ownedEpicEquipment.size
+              ? (group.players || []).filter(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded)).length
+              : group.players.length;
             return `<button class="group-btn ${visibleIndex === 0 ? 'active' : ''}" data-index="${originalIndex}">
               <div class="group-title">${group.label}</div>
               <div class="group-meta">
                 <span>${group.uniqueUsers} players</span>
-                <span>${group.count} attacks</span>
+                <span>${visibleCount} visible</span>
               </div>
             </button>`;
           }).join('')
@@ -825,6 +837,43 @@
       });
     }
 
+    function renderSearchResults() {
+      const query = (playerSearchEl.value || '').trim().toLowerCase();
+      if (!query || !window.siteData?.groups?.length) {
+        searchResultsEl.innerHTML = '';
+        return;
+      }
+      const matches = [];
+      window.siteData.groups.forEach((group, groupIndex) => {
+        (group.players || []).forEach(player => {
+          if (player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query)) {
+            matches.push({ groupIndex, player });
+          }
+        });
+      });
+      searchResultsEl.innerHTML = matches.slice(0, 8).map(match => `
+        <button class="search-result" type="button" data-group-index="${match.groupIndex}" data-player-tag="${match.player.tag}">
+          ${match.player.name}
+          <small>${match.player.tag} · ${window.siteData.groups[match.groupIndex].label}</small>
+        </button>
+      `).join('') || '<div class="empty">No players found.</div>';
+      searchResultsEl.querySelectorAll('.search-result').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const groupIndex = Number(btn.dataset.groupIndex);
+          const playerTag = btn.dataset.playerTag;
+          const groupBtn = listEl.querySelector(`.group-btn[data-index="${groupIndex}"]`);
+          if (groupBtn) {
+            listEl.querySelectorAll('.group-btn').forEach(el => el.classList.remove('active'));
+            groupBtn.classList.add('active');
+          }
+          const group = window.siteData.groups[groupIndex];
+          const player = (group.players || []).find(p => p.tag === playerTag);
+          selectedPlayer = player || null;
+          renderGroup(group, groupIndex, playerTag);
+        });
+      });
+    }
+
     async function loadDay(day) {
       const item = window.dayItems.find(entry => entry.date === day);
       if (!item) return;
@@ -833,6 +882,7 @@
       dayMeta.textContent = `Showing ${item.date}`;
       renderList();
       renderEquipmentFilter();
+      renderSearchResults();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
       } else {
@@ -864,6 +914,7 @@
           renderGroup(window.siteData.groups[0], 0);
         }
       });
+      playerSearchEl.addEventListener('input', () => { renderSearchResults(); renderList(); });
       if (defaultDay) {
         await loadDay(defaultDay);
       } else {
