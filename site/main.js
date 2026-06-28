@@ -54,23 +54,23 @@ async function init() {
   daySelect.innerHTML = state.dayItems.map(item => `<option value="${item.date}">${item.date}</option>`).join('');
   const defaultDay = state.dayItems[state.dayItems.length - 1]?.date || '';
   daySelect.value = defaultDay;
-  daySelect?.addEventListener('change', () => {
+  daySelect.addEventListener('change', () => {
     loadDay(daySelect.value).catch(err => {
       setText(titleEl, 'Failed to load day');
       setText(subEl, String(err));
       if (bodyEl) bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
     });
   });
-  equipmentClearEl?.addEventListener('click', () => {
+  equipmentClearEl.addEventListener('click', () => {
     state.ownedEpicEquipment.clear();
     renderers.renderEquipmentFilter();
     renderers.renderList();
     if (state.siteData?.groups?.length) renderers.renderGroup(state.siteData.groups[0], 0);
   });
-  filtersToggle?.addEventListener('click', () => setFiltersOpen(filtersPanel, filtersToggle, filtersPanel?.hidden));
-  filterEquipmentTab?.addEventListener('click', () => { state.filterMode = 'equipment'; setFilterMode({ filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane }, 'equipment'); });
-  filterPlayerTab?.addEventListener('click', () => { state.filterMode = 'player'; setFilterMode({ filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane }, 'player'); });
-  playerSearchEl?.addEventListener('input', () => {
+  filtersToggle.addEventListener('click', () => setFiltersOpen(filtersPanel, filtersToggle, filtersPanel.hidden));
+  filterEquipmentTab.addEventListener('click', () => { state.filterMode = 'equipment'; setFilterMode({ filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane }, 'equipment'); });
+  filterPlayerTab.addEventListener('click', () => { state.filterMode = 'player'; setFilterMode({ filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane }, 'player'); });
+  playerSearchEl.addEventListener('input', () => {
     if (!playerSearchEl.value.trim()) state.selectedPlayer = null;
     renderers.renderSearchResults();
     renderers.renderList();
