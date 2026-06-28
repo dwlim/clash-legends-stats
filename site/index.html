@@ -675,7 +675,6 @@
     </div>
   </main>
 
-  <script type="module" src="./main.js"></script>
   <script>
     const daySelect = document.getElementById('day-select');
     const filtersToggle = document.getElementById('filters-toggle');
@@ -941,7 +940,15 @@
 
     function youtubeSearchUrl(armyShareCode) {
       if (!armyShareCode) return '';
-      return `https://www.youtube.com/results?search_query=${encodeURIComponent('army code clash of clans')}`;
+      const normalized = String(armyShareCode).replace(/^https?:\/\/link\.clashofclans\.com\/en\/?\?action=CopyArmy&army=/i, '');
+      const rawParts = normalized.split('-');
+      const troops = rawParts[0] || '';
+      const spells = rawParts[1] || '';
+      const heroes = rawParts.slice(2).join('-') || '';
+      const parts = [troops, spells, heroes].filter(Boolean).map(part => `"${part}"`);
+      if (!parts.length) return '';
+      parts.push('Clash of Clans');
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' '))}`;
     }
 
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
@@ -1109,6 +1116,167 @@
         </table>
       `;
     }
+
+    function renderList() {
+      const query = (playerSearchEl.value || '').trim().toLowerCase();
+      const searchGroupIndexes = query && window.siteData?.groups?.length
+        ? new Set(
+            window.siteData.groups.flatMap((group, groupIndex) =>
+              (group.players || []).some(player => player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query))
+                ? [groupIndex]
+                : []
+            )
+          )
+        : null;
+      const visibleGroups = window.siteData.groups.filter((group, groupIndex) => {
+        if (searchGroupIndexes && !searchGroupIndexes.has(groupIndex)) return false;
+        if (!ownedEpicEquipment.size) return true;
+        return (group.players || []).some(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded));
+      });
+
+      listEl.innerHTML = visibleGroups.length
+        ? visibleGroups.map((group, visibleIndex) => {
+            const originalIndex = window.siteData.groups.indexOf(group);
+            const visibleCount = ownedEpicEquipment.size
+              ? (group.players || []).filter(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded)).length
+              : group.players.length;
+            return `<button class="group-btn ${visibleIndex === 0 ? 'active' : ''}" data-index="${originalIndex}">
+              <div class="group-title">${group.label}</div>
+              <div class="group-meta">
+                <span>${group.uniqueUsers} players</span>
+                <span>${visibleCount} visible</span>
+              </div>
+            </button>`;
+          }).join('')
+        : '<div class="error">No groups match the selected equipment.</div>';
+
+      listEl.querySelectorAll('.group-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          listEl.querySelectorAll('.group-btn').forEach(el => el.classList.remove('active'));
+          btn.classList.add('active');
+          renderGroup(window.siteData.groups[Number(btn.dataset.index)], Number(btn.dataset.index));
+        });
+      });
+    }
+
+    function renderSearchResults() {
+      const query = (playerSearchEl.value || '').trim().toLowerCase();
+      if (!query || !window.siteData?.groups?.length) {
+        searchResultsEl.innerHTML = '';
+        return;
+      }
+      const matches = [];
+      window.siteData.groups.forEach((group, groupIndex) => {
+        (group.players || []).forEach(player => {
+          if (player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query)) {
+            matches.push({ groupIndex, player });
+          }
+        });
+      });
+      searchResultsEl.innerHTML = matches.slice(0, 8).map(match => `
+        <button class="search-result" type="button" data-group-index="${match.groupIndex}" data-player-tag="${match.player.tag}">
+          ${match.player.name}
+          <small>${match.player.tag} · ${window.siteData.groups[match.groupIndex].label}</small>
+        </button>
+      `).join('') || '<div class="empty">No players found.</div>';
+      searchResultsEl.querySelectorAll('.search-result').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const groupIndex = Number(btn.dataset.groupIndex);
+          const playerTag = btn.dataset.playerTag;
+          const group = window.siteData.groups[groupIndex];
+          const player = (group.players || []).find(p => p.tag === playerTag);
+          if (player) {
+            playerSearchEl.value = player.name;
+          }
+          selectedPlayer = player || null;
+          searchResultsEl.innerHTML = '';
+          searchResultsEl.hidden = true;
+          renderList();
+          const groupBtn = listEl.querySelector(`.group-btn[data-index="${groupIndex}"]`);
+          if (groupBtn) {
+            listEl.querySelectorAll('.group-btn').forEach(el => el.classList.remove('active'));
+            groupBtn.classList.add('active');
+          }
+          renderGroup(group, groupIndex, playerTag);
+        });
+      });
+    }
+
+    async function loadDay(day) {
+      const item = window.dayItems.find(entry => entry.date === day);
+      if (!item) return;
+      const res = await fetch(`./${item.payload}`, { cache: 'no-store' });
+      window.siteData = await res.json();
+      renderList();
+      renderEquipmentFilter();
+      setFilterMode(filterMode);
+      setFiltersOpen(false);
+      renderSearchResults();
+      if (window.siteData.groups.length) {
+        renderGroup(window.siteData.groups[0], 0);
+      } else {
+        titleEl.textContent = 'No groups found';
+        subEl.textContent = 'Run the poller and publish data to populate the site.';
+        bodyEl.innerHTML = '';
+      }
+    }
+
+    async function init() {
+      const manifestRes = await fetch('./data/manifest.json', { cache: 'no-store' });
+      const manifest = await manifestRes.json();
+      window.dayItems = (manifest.days || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+      daySelect.innerHTML = window.dayItems.map(item => `<option value="${item.date}">${item.date}</option>`).join('');
+      const defaultDay = window.dayItems[window.dayItems.length - 1]?.date || '';
+      daySelect.value = defaultDay;
+      daySelect.addEventListener('change', () => {
+        loadDay(daySelect.value).catch(err => {
+          titleEl.textContent = 'Failed to load day';
+          subEl.textContent = String(err);
+          bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
+        });
+      });
+      equipmentClearEl.addEventListener('click', () => {
+        ownedEpicEquipment.clear();
+        renderEquipmentFilter();
+        renderList();
+        if (window.siteData?.groups?.length) {
+          renderGroup(window.siteData.groups[0], 0);
+        }
+      });
+      bindFiltersToggle();
+      filterEquipmentTab.addEventListener('click', () => setFilterMode('equipment'));
+      filterPlayerTab.addEventListener('click', () => setFilterMode('player'));
+      filterEquipmentTab.addEventListener('pointerup', () => setFilterMode('equipment'));
+      filterPlayerTab.addEventListener('pointerup', () => setFilterMode('player'));
+      playerSearchEl.addEventListener('input', () => {
+        if (!playerSearchEl.value.trim()) selectedPlayer = null;
+        renderSearchResults();
+        renderList();
+        if (playerSearchEl.value.trim()) {
+          const query = playerSearchEl.value.trim().toLowerCase();
+          const matchGroupIndex = window.siteData.groups.findIndex(group =>
+            (group.players || []).some(player => player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query))
+          );
+          if (matchGroupIndex >= 0) {
+            renderGroup(window.siteData.groups[matchGroupIndex], matchGroupIndex);
+          }
+        } else if (window.siteData?.groups?.length) {
+          renderGroup(window.siteData.groups[0], 0);
+        }
+      });
+      if (defaultDay) {
+        await loadDay(defaultDay);
+      } else {
+        titleEl.textContent = 'No days found';
+        subEl.textContent = 'Publish at least one daily file first.';
+      }
+    }
+
+    init().catch(err => {
+      titleEl.textContent = 'Failed to load site data';
+      subEl.textContent = String(err);
+      bodyEl.innerHTML = '<div class="error">Could not load the published JSON.</div>';
+    });
   </script>
 </body>
 </html>
