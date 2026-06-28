@@ -469,7 +469,56 @@
     const equipmentSummaryEl = document.getElementById('equipment-summary');
     const equipmentClearEl = document.getElementById('equipment-clear');
 
-    const ownedEquipment = new Set();
+    const ownedEpicEquipment = new Set();
+
+    const EPIC_EQUIPMENT = new Set([
+      'Giant Gauntlet',
+      'Frozen Arrow',
+      'Magic Mirror',
+      'Electro Boots',
+      'Rocket Spear',
+      'Lavaloon Puppet',
+      'Dark Orb',
+      'Fireball',
+      'Dark Crown',
+      'Henchmen Puppet',
+      'Metal Pants',
+      'Fire Heart',
+      'Frost Flake',
+      'Rocket Backpack',
+      'Electro Fangs',
+      'Stun Blaster',
+      'Snake Bracelet',
+      'Spiky Ball',
+      'Heroic Torch',
+      'Monolith Arrow'
+    ]);
+
+    const COMMON_EQUIPMENT = new Set([
+      'Barbarian Puppet',
+      'Rage Vial',
+      'Archer Puppet',
+      'Invisibility Vial',
+      'Eternal Tome',
+      'Life Gem',
+      'Seeking Shield',
+      'Royal Gem',
+      'Earthquake Boots',
+      'Hog Rider Puppet',
+      'Vampstache',
+      'Haste Vial',
+      'Healing Tome',
+      'Rage Gem',
+      'Healer Puppet',
+      'Action Figure',
+      'Stick Horse',
+      'Noble Iron',
+      'Meteor Staff'
+    ]);
+
+    function isEpicEquipment(name) {
+      return EPIC_EQUIPMENT.has(name) && !COMMON_EQUIPMENT.has(name);
+    }
 
     const TROOP_HOUSING_SPACE = {
       "Apprentice Warden": 20,
@@ -666,20 +715,20 @@
       return lines;
     }
 
-    function getArmyEquipmentNames(decoded) {
+    function getArmyEpicEquipmentNames(decoded) {
       const sections = decoded?.sections || {};
       const names = [];
       for (const hero of sections.heroes || []) {
         for (const piece of hero.equipment || []) {
-          if (piece?.name) names.push(piece.name);
+          if (piece?.name && isEpicEquipment(piece.name)) names.push(piece.name);
         }
       }
-      return names;
+      return [...new Set(names)];
     }
 
     function armyMatchesOwnedEquipment(decoded) {
-      if (!ownedEquipment.size) return false;
-      return getArmyEquipmentNames(decoded).some(name => ownedEquipment.has(name));
+      const requiredEpicEquipment = getArmyEpicEquipmentNames(decoded);
+      return requiredEpicEquipment.length > 0 && requiredEpicEquipment.every(name => ownedEpicEquipment.has(name));
     }
 
     function renderArmyBlock(fullArmy) {
@@ -701,20 +750,20 @@
     }
 
     function renderEquipmentFilter() {
-      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
+      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEpicEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
       if (!equipmentNames.length) {
-        equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No equipment found in this day's armies.</span>";
+        equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No epic equipment found in this day's armies.</span>";
         equipmentSummaryEl.textContent = '';
         return;
       }
 
-      equipmentFilterGridEl.innerHTML = equipmentNames.map(name => `<button class="equipment-pill ${ownedEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('');
+      equipmentFilterGridEl.innerHTML = equipmentNames.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.equipment;
           if (!name) return;
-          if (ownedEquipment.has(name)) ownedEquipment.delete(name);
-          else ownedEquipment.add(name);
+          if (ownedEpicEquipment.has(name)) ownedEpicEquipment.delete(name);
+          else ownedEpicEquipment.add(name);
           renderEquipmentFilter();
           if (window.siteData.groups.length) {
             const activeIndex = Math.max(0, [...listEl.querySelectorAll('.group-btn')].findIndex(el => el.classList.contains('active')));
@@ -723,9 +772,9 @@
         });
       });
 
-      equipmentSummaryEl.textContent = ownedEquipment.size
-        ? `${ownedEquipment.size} equipment selected. Matching armies glow in the list.`
-        : 'Select the equipment you own to glow matching armies.';
+      equipmentSummaryEl.textContent = ownedEpicEquipment.size
+        ? `${ownedEpicEquipment.size} epic equipment selected. Armies glow only when all required epic equipment is selected.`
+        : 'Select epic equipment to glow matching armies.';
     }
 
     function renderGroup(group, index) {
