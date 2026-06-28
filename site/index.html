@@ -141,6 +141,12 @@
       background: var(--accent-soft);
     }
 
+    .group-btn.matching {
+      border-color: rgba(114, 214, 255, 0.8);
+      background: rgba(114, 214, 255, 0.12);
+      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.16), 0 0 22px rgba(114, 214, 255, 0.18);
+    }
+
     .group-title {
       font-size: 0.98rem;
       font-weight: 700;
@@ -777,6 +783,7 @@
 
     function renderGroup(group, index) {
       titleEl.textContent = group.label;
+      const groupMatches = (group.players || []).some(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded));
       subEl.textContent = `Avg stars ${group.stats.avg_stars.toFixed(2)} · Avg destruction ${group.stats.avg_destruction.toFixed(1)}% · ${group.uniqueUsers} players · ${group.count} attacks`;
       countEl.textContent = `${index + 1} of ${window.siteData.groups.length}`;
       renderArmyBlock(group.example);
