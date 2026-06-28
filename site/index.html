@@ -471,25 +471,16 @@
 
     const ownedEpicEquipment = new Set();
 
-    const EPIC_EQUIPMENT = new Set([
-      'Giant Gauntlet',
-      'Spiky Ball',
-      'Snake Bracelet',
-      'Stick Horse',
-      'Frozen Arrow',
-      'Magic Mirror',
-      'Action Figure',
-      'Monolith Arrow',
-      'Dark Crown',
-      'Meteor Staff',
-      'Fireball',
-      'Lavaloon Puppet',
-      'Heroic Torch',
-      'Rocket Spear',
-      'Electro Boots',
-      'Frost Flake',
-      'Rocket Backpack'
-    ]);
+    const EPIC_EQUIPMENT_GROUPS = [
+      ['Giant Gauntlet', 'Spiky Ball', 'Snake Bracelet', 'Stick Horse'],
+      ['Frozen Arrow', 'Magic Mirror', 'Action Figure', 'Monolith Arrow'],
+      ['Dark Crown', 'Meteor Staff'],
+      ['Fireball', 'Lavaloon Puppet', 'Heroic Torch'],
+      ['Rocket Spear', 'Electro Boots', 'Frost Flake'],
+      ['Rocket Backpack']
+    ];
+
+    const EPIC_EQUIPMENT = new Set(EPIC_EQUIPMENT_GROUPS.flat());
 
     const COMMON_EQUIPMENT = new Set([
       'Barbarian Puppet',
@@ -744,14 +735,14 @@
     }
 
     function renderEquipmentFilter() {
-      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEpicEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
+      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEpicEquipmentNames(player.best_attack?.armyDecoded))))];
       if (!equipmentNames.length) {
         equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No epic equipment found in this day's armies.</span>";
         equipmentSummaryEl.textContent = 'Only equipment that appears in an army is shown here.';
         return;
       }
 
-      equipmentFilterGridEl.innerHTML = equipmentNames.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('');
+      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map(group => `<div class="equipment-group">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('')}</div>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.equipment;
