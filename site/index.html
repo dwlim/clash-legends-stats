@@ -628,7 +628,7 @@
         </div>
       </div>
       <div class="hero-filters">
-        <button class="filters-toggle" id="filters-toggle" type="button" aria-expanded="false" aria-controls="filters-panel" onclick="const p=document.getElementById('filters-panel'); const open=p.hidden; p.hidden=!open; this.setAttribute('aria-expanded', String(open));">
+        <button class="filters-toggle" id="filters-toggle" type="button" aria-expanded="false" aria-controls="filters-panel">
           <strong>Filters</strong>
           <span class="chevron">⌄</span>
         </button>
@@ -737,6 +737,14 @@
       if (!filtersToggle || !filtersPanel) return;
       filtersToggle.setAttribute('aria-expanded', String(open));
       filtersPanel.hidden = !open;
+    }
+
+    function bindFiltersToggle() {
+      if (!filtersToggle || !filtersPanel || filtersToggle.dataset.bound === '1') return;
+      filtersToggle.dataset.bound = '1';
+      filtersToggle.addEventListener('click', () => {
+        setFiltersOpen(filtersPanel.hidden);
+      });
     }
     const TROOP_HOUSING_SPACE = {
       "Apprentice Warden": 20,
@@ -1216,9 +1224,7 @@
           renderGroup(window.siteData.groups[0], 0);
         }
       });
-      if (filtersToggle && filtersPanel) {
-        filtersToggle.addEventListener('click', () => setFiltersOpen(filtersPanel.hidden));
-      }
+      bindFiltersToggle();
       filterEquipmentTab.addEventListener('click', () => setFilterMode('equipment'));
       filterPlayerTab.addEventListener('click', () => setFilterMode('player'));
       filterEquipmentTab.addEventListener('pointerup', () => setFilterMode('equipment'));
