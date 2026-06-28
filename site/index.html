@@ -703,7 +703,7 @@
     function renderEquipmentFilter() {
       const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
       if (!equipmentNames.length) {
-        equipmentFilterGridEl.innerHTML = '<span class="equipment-summary">No equipment found in this day's armies.</span>';
+        equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No equipment found in this day's armies.</span>";
         equipmentSummaryEl.textContent = '';
         return;
       }
