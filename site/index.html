@@ -79,6 +79,37 @@
       gap: 10px;
     }
 
+    .filters-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .filters-toggle strong {
+      letter-spacing: -0.01em;
+    }
+
+    .filters-toggle .chevron {
+      transition: transform 0.18s ease;
+    }
+
+    .filters-toggle[aria-expanded="true"] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .filters-panel[hidden] {
+      display: none;
+    }
+
     .hero-filters .filter-box {
       margin-bottom: 0;
     }
@@ -597,23 +628,29 @@
         </div>
       </div>
       <div class="hero-filters">
-        <div class="filter-box">
-          <div class="filter-switch">
-            <button class="filter-tab active" id="filter-equipment-tab" type="button">Equipment</button>
-            <button class="filter-tab" id="filter-player-tab" type="button">Player</button>
-          </div>
-          <div class="filter-pane" id="filter-equipment-pane">
-            <div class="equipment-filter-header">
-              <p class="equipment-filter-title">Owned equipment</p>
-              <button class="equipment-filter-clear" id="equipment-clear" type="button">Clear</button>
+        <button class="filters-toggle" id="filters-toggle" type="button" aria-expanded="false" aria-controls="filters-panel">
+          <strong>Filters</strong>
+          <span class="chevron">⌄</span>
+        </button>
+        <div class="filters-panel" id="filters-panel" hidden>
+          <div class="filter-box">
+            <div class="filter-switch">
+              <button class="filter-tab active" id="filter-equipment-tab" type="button">Equipment</button>
+              <button class="filter-tab" id="filter-player-tab" type="button">Player</button>
             </div>
-            <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
-            <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
-          </div>
-          <div class="filter-pane hidden" id="filter-player-pane">
-            <label for="player-search">Player search</label>
-            <input id="player-search" type="search" placeholder="Search player name or tag">
-            <div class="search-results" id="search-results"></div>
+            <div class="filter-pane" id="filter-equipment-pane">
+              <div class="equipment-filter-header">
+                <p class="equipment-filter-title">Owned equipment</p>
+                <button class="equipment-filter-clear" id="equipment-clear" type="button">Clear</button>
+              </div>
+              <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
+              <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
+            </div>
+            <div class="filter-pane hidden" id="filter-player-pane">
+              <label for="player-search">Player search</label>
+              <input id="player-search" type="search" placeholder="Search player name or tag">
+              <div class="search-results" id="search-results"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -640,6 +677,8 @@
 
   <script>
     const daySelect = document.getElementById('day-select');
+    const filtersToggle = document.getElementById('filters-toggle');
+    const filtersPanel = document.getElementById('filters-panel');
     const listEl = document.getElementById('group-list');
     const titleEl = document.getElementById('detail-title');
     const subEl = document.getElementById('detail-sub');
@@ -1138,6 +1177,7 @@
       renderList();
       renderEquipmentFilter();
       setFilterMode(filterMode);
+      setFiltersOpen(false);
       renderSearchResults();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
@@ -1170,6 +1210,7 @@
           renderGroup(window.siteData.groups[0], 0);
         }
       });
+      filtersToggle.addEventListener('click', () => setFiltersOpen(filtersPanel.hidden));
       filterEquipmentTab.addEventListener('click', () => setFilterMode('equipment'));
       filterPlayerTab.addEventListener('click', () => setFilterMode('player'));
       filterEquipmentTab.addEventListener('pointerup', () => setFilterMode('equipment'));
