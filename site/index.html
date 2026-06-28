@@ -486,11 +486,6 @@
           <label for="day-select">Day</label>
           <select id="day-select"></select>
         </div>
-        <div class="search-box">
-          <label for="player-search">Player search</label>
-          <input id="player-search" type="search" placeholder="Search player name or tag">
-          <div class="search-results" id="search-results"></div>
-        </div>
         <div class="day-meta" id="day-meta"></div>
 
         <div class="group-list" id="group-list"></div>
@@ -505,13 +500,24 @@
           <div class="detail-count" id="detail-count"></div>
         </div>
 
-        <div class="equipment-filter" id="equipment-filter">
-          <div class="equipment-filter-header">
-            <p class="equipment-filter-title">Owned equipment</p>
-            <button class="equipment-filter-clear" id="equipment-clear" type="button">Clear</button>
+        <div class="filter-box">
+          <div class="filter-switch">
+            <button class="filter-tab active" id="filter-equipment-tab" type="button">Equipment</button>
+            <button class="filter-tab" id="filter-player-tab" type="button">Player</button>
           </div>
-          <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
-          <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
+          <div class="filter-pane" id="filter-equipment-pane">
+            <div class="equipment-filter-header">
+              <p class="equipment-filter-title">Owned equipment</p>
+              <button class="equipment-filter-clear" id="equipment-clear" type="button">Clear</button>
+            </div>
+            <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
+            <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
+          </div>
+          <div class="filter-pane hidden" id="filter-player-pane">
+            <label for="player-search">Player search</label>
+            <input id="player-search" type="search" placeholder="Search player name or tag">
+            <div class="search-results" id="search-results"></div>
+          </div>
         </div>
         <div class="army-block" id="army-block"></div>
         <div id="detail-body"></div>
@@ -533,9 +539,14 @@
     const equipmentClearEl = document.getElementById('equipment-clear');
     const playerSearchEl = document.getElementById('player-search');
     const searchResultsEl = document.getElementById('search-results');
+    const filterEquipmentTab = document.getElementById('filter-equipment-tab');
+    const filterPlayerTab = document.getElementById('filter-player-tab');
+    const filterEquipmentPane = document.getElementById('filter-equipment-pane');
+    const filterPlayerPane = document.getElementById('filter-player-pane');
 
     const ownedEpicEquipment = new Set();
     let selectedPlayer = null;
+    let filterMode = 'equipment';
 
     const EPIC_EQUIPMENT_GROUPS = [
       ['Giant Gauntlet', 'Spiky Ball', 'Snake Bracelet', 'Stick Horse'],
