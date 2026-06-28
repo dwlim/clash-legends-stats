@@ -473,25 +473,22 @@
 
     const EPIC_EQUIPMENT = new Set([
       'Giant Gauntlet',
+      'Spiky Ball',
+      'Snake Bracelet',
+      'Stick Horse',
       'Frozen Arrow',
       'Magic Mirror',
-      'Electro Boots',
-      'Rocket Spear',
-      'Lavaloon Puppet',
-      'Dark Orb',
-      'Fireball',
+      'Action Figure',
+      'Monolith Arrow',
       'Dark Crown',
-      'Henchmen Puppet',
-      'Metal Pants',
-      'Fire Heart',
-      'Frost Flake',
-      'Rocket Backpack',
-      'Electro Fangs',
-      'Stun Blaster',
-      'Snake Bracelet',
-      'Spiky Ball',
+      'Meteor Staff',
+      'Fireball',
+      'Lavaloon Puppet',
       'Heroic Torch',
-      'Monolith Arrow'
+      'Rocket Spear',
+      'Electro Boots',
+      'Frost Flake',
+      'Rocket Backpack'
     ]);
 
     const COMMON_EQUIPMENT = new Set([
@@ -510,10 +507,7 @@
       'Healing Tome',
       'Rage Gem',
       'Healer Puppet',
-      'Action Figure',
-      'Stick Horse',
-      'Noble Iron',
-      'Meteor Staff'
+      'Noble Iron'
     ]);
 
     function isEpicEquipment(name) {
@@ -753,7 +747,7 @@
       const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEpicEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
       if (!equipmentNames.length) {
         equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No epic equipment found in this day's armies.</span>";
-        equipmentSummaryEl.textContent = '';
+        equipmentSummaryEl.textContent = 'Only equipment that appears in an army is shown here.';
         return;
       }
 
