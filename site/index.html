@@ -675,7 +675,7 @@
     </div>
   </main>
 
-  <script type="module">
+  <script>
     const daySelect = document.getElementById('day-select');
     const filtersToggle = document.getElementById('filters-toggle');
     const filtersPanel = document.getElementById('filters-panel');
@@ -1202,12 +1202,11 @@
       });
     }
 
-    import { loadDayPayload, loadManifest, sortDayItems } from './site-data.js';
-
     async function loadDay(day) {
       const item = window.dayItems.find(entry => entry.date === day);
       if (!item) return;
-      window.siteData = await loadDayPayload(item);
+      const res = await fetch(`./${item.payload}`, { cache: 'no-store' });
+      window.siteData = await res.json();
       renderList();
       renderEquipmentFilter();
       setFilterMode(filterMode);
@@ -1223,8 +1222,9 @@
     }
 
     async function init() {
-      const manifest = await loadManifest();
-      window.dayItems = sortDayItems(manifest.days || []);
+      const manifestRes = await fetch('./data/manifest.json', { cache: 'no-store' });
+      const manifest = await manifestRes.json();
+      window.dayItems = (manifest.days || []).slice().sort((a, b) => a.date.localeCompare(b.date));
       daySelect.innerHTML = window.dayItems.map(item => `<option value="${item.date}">${item.date}</option>`).join('');
       const defaultDay = window.dayItems[window.dayItems.length - 1]?.date || '';
       daySelect.value = defaultDay;
