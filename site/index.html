@@ -198,6 +198,99 @@
       border-radius: 16px;
       padding: 12px 14px;
       background: rgba(255, 255, 255, 0.03);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, background 0.15s ease;
+    }
+
+    .army-chip.matching {
+      border-color: rgba(114, 214, 255, 0.65);
+      background: rgba(114, 214, 255, 0.11);
+      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.18), 0 0 24px rgba(114, 214, 255, 0.18);
+    }
+
+    .army-row.matching td {
+      background: rgba(114, 214, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(114, 214, 255, 0.18), 0 0 22px rgba(114, 214, 255, 0.14);
+    }
+
+    .army-row.matching .army {
+      color: #f2fbff;
+    }
+
+    .army-row.matching .army-link {
+      color: #9be7ff;
+    }
+
+    .army-row.matching .player-name {
+      color: #ffffff;
+    }
+
+    .equipment-filter {
+      margin-top: 14px;
+      margin-bottom: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .equipment-filter-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .equipment-filter-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .equipment-filter-clear {
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.85rem;
+      padding: 0;
+    }
+
+    .equipment-filter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .equipment-pill {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 11px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.86rem;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .equipment-pill:hover {
+      transform: translateY(-1px);
+    }
+
+    .equipment-pill.active {
+      border-color: rgba(114, 214, 255, 0.8);
+      background: rgba(114, 214, 255, 0.16);
+      box-shadow: 0 0 0 1px rgba(114, 214, 255, 0.14);
+    }
+
+    .equipment-summary {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 10px;
     }
 
     .army-chip strong {
@@ -348,6 +441,15 @@
           <div class="detail-count" id="detail-count"></div>
         </div>
 
+        <div class="equipment-filter" id="equipment-filter">
+          <div class="equipment-filter-header">
+            <p class="equipment-filter-title">Owned equipment</p>
+            <button class="equipment-filter-clear" id="equipment-clear" type="button">Clear</button>
+          </div>
+          <div class="equipment-filter-grid" id="equipment-filter-grid"></div>
+          <div class="equipment-summary" id="equipment-summary">Select the equipment you own to glow matching armies.</div>
+        </div>
+
         <div class="army-block" id="army-block"></div>
         <div id="detail-body"></div>
       </main>
@@ -363,6 +465,11 @@
     const countEl = document.getElementById('detail-count');
     const bodyEl = document.getElementById('detail-body');
     const armyBlockEl = document.getElementById('army-block');
+    const equipmentFilterGridEl = document.getElementById('equipment-filter-grid');
+    const equipmentSummaryEl = document.getElementById('equipment-summary');
+    const equipmentClearEl = document.getElementById('equipment-clear');
+
+    const ownedEquipment = new Set();
 
     const TROOP_HOUSING_SPACE = {
       "Apprentice Warden": 20,
@@ -559,6 +666,22 @@
       return lines;
     }
 
+    function getArmyEquipmentNames(decoded) {
+      const sections = decoded?.sections || {};
+      const names = [];
+      for (const hero of sections.heroes || []) {
+        for (const piece of hero.equipment || []) {
+          if (piece?.name) names.push(piece.name);
+        }
+      }
+      return names;
+    }
+
+    function armyMatchesOwnedEquipment(decoded) {
+      if (!ownedEquipment.size) return false;
+      return getArmyEquipmentNames(decoded).some(name => ownedEquipment.has(name));
+    }
+
     function renderArmyBlock(fullArmy) {
       const lines = formatArmyLines(fullArmy);
       const troops = lines.find(line => line.startsWith('Troops: ')) || 'Troops: none';
@@ -567,13 +690,42 @@
       const heroes = heroStart >= 0 ? lines.slice(heroStart + 1) : [];
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
       const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
+      const matching = armyMatchesOwnedEquipment(fullArmy?.decoded);
       armyBlockEl.innerHTML = `
-        <div class="army-chip"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
-        <div class="army-chip"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
-        <div class="army-chip"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
+        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
+        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
+        <div class="army-chip ${matching ? 'matching' : ''}"><strong>Heroes</strong>${heroes.length ? heroes.map(line => `<span class="hero-line">${line}</span>`).join('') : '<span class="hero-line">None</span>'}</div>
         ${link ? `<a class="army-link" href="${link}" target="_blank" rel="noreferrer">Open army link</a>` : ''}
         ${youtubeLink ? `<a class="army-link" href="${youtubeLink}" target="_blank" rel="noreferrer">Search YouTube for this army</a>` : ''}
       `;
+    }
+
+    function renderEquipmentFilter() {
+      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEquipmentNames(player.best_attack?.armyDecoded))))].sort((a, b) => a.localeCompare(b));
+      if (!equipmentNames.length) {
+        equipmentFilterGridEl.innerHTML = '<span class="equipment-summary">No equipment found in this day's armies.</span>';
+        equipmentSummaryEl.textContent = '';
+        return;
+      }
+
+      equipmentFilterGridEl.innerHTML = equipmentNames.map(name => `<button class="equipment-pill ${ownedEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('');
+      equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.equipment;
+          if (!name) return;
+          if (ownedEquipment.has(name)) ownedEquipment.delete(name);
+          else ownedEquipment.add(name);
+          renderEquipmentFilter();
+          if (window.siteData.groups.length) {
+            const activeIndex = Math.max(0, [...listEl.querySelectorAll('.group-btn')].findIndex(el => el.classList.contains('active')));
+            renderGroup(window.siteData.groups[activeIndex], activeIndex);
+          }
+        });
+      });
+
+      equipmentSummaryEl.textContent = ownedEquipment.size
+        ? `${ownedEquipment.size} equipment selected. Matching armies glow in the list.`
+        : 'Select the equipment you own to glow matching armies.';
     }
 
     function renderGroup(group, index) {
@@ -594,8 +746,9 @@
             </tr>
           </thead>
           <tbody>
-            ${group.players.map(player => `
-              <tr>
+            ${group.players.map(player => {
+              const matched = armyMatchesOwnedEquipment(player.best_attack?.armyDecoded);
+              return `<tr class="army-row ${matched ? 'matching' : ''}">
                 <td>
                   <div class="player-name">${player.name}</div>
                   <div class="tag">${player.tag}</div>
@@ -610,8 +763,8 @@
                 <td>${player.attack_count}</td>
                 <td>${player.stats.avg_stars.toFixed(2)}</td>
                 <td>${player.stats.avg_destruction.toFixed(1)}%</td>
-              </tr>
-            `).join('')}
+              </tr>`;
+            }).join('')}
           </tbody>
         </table>
       `;
@@ -644,6 +797,7 @@
       window.siteData = await res.json();
       dayMeta.textContent = `Showing ${item.date}`;
       renderList();
+      renderEquipmentFilter();
       if (window.siteData.groups.length) {
         renderGroup(window.siteData.groups[0], 0);
       } else {
@@ -666,6 +820,14 @@
           subEl.textContent = String(err);
           bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
         });
+      });
+      equipmentClearEl.addEventListener('click', () => {
+        ownedEquipment.clear();
+        renderEquipmentFilter();
+        if (window.siteData?.groups?.length) {
+          const activeIndex = Math.max(0, [...listEl.querySelectorAll('.group-btn')].findIndex(el => el.classList.contains('active')));
+          renderGroup(window.siteData.groups[activeIndex], activeIndex);
+        }
       });
       if (defaultDay) {
         await loadDay(defaultDay);
