@@ -725,6 +725,7 @@
       const link = fullArmy?.raw ? armyLinkUrl(fullArmy.raw) : '';
       const youtubeLink = fullArmy?.raw ? youtubeSearchUrl(fullArmy.raw) : '';
       const matching = armyMatchesOwnedEquipment(fullArmy?.decoded);
+      armyBlockEl.className = `army-block ${matching ? 'matching' : ''}`;
       armyBlockEl.innerHTML = `
         <div class="army-chip ${matching ? 'matching' : ''}"><strong>Troops</strong>${troops.replace(/^Troops: /, '')}</div>
         <div class="army-chip ${matching ? 'matching' : ''}"><strong>Spells</strong>${spells.replace(/^Spells: /, '')}</div>
