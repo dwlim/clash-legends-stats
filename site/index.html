@@ -1229,7 +1229,14 @@
       filterPlayerTab.addEventListener('click', () => setFilterMode('player'));
       filterEquipmentTab.addEventListener('pointerup', () => setFilterMode('equipment'));
       filterPlayerTab.addEventListener('pointerup', () => setFilterMode('player'));
-      playerSearchEl.addEventListener('input', () => { renderSearchResults(); renderList(); });
+      playerSearchEl.addEventListener('input', () => {
+        if (!playerSearchEl.value.trim()) selectedPlayer = null;
+        renderSearchResults();
+        renderList();
+        if (!playerSearchEl.value.trim() && window.siteData?.groups?.length) {
+          renderGroup(window.siteData.groups[0], 0);
+        }
+      });
       if (defaultDay) {
         await loadDay(defaultDay);
       } else {
