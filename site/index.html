@@ -57,6 +57,10 @@
       align-items: start;
     }
 
+    .hero-filters .filter-switch {
+      grid-template-columns: 1fr;
+    }
+
     .hero-controls {
       display: grid;
       gap: 10px;
@@ -84,6 +88,10 @@
 
     @media (max-width: 900px) {
       .hero-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-filters .filter-switch {
         grid-template-columns: 1fr;
       }
     }
