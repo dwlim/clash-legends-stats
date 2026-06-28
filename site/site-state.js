@@ -3,7 +3,6 @@ export function createSiteState() {
     siteData: null,
     dayItems: [],
     ownedEpicEquipment: new Set(),
-    equipmentItems: [],
     filterMode: 'equipment',
     selectedPlayer: null,
   };

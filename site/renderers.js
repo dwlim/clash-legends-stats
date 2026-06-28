@@ -6,11 +6,8 @@ export function createRenderers({ state, elements, searchController, setFilterMo
   }
 
   function renderEquipmentFilter() {
-    const items = state.equipmentItems || [];
-    if (!equipmentFilterEl) return;
-    equipmentFilterEl.innerHTML = items.length
-      ? items.map(item => `<label><input type="checkbox" ${state.ownedEpicEquipment.has(item) ? 'checked' : ''} data-item="${item}"> ${item}</label>`).join('')
-      : '<div class="muted">No equipment found for this day.</div>';
+    const items = ['Queen', 'King', 'Warden'];
+    equipmentFilterEl.innerHTML = items.map(item => `<label><input type="checkbox" ${state.ownedEpicEquipment.has(item) ? 'checked' : ''} data-item="${item}"> ${item}</label>`).join('');
     equipmentFilterEl.querySelectorAll('input[type="checkbox"]').forEach(input => {
       input.addEventListener('change', () => {
         if (input.checked) state.ownedEpicEquipment.add(input.dataset.item); else state.ownedEpicEquipment.delete(input.dataset.item);
@@ -35,7 +32,7 @@ export function createRenderers({ state, elements, searchController, setFilterMo
     listEl.innerHTML = visibleGroups.length ? visibleGroups.map((group, visibleIndex) => {
       const originalIndex = state.siteData.groups.indexOf(group);
       return `<button class="group-btn ${visibleIndex === 0 ? 'active' : ''}" data-index="${originalIndex}">${group.label}</button>`;
-    }).join('') : (state.siteData.groups.length ? '<div class="error">No groups match the selected equipment.</div>' : '<div class="muted">No groups available.</div>');
+    }).join('') : '<div class="error">No groups match the selected equipment.</div>';
     listEl.querySelectorAll('.group-btn').forEach(btn => btn.addEventListener('click', () => renderGroup(state.siteData.groups[Number(btn.dataset.index)], Number(btn.dataset.index))));
   }
 
@@ -51,8 +48,8 @@ export function createRenderers({ state, elements, searchController, setFilterMo
   }
 
   function loadViewForDay() {
-    renderEquipmentFilter();
     renderList();
+    renderEquipmentFilter();
     setFilterMode({ filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane }, state.filterMode);
     setFiltersOpen(filtersPanel, filtersToggle, false);
     renderSearchResults();
