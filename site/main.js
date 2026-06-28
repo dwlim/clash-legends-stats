@@ -22,10 +22,6 @@ const titleEl = document.getElementById('title');
 const subEl = document.getElementById('sub');
 const bodyEl = document.getElementById('body');
 
-function setText(el, value) {
-  if (el) el.textContent = value;
-}
-
 const searchController = createSearchController({
   get groups() { return state.siteData?.groups || []; },
   input: playerSearchEl,
@@ -56,9 +52,9 @@ async function init() {
   daySelect.value = defaultDay;
   daySelect.addEventListener('change', () => {
     loadDay(daySelect.value).catch(err => {
-      setText(titleEl, 'Failed to load day');
-      setText(subEl, String(err));
-      if (bodyEl) bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
+      titleEl.textContent = 'Failed to load day';
+      subEl.textContent = String(err);
+      bodyEl.innerHTML = '<div class="error">Could not load the selected day.</div>';
     });
   });
   equipmentClearEl.addEventListener('click', () => {
@@ -88,7 +84,7 @@ async function init() {
 }
 
 init().catch(err => {
-  setText(titleEl, 'Failed to load site data');
-  setText(subEl, String(err));
-  if (bodyEl) bodyEl.innerHTML = '<div class="error">Could not load the published JSON.</div>';
+  titleEl.textContent = 'Failed to load site data';
+  subEl.textContent = String(err);
+  bodyEl.innerHTML = '<div class="error">Could not load the published JSON.</div>';
 });

@@ -1,10 +1,6 @@
 export function createRenderers({ state, elements, searchController, setFilterMode, setFiltersOpen }) {
   const { equipmentFilterEl, listEl, titleEl, subEl, bodyEl, filtersPanel, filtersToggle, filterEquipmentTab, filterPlayerTab, filterEquipmentPane, filterPlayerPane } = elements;
 
-  function setText(el, value) {
-    if (el) el.textContent = value;
-  }
-
   function renderEquipmentFilter() {
     const items = ['Queen', 'King', 'Warden'];
     equipmentFilterEl.innerHTML = items.map(item => `<label><input type="checkbox" ${state.ownedEpicEquipment.has(item) ? 'checked' : ''} data-item="${item}"> ${item}</label>`).join('');
@@ -19,8 +15,8 @@ export function createRenderers({ state, elements, searchController, setFilterMo
   function renderGroup(group, groupIndex, playerTag = null) {
     state.selectedPlayer = { tag: playerTag };
     if (!group) return;
-    setText(titleEl, group.label);
-    setText(subEl, `${group.uniqueUsers} players · ${group.players.length} tracked entries`);
+    titleEl.textContent = group.label;
+    subEl.textContent = `${group.uniqueUsers} players · ${group.players.length} tracked entries`;
     const rows = (group.players || [])
       .filter(player => !state.selectedPlayer || player.tag === state.selectedPlayer.tag)
       .map(player => `<tr><td>${player.name}</td></tr>`).join('');
@@ -38,7 +34,7 @@ export function createRenderers({ state, elements, searchController, setFilterMo
 
   function renderSearchResults() {
     searchController.renderSearchResults();
-    searchResultsEl?.querySelectorAll('.search-result').forEach(btn => btn.addEventListener('click', () => {
+    searchResultsEl.querySelectorAll('.search-result').forEach(btn => btn.addEventListener('click', () => {
       const groupIndex = Number(btn.dataset.groupIndex);
       const playerTag = btn.dataset.playerTag;
       const group = state.siteData.groups[groupIndex];
