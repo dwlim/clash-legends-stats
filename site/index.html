@@ -239,6 +239,53 @@
       outline: none;
     }
 
+    .filter-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .filter-tab {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+      pointer-events: auto;
+    }
+
+    .filter-tab.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .filter-pane {
+      display: grid;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .filter-pane.hidden {
+      display: none;
+    }
+
+    .filter-pane input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      padding: 10px 12px;
+      font: inherit;
+      outline: none;
+      pointer-events: auto;
+    }
+
     .search-results {
       display: grid;
       gap: 6px;
@@ -1059,6 +1106,10 @@
           renderGroup(window.siteData.groups[0], 0);
         }
       });
+      filterEquipmentTab.addEventListener('click', () => setFilterMode('equipment'));
+      filterPlayerTab.addEventListener('click', () => setFilterMode('player'));
+      filterEquipmentTab.addEventListener('pointerup', () => setFilterMode('equipment'));
+      filterPlayerTab.addEventListener('pointerup', () => setFilterMode('player'));
       playerSearchEl.addEventListener('input', () => { renderSearchResults(); renderList(); });
       if (defaultDay) {
         await loadDay(defaultDay);
