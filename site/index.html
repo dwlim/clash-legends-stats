@@ -1116,7 +1116,18 @@
     }
 
     function renderList() {
-      const visibleGroups = window.siteData.groups.filter(group => {
+      const query = (playerSearchEl.value || '').trim().toLowerCase();
+      const searchGroupIndexes = query && window.siteData?.groups?.length
+        ? new Set(
+            window.siteData.groups.flatMap((group, groupIndex) =>
+              (group.players || []).some(player => player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query))
+                ? [groupIndex]
+                : []
+            )
+          )
+        : null;
+      const visibleGroups = window.siteData.groups.filter((group, groupIndex) => {
+        if (searchGroupIndexes && !searchGroupIndexes.has(groupIndex)) return false;
         if (!ownedEpicEquipment.size) return true;
         return (group.players || []).some(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded));
       });
@@ -1233,7 +1244,15 @@
         if (!playerSearchEl.value.trim()) selectedPlayer = null;
         renderSearchResults();
         renderList();
-        if (!playerSearchEl.value.trim() && window.siteData?.groups?.length) {
+        if (playerSearchEl.value.trim()) {
+          const query = playerSearchEl.value.trim().toLowerCase();
+          const matchGroupIndex = window.siteData.groups.findIndex(group =>
+            (group.players || []).some(player => player.name.toLowerCase().includes(query) || player.tag.toLowerCase().includes(query))
+          );
+          if (matchGroupIndex >= 0) {
+            renderGroup(window.siteData.groups[matchGroupIndex], matchGroupIndex);
+          }
+        } else if (window.siteData?.groups?.length) {
           renderGroup(window.siteData.groups[0], 0);
         }
       });
