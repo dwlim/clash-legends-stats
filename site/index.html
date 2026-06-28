@@ -730,9 +730,15 @@
           if (ownedEpicEquipment.has(name)) ownedEpicEquipment.delete(name);
           else ownedEpicEquipment.add(name);
           renderEquipmentFilter();
+          renderList();
           if (window.siteData.groups.length) {
-            const activeIndex = Math.max(0, [...listEl.querySelectorAll('.group-btn')].findIndex(el => el.classList.contains('active')));
-            renderGroup(window.siteData.groups[activeIndex], activeIndex);
+            const activeBtn = listEl.querySelector('.group-btn.active') || listEl.querySelector('.group-btn');
+            if (activeBtn) renderGroup(window.siteData.groups[Number(activeBtn.dataset.index)], Number(activeBtn.dataset.index));
+            else {
+              titleEl.textContent = 'No groups match';
+              subEl.textContent = 'Try clearing some equipment filters.';
+              bodyEl.innerHTML = '';
+            }
           }
         });
       });
@@ -792,15 +798,23 @@
     }
 
     function renderList() {
-      listEl.innerHTML = window.siteData.groups.map((group, index) => `
-        <button class="group-btn ${index === 0 ? 'active' : ''}" data-index="${index}">
-          <div class="group-title">${group.label}</div>
-          <div class="group-meta">
-            <span>${group.uniqueUsers} players</span>
-            <span>${group.count} attacks</span>
-          </div>
-        </button>
-      `).join('');
+      const visibleGroups = window.siteData.groups.filter(group => {
+        if (!ownedEpicEquipment.size) return true;
+        return (group.players || []).some(player => armyMatchesOwnedEquipment(player.best_attack?.armyDecoded));
+      });
+
+      listEl.innerHTML = visibleGroups.length
+        ? visibleGroups.map((group, visibleIndex) => {
+            const originalIndex = window.siteData.groups.indexOf(group);
+            return `<button class="group-btn ${visibleIndex === 0 ? 'active' : ''}" data-index="${originalIndex}">
+              <div class="group-title">${group.label}</div>
+              <div class="group-meta">
+                <span>${group.uniqueUsers} players</span>
+                <span>${group.count} attacks</span>
+              </div>
+            </button>`;
+          }).join('')
+        : '<div class="error">No groups match the selected equipment.</div>';
 
       listEl.querySelectorAll('.group-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -843,11 +857,11 @@
         });
       });
       equipmentClearEl.addEventListener('click', () => {
-        ownedEquipment.clear();
+        ownedEpicEquipment.clear();
         renderEquipmentFilter();
+        renderList();
         if (window.siteData?.groups?.length) {
-          const activeIndex = Math.max(0, [...listEl.querySelectorAll('.group-btn')].findIndex(el => el.classList.contains('active')));
-          renderGroup(window.siteData.groups[activeIndex], activeIndex);
+          renderGroup(window.siteData.groups[0], 0);
         }
       });
       if (defaultDay) {
