@@ -458,20 +458,20 @@
 
     .equipment-filter-grid {
       display: grid;
-      grid-template-columns: repeat(4, 150px);
-      gap: 4px;
-      justify-content: center;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 6px;
+      align-items: start;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       .equipment-filter-grid {
-        grid-template-columns: repeat(2, 150px);
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
       }
     }
 
-    @media (max-width: 340px) {
+    @media (max-width: 420px) {
       .equipment-filter-grid {
-        grid-template-columns: 150px;
+        grid-template-columns: minmax(150px, 1fr);
       }
     }
 
