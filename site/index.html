@@ -883,6 +883,15 @@
       "Dragon Duke": "DD"
     };
 
+    const HERO_GROUP_LABELS = [
+      'Barbarian King',
+      'Archer Queen',
+      'Minion Prince',
+      'Grand Warden',
+      'Royal Champion',
+      'Dragon Duke'
+    ];
+
     const EQUIPMENT_ABBREVIATIONS = {
       "Barbarian Puppet": "BP",
       "Rage Vial": "RV",
@@ -1083,7 +1092,7 @@
     }
 
     function renderEquipmentFilter() {
-      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">Hero ${index + 1}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name.replace(/\s+/g, '<br>')}</button>`).join('')}</div></div>`).join('');
+      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">${HERO_GROUP_LABELS[index] || `Hero ${index + 1}`}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name.replace(/\s+/g, '<br>')}</button>`).join('')}</div></div>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.equipment;
