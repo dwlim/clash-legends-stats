@@ -361,10 +361,6 @@
       z-index: 1;
     }
 
-    .filter-pane.hidden {
-      display: none;
-    }
-
     .filter-pane input {
       width: 100%;
       border: 1px solid var(--line);
@@ -952,23 +948,6 @@
       if (mode === 'player') playerSearchEl.focus();
     }
 
-    function renderEquipmentFilter() {
-      const items = [...new Set((window.siteData?.groups || []).flatMap(group => (group.players || []).flatMap(player => player.best_attack?.armyDecoded?.equipment || [])))]
-        .filter(isEpicEquipment)
-        .sort((a, b) => a.localeCompare(b));
-      equipmentFilterGridEl.innerHTML = items.map(name => `<button class="group-btn ${ownedEpicEquipment.has(name) ? 'active' : ''}" data-equipment="${name}" type="button">${name}</button>`).join('');
-      equipmentSummaryEl.textContent = ownedEpicEquipment.size ? `${ownedEpicEquipment.size} selected` : 'Select the equipment you own to glow matching armies.';
-      equipmentFilterGridEl.querySelectorAll('[data-equipment]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const name = btn.getAttribute('data-equipment');
-          if (ownedEpicEquipment.has(name)) ownedEpicEquipment.delete(name); else ownedEpicEquipment.add(name);
-          renderEquipmentFilter();
-          renderList();
-          if (window.siteData?.groups?.length) renderGroup(window.siteData.groups[0], 0);
-        });
-      });
-    }
-
     function renderSearchResults() {
       const query = (playerSearchEl.value || '').trim().toLowerCase();
       if (!query || !window.siteData?.groups?.length) {
@@ -1104,13 +1083,6 @@
     }
 
     function renderEquipmentFilter() {
-      const equipmentNames = [...new Set((window.siteData.groups || []).flatMap(group => (group.players || []).flatMap(player => getArmyEpicEquipmentNames(player.best_attack?.armyDecoded))))];
-      if (!equipmentNames.length) {
-        equipmentFilterGridEl.innerHTML = "<span class=\"equipment-summary\">No epic equipment found in this day's armies.</span>";
-        equipmentSummaryEl.textContent = 'Only equipment that appears in an army is shown here.';
-        return;
-      }
-
       equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">Hero ${index + 1}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name.replace(/\s+/g, '<br>')}</button>`).join('')}</div></div>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
