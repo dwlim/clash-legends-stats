@@ -460,7 +460,7 @@
       display: grid;
       grid-template-columns: repeat(6, minmax(150px, 1fr));
       gap: 6px;
-      align-items: start;
+      align-items: stretch;
     }
 
     @media (max-width: 1080px) {
@@ -483,12 +483,14 @@
 
     .equipment-group {
       display: grid;
+      grid-template-rows: auto 1fr;
       gap: 2px;
       padding: 4px 0 5px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.03);
       min-width: 0;
+      height: 100%;
     }
 
     .equipment-group-label {
@@ -508,6 +510,8 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 4px;
       min-width: 0;
+      align-content: start;
+      height: 100%;
     }
 
     @media (max-width: 540px) {
