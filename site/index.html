@@ -455,6 +455,38 @@
     }
 
     .equipment-filter-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .equipment-group {
+      display: grid;
+      gap: 8px;
+      padding: 10px 12px 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .equipment-group-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .equipment-group-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--line-strong), transparent);
+      opacity: 0.8;
+    }
+
+    .equipment-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -1042,7 +1074,7 @@
         return;
       }
 
-      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map(group => `<div class="equipment-group">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('')}</div>`).join('');
+      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">Hero group ${index + 1}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name}</button>`).join('')}</div></div>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.equipment;
