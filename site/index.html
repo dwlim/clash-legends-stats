@@ -456,31 +456,35 @@
 
     .equipment-filter-grid {
       display: grid;
-      gap: 8px;
+      gap: 4px;
     }
 
     .equipment-group {
-      display: grid;
+      display: flex;
+      align-items: center;
       gap: 6px;
-      padding: 8px 10px 9px;
+      padding: 4px 8px;
       border: 1px solid var(--line);
-      border-radius: 14px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.03);
     }
 
     .equipment-group-label {
       color: var(--muted);
-      font-size: 0.68rem;
+      font-size: 0.64rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      flex: 0 0 auto;
       line-height: 1;
     }
 
     .equipment-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 4px;
+      min-width: 0;
     }
 
     .equipment-pill {
@@ -488,10 +492,11 @@
       background: rgba(255, 255, 255, 0.04);
       color: var(--text);
       border-radius: 999px;
-      padding: 8px 11px;
+      padding: 5px 8px;
       cursor: pointer;
       font: inherit;
-      font-size: 0.86rem;
+      font-size: 0.78rem;
+      line-height: 1;
       transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
