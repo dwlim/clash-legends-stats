@@ -489,10 +489,16 @@
     }
 
     .equipment-pills {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 4px;
       min-width: 0;
+    }
+
+    @media (max-width: 540px) {
+      .equipment-pills {
+        grid-template-columns: 1fr;
+      }
     }
 
     .equipment-pill {
