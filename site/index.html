@@ -997,15 +997,8 @@
 
     function youtubeSearchUrl(armyShareCode) {
       if (!armyShareCode) return '';
-      const normalized = String(armyShareCode).replace(/^https?:\/\/link\.clashofclans\.com\/en\/?\?action=CopyArmy&army=/i, '');
-      const rawParts = normalized.split('-');
-      const troops = rawParts[0] || '';
-      const spells = rawParts[1] || '';
-      const heroes = rawParts.slice(2).join('-') || '';
-      const parts = [troops, spells, heroes].filter(Boolean).map(part => `"${part}"`);
-      if (!parts.length) return '';
-      parts.push('Clash of Clans');
-      return `https://www.youtube.com/results?search_query=${encodeURIComponent(parts.join(' '))}`;
+      const normalized = String(armyShareCode);
+      return `https://www.youtube.com/results?search_query=${encodeURIComponent(`"${normalized}" Clash of Clans`)}`;
     }
 
     function formatArmyLines(decoded, { shortHeroes = false } = {}) {
