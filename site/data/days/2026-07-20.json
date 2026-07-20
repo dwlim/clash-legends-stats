@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T13:05:08.947790+00:00",
+  "generated_at": "2026-07-20T14:06:14.937135+00:00",
   "groups": [
     {
       "count": 527,
@@ -42357,7 +42357,7 @@
       "uniqueUsers": 2
     },
     {
-      "count": 3,
+      "count": 5,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -42558,23 +42558,23 @@
       "label": "Super Minion Composition - Earthquake Heavy",
       "players": [
         {
-          "attack_count": 1,
+          "attack_count": 3,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h0p10e14_32-1p9e17_48-2p17e22_24-7p4e52_53i1x64-1x147d2x120-1x53u8x57-7x1-1x91-8x84-5x7-2x150-1x5-3x82-2x58-1x123-5x4s2x35-6x10-1x9-1x5",
+              "raw": "h0p10e14_32-1p9e17_48-2p17e22_24-7p4e52_53i1x64-1x147d1x53-2x120u5x7-8x57-1x91-8x84-2x150-3x82-2x58-1x123-5x4-1x5-7x1s3x35-6x10-1x5-1x9",
               "sections": {
                 "clanCastleSpells": [
-                  {
-                    "count": 2,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
                   {
                     "count": 1,
                     "id": 53,
                     "name": "Recall Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
                   }
                 ],
                 "heroes": [
@@ -42673,7 +42673,7 @@
                 ],
                 "spells": [
                   {
-                    "count": 2,
+                    "count": 3,
                     "id": 35,
                     "name": "Invisibility Spell"
                   },
@@ -42684,25 +42684,25 @@
                   },
                   {
                     "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
+                    "id": 5,
+                    "name": "Freeze Spell"
                   },
                   {
                     "count": 1,
-                    "id": 5,
-                    "name": "Freeze Spell"
+                    "id": 9,
+                    "name": "Poison Spell"
                   }
                 ],
                 "troops": [
                   {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
                     "count": 8,
                     "id": 57,
                     "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 7,
-                    "id": 1,
-                    "name": "Archer"
                   },
                   {
                     "count": 1,
@@ -42715,19 +42715,9 @@
                     "name": "Super Minion"
                   },
                   {
-                    "count": 5,
-                    "id": 7,
-                    "name": "Healer"
-                  },
-                  {
                     "count": 2,
                     "id": 150,
                     "name": "Furnace"
-                  },
-                  {
-                    "count": 1,
-                    "id": 5,
-                    "name": "Balloon"
                   },
                   {
                     "count": 3,
@@ -42748,36 +42738,46 @@
                     "count": 5,
                     "id": 4,
                     "name": "Wall Breaker"
+                  },
+                  {
+                    "count": 1,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 7,
+                    "id": 1,
+                    "name": "Archer"
                   }
                 ]
               }
             },
             "armyLabel": "Super Minion Composition",
-            "armyShareCode": "h0p10e14_32-1p9e17_48-2p17e22_24-7p4e52_53i1x64-1x147d2x120-1x53u8x57-7x1-1x91-8x84-5x7-2x150-1x5-3x82-2x58-1x123-5x4s2x35-6x10-1x9-1x5",
+            "armyShareCode": "h0p10e14_32-1p9e17_48-2p17e22_24-7p4e52_53i1x64-1x147d1x53-2x120u5x7-8x57-1x91-8x84-2x150-3x82-2x58-1x123-5x4-1x5-7x1s3x35-6x10-1x5-1x9",
             "battleTime": 148,
-            "battleTimestamp": "20260720T125608.000Z",
+            "battleTimestamp": "20260720T130548.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "Ns.Radeas NyKi",
-            "opponentTag": "#2Y2Q9C8UP",
+            "opponentName": "Clasher",
+            "opponentTag": "#9PU09CLYJ",
             "opponentTownHallLevel": 17,
             "playerName": "Norman",
             "playerTag": "#208GJC2G9",
             "playerTownHallLevel": null,
-            "polled_at": "2026-07-20T13:04:14.474298+00:00",
-            "sourcePollAt": "2026-07-20T13:04:14.474298+00:00",
+            "polled_at": "2026-07-20T14:05:17.113559+00:00",
+            "sourcePollAt": "2026-07-20T14:05:17.113559+00:00",
             "spellStyle": "Earthquake Heavy",
             "stars": 3,
             "tracking_day": "2026-07-20"
           },
           "name": "Norman",
           "stats": {
-            "attack_count": 1,
-            "avg_destruction": 100.0,
-            "avg_stars": 3.0,
-            "destruction_total": 100,
-            "stars_total": 3,
-            "three_star_rate": 100.0
+            "attack_count": 3,
+            "avg_destruction": 97.0,
+            "avg_stars": 2.333,
+            "destruction_total": 291,
+            "stars_total": 7,
+            "three_star_rate": 33.333
           },
           "tag": "#208GJC2G9"
         },
@@ -43012,12 +43012,12 @@
         }
       ],
       "stats": {
-        "attack_count": 3,
-        "avg_destruction": 96.667,
-        "avg_stars": 2.333,
-        "destruction_total": 290,
-        "stars_total": 7,
-        "three_star_rate": 33.333
+        "attack_count": 5,
+        "avg_destruction": 96.2,
+        "avg_stars": 2.2,
+        "destruction_total": 481,
+        "stars_total": 11,
+        "three_star_rate": 20.0
       },
       "uniqueUsers": 2
     },
@@ -45369,14 +45369,14 @@
   ],
   "players": {
     "#208GJC2G9": {
-      "best_army_count": 1,
+      "best_army_count": 3,
       "stats": {
-        "attack_count": 1,
-        "avg_destruction": 100.0,
-        "avg_stars": 3.0,
-        "destruction_total": 100,
-        "stars_total": 3,
-        "three_star_rate": 100.0
+        "attack_count": 3,
+        "avg_destruction": 97.0,
+        "avg_stars": 2.333,
+        "destruction_total": 291,
+        "stars_total": 7,
+        "three_star_rate": 33.333
       }
     },
     "#209QRPQGV": {
@@ -47476,17 +47476,17 @@
     "tracking_day": "2026-07-20"
   },
   "stats": {
-    "attack_records": 1516,
+    "attack_records": 1522,
     "avg_attacks_per_player": 6.5,
     "favorite_groups": 18,
     "most_popular_army": 527,
     "overall": {
-      "attack_count": 1238,
+      "attack_count": 1240,
       "avg_destruction": 95.358,
-      "avg_stars": 2.562,
-      "destruction_total": 118053,
-      "stars_total": 3172,
-      "three_star_rate": 59.612
+      "avg_stars": 2.561,
+      "destruction_total": 118244,
+      "stars_total": 3176,
+      "three_star_rate": 59.516
     },
     "top_players": 200
   },
