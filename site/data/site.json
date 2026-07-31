@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-31T16:58:31.036308+00:00",
+  "generated_at": "2026-07-31T17:59:48.122501+00:00",
   "groups": [
     {
-      "count": 431,
+      "count": 439,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -2990,12 +2990,12 @@
           "tag": "#YJ902QL2"
         },
         {
-          "attack_count": 5,
+          "attack_count": 6,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-1x10-2x1s1x10-1x17-4x120-1x9-2x5-1x98",
+              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-8x8-5x65-1x63-2x1-1x10s1x10-4x120-2x5-1x9-1x17-1x98",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -3115,14 +3115,14 @@
                     "name": "Earthquake Spell"
                   },
                   {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
-                  {
                     "count": 4,
                     "id": 120,
                     "name": "Totem Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
                   },
                   {
                     "count": 1,
@@ -3130,9 +3130,9 @@
                     "name": "Poison Spell"
                   },
                   {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
                   },
                   {
                     "count": 1,
@@ -3147,11 +3147,6 @@
                     "name": "Rocket Balloon"
                   },
                   {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
                     "count": 8,
                     "id": 8,
                     "name": "Dragon"
@@ -3163,42 +3158,47 @@
                   },
                   {
                     "count": 1,
-                    "id": 10,
-                    "name": "Minion"
+                    "id": 63,
+                    "name": "Inferno Dragon"
                   },
                   {
                     "count": 2,
                     "id": 1,
                     "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
                   }
                 ]
               }
             },
             "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
-            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-1x10-2x1s1x10-1x17-4x120-1x9-2x5-1x98",
-            "battleTime": 98,
-            "battleTimestamp": "20260731T162518.000Z",
+            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-8x8-5x65-1x63-2x1-1x10s1x10-4x120-2x5-1x9-1x17-1x98",
+            "battleTime": 102,
+            "battleTimestamp": "20260731T174613.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "☆★☆eli☆★☆",
-            "opponentTag": "#2R89CGV8Y",
+            "opponentName": "SA: Prodigy",
+            "opponentTag": "#YVC2QGGC",
             "opponentTownHallLevel": 17,
             "playerName": "thegreatfotini",
             "playerTag": "#8QG8LV8Q",
             "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T16:57:22.806241+00:00",
-            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
             "spellStyle": "Totem Spam",
             "stars": 3,
             "tracking_day": "2026-07-31"
           },
           "name": "thegreatfotini",
           "stats": {
-            "attack_count": 5,
+            "attack_count": 6,
             "avg_destruction": 100.0,
             "avg_stars": 3.0,
-            "destruction_total": 500,
-            "stars_total": 15,
+            "destruction_total": 600,
+            "stars_total": 18,
             "three_star_rate": 100.0
           },
           "tag": "#8QG8LV8Q"
@@ -4926,6 +4926,235 @@
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
+              "raw": "h1p9e17_48-2m1p16e5_34-6p17e49_43-7p11e57_53i1x63-2x8d1x9-1x17-1x98u7x57-1x63-8x8-1x188-4x65-1x23-1x3-1x10-1x0-3x1s1x10-4x120-1x2-2x5-1x70",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Giant Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 34,
+                        "name": "Healing Tome"
+                      },
+                      {
+                        "id": 5,
+                        "name": "Life Gem"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 43,
+                        "name": "Dark Orb"
+                      },
+                      {
+                        "id": 49,
+                        "name": "Meteor Staff"
+                      }
+                    ],
+                    "id": 6,
+                    "name": "Minion Prince",
+                    "pets": [
+                      {
+                        "id": 17,
+                        "name": "Greedy Raven"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 11,
+                        "name": "Angry Jelly"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 2,
+                    "id": 8,
+                    "name": "Dragon"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 7,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 8,
+                    "id": 8,
+                    "name": "Dragon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 188,
+                    "name": "Sky Wagon"
+                  },
+                  {
+                    "count": 4,
+                    "id": 65,
+                    "name": "Dragon Rider"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 3,
+                    "name": "Giant"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 1,
+                    "id": 0,
+                    "name": "Barbarian"
+                  },
+                  {
+                    "count": 3,
+                    "id": 1,
+                    "name": "Archer"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
+            "armyShareCode": "h1p9e17_48-2m1p16e5_34-6p17e49_43-7p11e57_53i1x63-2x8d1x9-1x17-1x98u7x57-1x63-8x8-1x188-4x65-1x23-1x3-1x10-1x0-3x1s1x10-4x120-1x2-2x5-1x70",
+            "battleTime": 117,
+            "battleTimestamp": "20260731T170623.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "STKR ⚡️✰ Noah",
+            "opponentTag": "#2RV8R2JU8",
+            "opponentTownHallLevel": 17,
+            "playerName": "DOA⚔️SEANTIM⚔️",
+            "playerTag": "#22VGGQV02",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "DOA⚔️SEANTIM⚔️",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 97.571,
+            "avg_stars": 2.857,
+            "destruction_total": 683,
+            "stars_total": 20,
+            "three_star_rate": 85.714
+          },
+          "tag": "#22VGGQV02"
+        },
+        {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
               "raw": "h1p9e17_48-2m1p16e5_34-6p17e49_43-7p11e57_53i1x188-1x63-2x8d1x9-1x17-1x98u7x57-8x8-4x65-1x3-1x0-3x1-1x10-1x23-1x63s1x10-4x120-1x2-2x5-1x70",
               "sections": {
                 "clanCastleSpells": [
@@ -5148,220 +5377,6 @@
             "three_star_rate": 85.714
           },
           "tag": "#LGLCV8J2U"
-        },
-        {
-          "attack_count": 6,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u1x63-8x8-5x65-6x57-1x10-2x1s1x10-4x120-1x9-2x5-1x17-1x98",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 2,
-                    "name": "Rage Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 70,
-                    "name": "Overgrowth Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 17,
-                        "name": "Giant Arrow"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 9,
-                        "name": "Frosty"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 4,
-                        "name": "Eternal Tome"
-                      },
-                      {
-                        "id": 34,
-                        "name": "Healing Tome"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 43,
-                        "name": "Dark Orb"
-                      },
-                      {
-                        "id": 49,
-                        "name": "Meteor Staff"
-                      }
-                    ],
-                    "id": 6,
-                    "name": "Minion Prince",
-                    "pets": [
-                      {
-                        "id": 17,
-                        "name": "Greedy Raven"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 4,
-                        "name": "Phoenix"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 188,
-                    "name": "Sky Wagon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 81,
-                    "name": "Super Dragon"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 8,
-                    "id": 8,
-                    "name": "Dragon"
-                  },
-                  {
-                    "count": 5,
-                    "id": 65,
-                    "name": "Dragon Rider"
-                  },
-                  {
-                    "count": 6,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
-                  },
-                  {
-                    "count": 2,
-                    "id": 1,
-                    "name": "Archer"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
-            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u1x63-8x8-5x65-6x57-1x10-2x1s1x10-4x120-1x9-2x5-1x17-1x98",
-            "battleTime": 91,
-            "battleTimestamp": "20260731T162021.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "❄️Wolo❄️无可比拟",
-            "opponentTag": "#Y00G8PLUL",
-            "opponentTownHallLevel": 17,
-            "playerName": "Mega❤️Tobifer 4",
-            "playerTag": "#PRJC2PQPP",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T16:57:22.806241+00:00",
-            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "Mega❤️Tobifer 4",
-          "stats": {
-            "attack_count": 6,
-            "avg_destruction": 98.833,
-            "avg_stars": 2.833,
-            "destruction_total": 593,
-            "stars_total": 17,
-            "three_star_rate": 83.333
-          },
-          "tag": "#PRJC2PQPP"
         },
         {
           "attack_count": 6,
@@ -7748,6 +7763,220 @@
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
+              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u1x63-8x8-5x65-6x57-1x10-2x1s1x10-4x120-1x9-2x5-1x17-1x98",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Giant Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 34,
+                        "name": "Healing Tome"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 43,
+                        "name": "Dark Orb"
+                      },
+                      {
+                        "id": 49,
+                        "name": "Meteor Staff"
+                      }
+                    ],
+                    "id": 6,
+                    "name": "Minion Prince",
+                    "pets": [
+                      {
+                        "id": 17,
+                        "name": "Greedy Raven"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 188,
+                    "name": "Sky Wagon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 81,
+                    "name": "Super Dragon"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 8,
+                    "id": 8,
+                    "name": "Dragon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 65,
+                    "name": "Dragon Rider"
+                  },
+                  {
+                    "count": 6,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 2,
+                    "id": 1,
+                    "name": "Archer"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
+            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u1x63-8x8-5x65-6x57-1x10-2x1s1x10-4x120-1x9-2x5-1x17-1x98",
+            "battleTime": 91,
+            "battleTimestamp": "20260731T162021.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "❄️Wolo❄️无可比拟",
+            "opponentTag": "#Y00G8PLUL",
+            "opponentTownHallLevel": 17,
+            "playerName": "Mega❤️Tobifer 4",
+            "playerTag": "#PRJC2PQPP",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T16:57:22.806241+00:00",
+            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "Mega❤️Tobifer 4",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 98.429,
+            "avg_stars": 2.714,
+            "destruction_total": 689,
+            "stars_total": 19,
+            "three_star_rate": 71.429
+          },
+          "tag": "#PRJC2PQPP"
+        },
+        {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
               "raw": "h1p9e17_48-2m1p16e4_34-6p4e49_43-7p11e57_53i1x188-1x63-1x81d1x2-1x70u1x63-8x8-5x65-6x57-2x1-1x10s1x10-1x17-6x120-1x9-2x5",
               "sections": {
                 "clanCastleSpells": [
@@ -8375,6 +8604,220 @@
           "tag": "#22GCJYL89"
         },
         {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u8x8-5x65-1x63-6x57-1x10-2x1s1x10-1x17-4x120-1x9-1x98-2x5",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Giant Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 34,
+                        "name": "Healing Tome"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 43,
+                        "name": "Dark Orb"
+                      },
+                      {
+                        "id": 49,
+                        "name": "Meteor Staff"
+                      }
+                    ],
+                    "id": 6,
+                    "name": "Minion Prince",
+                    "pets": [
+                      {
+                        "id": 17,
+                        "name": "Greedy Raven"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 188,
+                    "name": "Sky Wagon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 81,
+                    "name": "Super Dragon"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 8,
+                    "id": 8,
+                    "name": "Dragon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 65,
+                    "name": "Dragon Rider"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 6,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 2,
+                    "id": 1,
+                    "name": "Archer"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
+            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u8x8-5x65-1x63-6x57-1x10-2x1s1x10-1x17-4x120-1x9-1x98-2x5",
+            "battleTime": 91,
+            "battleTimestamp": "20260731T172238.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "STRONG ツ",
+            "opponentTag": "#LGLCV8J2U",
+            "opponentTownHallLevel": 17,
+            "playerName": "MidNight ⚡️ LK",
+            "playerTag": "#PRQLYLRY0",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "MidNight ⚡️ LK",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 95.714,
+            "avg_stars": 2.714,
+            "destruction_total": 670,
+            "stars_total": 19,
+            "three_star_rate": 71.429
+          },
+          "tag": "#PRQLYLRY0"
+        },
+        {
           "attack_count": 6,
           "best_attack": {
             "armyDecoded": {
@@ -8582,444 +9025,6 @@
             "three_star_rate": 66.667
           },
           "tag": "#9YQUG88V"
-        },
-        {
-          "attack_count": 6,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-2x1-1x10s1x10-4x120-1x9-2x5-1x17-1x98",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 2,
-                    "name": "Rage Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 70,
-                    "name": "Overgrowth Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 17,
-                        "name": "Giant Arrow"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 9,
-                        "name": "Frosty"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 4,
-                        "name": "Eternal Tome"
-                      },
-                      {
-                        "id": 34,
-                        "name": "Healing Tome"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 43,
-                        "name": "Dark Orb"
-                      },
-                      {
-                        "id": 49,
-                        "name": "Meteor Staff"
-                      }
-                    ],
-                    "id": 6,
-                    "name": "Minion Prince",
-                    "pets": [
-                      {
-                        "id": 17,
-                        "name": "Greedy Raven"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 4,
-                        "name": "Phoenix"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 188,
-                    "name": "Sky Wagon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 81,
-                    "name": "Super Dragon"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 6,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 8,
-                    "id": 8,
-                    "name": "Dragon"
-                  },
-                  {
-                    "count": 5,
-                    "id": 65,
-                    "name": "Dragon Rider"
-                  },
-                  {
-                    "count": 2,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
-            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-2x1-1x10s1x10-4x120-1x9-2x5-1x17-1x98",
-            "battleTime": 143,
-            "battleTimestamp": "20260731T143803.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "774⚜️P4ge♦️",
-            "opponentTag": "#G2PLVVV8C",
-            "opponentTownHallLevel": 17,
-            "playerName": "MidNight ⚡️ LK",
-            "playerTag": "#PRQLYLRY0",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T14:54:44.709278+00:00",
-            "sourcePollAt": "2026-07-31T14:54:44.709278+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "MidNight ⚡️ LK",
-          "stats": {
-            "attack_count": 6,
-            "avg_destruction": 95.0,
-            "avg_stars": 2.667,
-            "destruction_total": 570,
-            "stars_total": 16,
-            "three_star_rate": 66.667
-          },
-          "tag": "#PRQLYLRY0"
-        },
-        {
-          "attack_count": 3,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h1p9e17_48-2m1p16e5_34-6p17e49_43-7p11e57_53i1x63-2x8d1x9-1x17u7x57-4x65-1x23-8x8-1x188-1x63-1x10-3x1-1x0-1x3s1x10-4x120-1x2-2x5-1x70",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 17,
-                        "name": "Giant Arrow"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 9,
-                        "name": "Frosty"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 34,
-                        "name": "Healing Tome"
-                      },
-                      {
-                        "id": 5,
-                        "name": "Life Gem"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 43,
-                        "name": "Dark Orb"
-                      },
-                      {
-                        "id": 49,
-                        "name": "Meteor Staff"
-                      }
-                    ],
-                    "id": 6,
-                    "name": "Minion Prince",
-                    "pets": [
-                      {
-                        "id": 17,
-                        "name": "Greedy Raven"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 11,
-                        "name": "Angry Jelly"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 2,
-                    "id": 8,
-                    "name": "Dragon"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 2,
-                    "name": "Rage Spell"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 70,
-                    "name": "Overgrowth Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 7,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 4,
-                    "id": 65,
-                    "name": "Dragon Rider"
-                  },
-                  {
-                    "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 8,
-                    "id": 8,
-                    "name": "Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 188,
-                    "name": "Sky Wagon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
-                  },
-                  {
-                    "count": 3,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 1,
-                    "id": 0,
-                    "name": "Barbarian"
-                  },
-                  {
-                    "count": 1,
-                    "id": 3,
-                    "name": "Giant"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
-            "armyShareCode": "h1p9e17_48-2m1p16e5_34-6p17e49_43-7p11e57_53i1x63-2x8d1x9-1x17u7x57-4x65-1x23-8x8-1x188-1x63-1x10-3x1-1x0-1x3s1x10-4x120-1x2-2x5-1x70",
-            "battleTime": 109,
-            "battleTimestamp": "20260731T165614.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "DSM♦️HAK",
-            "opponentTag": "#PYU9CP8Y",
-            "opponentTownHallLevel": 17,
-            "playerName": "DOA⚔️SEANTIM⚔️",
-            "playerTag": "#22VGGQV02",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T16:57:22.806241+00:00",
-            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "DOA⚔️SEANTIM⚔️",
-          "stats": {
-            "attack_count": 3,
-            "avg_destruction": 94.333,
-            "avg_stars": 2.667,
-            "destruction_total": 283,
-            "stars_total": 8,
-            "three_star_rate": 66.667
-          },
-          "tag": "#22VGGQV02"
         },
         {
           "attack_count": 8,
@@ -10087,6 +10092,220 @@
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
+              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-1x10-2x1s1x10-4x120-1x9-1x17-2x5-1x98",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Giant Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 34,
+                        "name": "Healing Tome"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 43,
+                        "name": "Dark Orb"
+                      },
+                      {
+                        "id": 49,
+                        "name": "Meteor Staff"
+                      }
+                    ],
+                    "id": 6,
+                    "name": "Minion Prince",
+                    "pets": [
+                      {
+                        "id": 17,
+                        "name": "Greedy Raven"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 188,
+                    "name": "Sky Wagon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 81,
+                    "name": "Super Dragon"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 6,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 63,
+                    "name": "Inferno Dragon"
+                  },
+                  {
+                    "count": 8,
+                    "id": 8,
+                    "name": "Dragon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 65,
+                    "name": "Dragon Rider"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 2,
+                    "id": 1,
+                    "name": "Archer"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
+            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-1x63-8x8-5x65-1x10-2x1s1x10-4x120-1x9-1x17-2x5-1x98",
+            "battleTime": 147,
+            "battleTimestamp": "20260731T172038.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "시험점수공개",
+            "opponentTag": "#YUU9LR9PG",
+            "opponentTownHallLevel": 17,
+            "playerName": "Mega❤️Tobifer",
+            "playerTag": "#889LUJCVL",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "Mega❤️Tobifer",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 96.0,
+            "avg_stars": 2.571,
+            "destruction_total": 672,
+            "stars_total": 18,
+            "three_star_rate": 57.143
+          },
+          "tag": "#889LUJCVL"
+        },
+        {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
               "raw": "h1p9e17_48-2m1p16e4_34-6p17e49_43-7p4e57_53i1x63-1x81d1x70-1x98u2x63-7x8-1x188-7x57-5x65-1x1s1x10-4x120-1x2-1x17-1x9-2x5",
               "sections": {
                 "clanCastleSpells": [
@@ -10906,220 +11125,6 @@
             "three_star_rate": 50.0
           },
           "tag": "#P2VLQY2G0"
-        },
-        {
-          "attack_count": 6,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-8x8-5x65-1x63-2x1-1x10s1x10-4x120-2x5-1x9-1x17-1x98",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 2,
-                    "name": "Rage Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 70,
-                    "name": "Overgrowth Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 17,
-                        "name": "Giant Arrow"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 9,
-                        "name": "Frosty"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 4,
-                        "name": "Eternal Tome"
-                      },
-                      {
-                        "id": 34,
-                        "name": "Healing Tome"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 43,
-                        "name": "Dark Orb"
-                      },
-                      {
-                        "id": 49,
-                        "name": "Meteor Staff"
-                      }
-                    ],
-                    "id": 6,
-                    "name": "Minion Prince",
-                    "pets": [
-                      {
-                        "id": 17,
-                        "name": "Greedy Raven"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 4,
-                        "name": "Phoenix"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 188,
-                    "name": "Sky Wagon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 81,
-                    "name": "Super Dragon"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 6,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 8,
-                    "id": 8,
-                    "name": "Dragon"
-                  },
-                  {
-                    "count": 5,
-                    "id": 65,
-                    "name": "Dragon Rider"
-                  },
-                  {
-                    "count": 1,
-                    "id": 63,
-                    "name": "Inferno Dragon"
-                  },
-                  {
-                    "count": 2,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Dragon Rider Air (DD Rocket Backpack)",
-            "armyShareCode": "h1p9e48_17-2m1p16e4_34-6p17e49_43-7p4e57_53i1x188-1x63-1x81d1x2-1x70u6x57-8x8-5x65-1x63-2x1-1x10s1x10-4x120-2x5-1x9-1x17-1x98",
-            "battleTime": 144,
-            "battleTimestamp": "20260731T144228.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "Reze❣️",
-            "opponentTag": "#P0Y0Q9G9J",
-            "opponentTownHallLevel": 17,
-            "playerName": "Mega❤️Tobifer",
-            "playerTag": "#889LUJCVL",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T14:54:44.709278+00:00",
-            "sourcePollAt": "2026-07-31T14:54:44.709278+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "Mega❤️Tobifer",
-          "stats": {
-            "attack_count": 6,
-            "avg_destruction": 95.333,
-            "avg_stars": 2.5,
-            "destruction_total": 572,
-            "stars_total": 15,
-            "three_star_rate": 50.0
-          },
-          "tag": "#889LUJCVL"
         },
         {
           "attack_count": 8,
@@ -14138,17 +14143,17 @@
         }
       ],
       "stats": {
-        "attack_count": 431,
-        "avg_destruction": 96.81,
-        "avg_stars": 2.689,
-        "destruction_total": 41725,
-        "stars_total": 1159,
-        "three_star_rate": 70.07
+        "attack_count": 439,
+        "avg_destruction": 96.859,
+        "avg_stars": 2.692,
+        "destruction_total": 42521,
+        "stars_total": 1182,
+        "three_star_rate": 70.387
       },
       "uniqueUsers": 66
     },
     {
-      "count": 185,
+      "count": 200,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -14606,6 +14611,464 @@
             "three_star_rate": 100.0
           },
           "tag": "#2L9QVRP0L"
+        },
+        {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p9e14_32-1p17e16_48-2p7e4_19-7p10e56_59i1x135-1x64-1x147d1x9-1x53-1x17u5x7-3x28-5x5-1x23-3x1-2x6-2x58-5x80-1x97-1x82-3x10s3x35-3x2-2x120",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 53,
+                    "name": "Recall Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 32,
+                        "name": "Snake Bracelet"
+                      },
+                      {
+                        "id": 14,
+                        "name": "Spiky Ball"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 16,
+                        "name": "Monolith Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 17,
+                        "name": "Greedy Raven"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 19,
+                        "name": "Heroic Torch"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 7,
+                        "name": "Poison Lizard"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 59,
+                        "name": "Electro Fangs"
+                      },
+                      {
+                        "id": 56,
+                        "name": "Stun Blaster"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 10,
+                        "name": "Spirit Fox"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 135,
+                    "name": "Troop Launcher"
+                  },
+                  {
+                    "count": 1,
+                    "id": 64,
+                    "name": "Super Valkyrie"
+                  },
+                  {
+                    "count": 1,
+                    "id": 147,
+                    "name": "Super Yeti"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 3,
+                    "id": 35,
+                    "name": "Invisibility Spell"
+                  },
+                  {
+                    "count": 3,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 3,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 5,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 3,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 2,
+                    "id": 6,
+                    "name": "Wizard"
+                  },
+                  {
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 5,
+                    "id": 80,
+                    "name": "Super Bowler"
+                  },
+                  {
+                    "count": 1,
+                    "id": 97,
+                    "name": "Apprentice Warden"
+                  },
+                  {
+                    "count": 1,
+                    "id": 82,
+                    "name": "Headhunter"
+                  },
+                  {
+                    "count": 3,
+                    "id": 10,
+                    "name": "Minion"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Super Bowler Smash",
+            "armyShareCode": "h0p9e14_32-1p17e16_48-2p7e4_19-7p10e56_59i1x135-1x64-1x147d1x9-1x53-1x17u5x7-3x28-5x5-1x23-3x1-2x6-2x58-5x80-1x97-1x82-3x10s3x35-3x2-2x120",
+            "battleTime": 129,
+            "battleTimestamp": "20260731T173759.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "TJ⚜️Hsuan✨",
+            "opponentTag": "#Q898LYPR",
+            "opponentTownHallLevel": 17,
+            "playerName": "CE DARK ON TOP",
+            "playerTag": "#YY0820QJ",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Balanced",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "CE DARK ON TOP",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 100.0,
+            "avg_stars": 3.0,
+            "destruction_total": 700,
+            "stars_total": 21,
+            "three_star_rate": 100.0
+          },
+          "tag": "#YY0820QJ"
+        },
+        {
+          "attack_count": 3,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p9e14_32-1p11e16_48-2p7e19_4-7p10e52_56i1x64-1x147d1x53-2x120u3x5-5x7-3x28-1x23-2x58-5x80-2x12-1x97-1x135-2x6-3x1-1x82s3x2-2x35-1x9-2x5",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 53,
+                    "name": "Recall Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 32,
+                        "name": "Snake Bracelet"
+                      },
+                      {
+                        "id": 14,
+                        "name": "Spiky Ball"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 16,
+                        "name": "Monolith Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 11,
+                        "name": "Angry Jelly"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 19,
+                        "name": "Heroic Torch"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 7,
+                        "name": "Poison Lizard"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 52,
+                        "name": "Fire Heart"
+                      },
+                      {
+                        "id": 56,
+                        "name": "Stun Blaster"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 10,
+                        "name": "Spirit Fox"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 64,
+                    "name": "Super Valkyrie"
+                  },
+                  {
+                    "count": 1,
+                    "id": 147,
+                    "name": "Super Yeti"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 3,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 35,
+                    "name": "Invisibility Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 3,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 3,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 5,
+                    "id": 80,
+                    "name": "Super Bowler"
+                  },
+                  {
+                    "count": 2,
+                    "id": 12,
+                    "name": "Valkyrie"
+                  },
+                  {
+                    "count": 1,
+                    "id": 97,
+                    "name": "Apprentice Warden"
+                  },
+                  {
+                    "count": 1,
+                    "id": 135,
+                    "name": "Troop Launcher"
+                  },
+                  {
+                    "count": 2,
+                    "id": 6,
+                    "name": "Wizard"
+                  },
+                  {
+                    "count": 3,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 82,
+                    "name": "Headhunter"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Super Bowler Smash",
+            "armyShareCode": "h0p9e14_32-1p11e16_48-2p7e19_4-7p10e52_56i1x64-1x147d1x53-2x120u3x5-5x7-3x28-1x23-2x58-5x80-2x12-1x97-1x135-2x6-3x1-1x82s3x2-2x35-1x9-2x5",
+            "battleTime": 141,
+            "battleTimestamp": "20260731T174832.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "عبإاس",
+            "opponentTag": "#8VPYC99YY",
+            "opponentTownHallLevel": 17,
+            "playerName": "GAKU♣️Rula",
+            "playerTag": "#2QQVPPLUV",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Balanced",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "GAKU♣️Rula",
+          "stats": {
+            "attack_count": 3,
+            "avg_destruction": 100.0,
+            "avg_stars": 3.0,
+            "destruction_total": 300,
+            "stars_total": 9,
+            "three_star_rate": 100.0
+          },
+          "tag": "#2QQVPPLUV"
         },
         {
           "attack_count": 7,
@@ -17683,6 +18146,240 @@
             "three_star_rate": 80.0
           },
           "tag": "#YY229RY08"
+        },
+        {
+          "attack_count": 5,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p9e32_14-1p16e16_48-2p7e19_4-7p10e56_59i1x135-1x64-1x147d1x17-1x53-1x5u3x28-5x5-5x7-3x1-2x6-2x58-5x80-1x97-1x23-3x10-1x82s3x35-2x120-2x2-1x98",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 53,
+                    "name": "Recall Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 32,
+                        "name": "Snake Bracelet"
+                      },
+                      {
+                        "id": 14,
+                        "name": "Spiky Ball"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 16,
+                        "name": "Monolith Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 4,
+                        "name": "Eternal Tome"
+                      },
+                      {
+                        "id": 19,
+                        "name": "Heroic Torch"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 7,
+                        "name": "Poison Lizard"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 59,
+                        "name": "Electro Fangs"
+                      },
+                      {
+                        "id": 56,
+                        "name": "Stun Blaster"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 10,
+                        "name": "Spirit Fox"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 135,
+                    "name": "Troop Launcher"
+                  },
+                  {
+                    "count": 1,
+                    "id": 64,
+                    "name": "Super Valkyrie"
+                  },
+                  {
+                    "count": 1,
+                    "id": 147,
+                    "name": "Super Yeti"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 3,
+                    "id": 35,
+                    "name": "Invisibility Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 2,
+                    "name": "Rage Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 3,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 5,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 3,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 2,
+                    "id": 6,
+                    "name": "Wizard"
+                  },
+                  {
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 5,
+                    "id": 80,
+                    "name": "Super Bowler"
+                  },
+                  {
+                    "count": 1,
+                    "id": 97,
+                    "name": "Apprentice Warden"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 3,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 1,
+                    "id": 82,
+                    "name": "Headhunter"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Super Bowler Smash",
+            "armyShareCode": "h0p9e32_14-1p16e16_48-2p7e19_4-7p10e56_59i1x135-1x64-1x147d1x17-1x53-1x5u3x28-5x5-5x7-3x1-2x6-2x58-5x80-1x97-1x23-3x10-1x82s3x35-2x120-2x2-1x98",
+            "battleTime": 143,
+            "battleTimestamp": "20260731T173642.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "Second Mountain",
+            "opponentTag": "#LY2C9LJY",
+            "opponentTownHallLevel": 17,
+            "playerName": "VISHWA◤ⒾⓈⓈⓁ™️",
+            "playerTag": "#YJC8L8LPV",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Balanced",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "VISHWA◤ⒾⓈⓈⓁ™️",
+          "stats": {
+            "attack_count": 5,
+            "avg_destruction": 95.8,
+            "avg_stars": 2.8,
+            "destruction_total": 479,
+            "stars_total": 14,
+            "three_star_rate": 80.0
+          },
+          "tag": "#YJC8L8LPV"
         },
         {
           "attack_count": 4,
@@ -22446,14 +23143,14 @@
         }
       ],
       "stats": {
-        "attack_count": 185,
-        "avg_destruction": 96.589,
-        "avg_stars": 2.681,
-        "destruction_total": 17869,
-        "stars_total": 496,
-        "three_star_rate": 69.189
+        "attack_count": 200,
+        "avg_destruction": 96.74,
+        "avg_stars": 2.7,
+        "destruction_total": 19348,
+        "stars_total": 540,
+        "three_star_rate": 71.0
       },
-      "uniqueUsers": 34
+      "uniqueUsers": 37
     },
     {
       "count": 90,
@@ -25410,7 +26107,7 @@
       "uniqueUsers": 13
     },
     {
-      "count": 56,
+      "count": 58,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -26064,19 +26761,14 @@
           "tag": "#92J8J9Q8G"
         },
         {
-          "attack_count": 5,
+          "attack_count": 7,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h0p11e10_51-1p3e39_48-2p16e24_5-7p4e53_52i1x87-1x64-1x147d1x17-1x9-1x98u1x1-4x26-1x82-1x58-11x132-5x7-2x3-2x5-1x23-1x123-1x10-2x28s2x10-3x0-3x120-1x70-1x5",
+              "raw": "h0p11e10_51-1p3e39_48-2p16e24_5-7p4e53_52i1x87-1x64-1x147d1x9-1x98-1x17u11x132-1x58-5x7-2x28-2x5-2x3-1x82-1x123-1x23-4x26-1x1-1x10s2x10-3x0-3x120-1x70-1x5",
               "sections": {
                 "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
                   {
                     "count": 1,
                     "id": 9,
@@ -26086,6 +26778,11 @@
                     "count": 1,
                     "id": 98,
                     "name": "Revive Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
                   }
                 ],
                 "heroes": [
@@ -26216,29 +26913,14 @@
                 ],
                 "troops": [
                   {
-                    "count": 1,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 4,
-                    "id": 26,
-                    "name": "Super Barbarian"
-                  },
-                  {
-                    "count": 1,
-                    "id": 82,
-                    "name": "Headhunter"
+                    "count": 11,
+                    "id": 132,
+                    "name": "Thrower"
                   },
                   {
                     "count": 1,
                     "id": 58,
                     "name": "Ice Golem"
-                  },
-                  {
-                    "count": 11,
-                    "id": 132,
-                    "name": "Thrower"
                   },
                   {
                     "count": 5,
@@ -26247,8 +26929,8 @@
                   },
                   {
                     "count": 2,
-                    "id": 3,
-                    "name": "Giant"
+                    "id": 28,
+                    "name": "Super Wall Breaker"
                   },
                   {
                     "count": 2,
@@ -26256,9 +26938,14 @@
                     "name": "Balloon"
                   },
                   {
+                    "count": 2,
+                    "id": 3,
+                    "name": "Giant"
+                  },
+                  {
                     "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
+                    "id": 82,
+                    "name": "Headhunter"
                   },
                   {
                     "count": 1,
@@ -26267,43 +26954,53 @@
                   },
                   {
                     "count": 1,
-                    "id": 10,
-                    "name": "Minion"
+                    "id": 23,
+                    "name": "Baby Dragon"
                   },
                   {
-                    "count": 2,
-                    "id": 28,
-                    "name": "Super Wall Breaker"
+                    "count": 4,
+                    "id": 26,
+                    "name": "Super Barbarian"
+                  },
+                  {
+                    "count": 1,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
                   }
                 ]
               }
             },
             "armyLabel": "Thrower Smash",
-            "armyShareCode": "h0p11e10_51-1p3e39_48-2p16e24_5-7p4e53_52i1x87-1x64-1x147d1x17-1x9-1x98u1x1-4x26-1x82-1x58-11x132-5x7-2x3-2x5-1x23-1x123-1x10-2x28s2x10-3x0-3x120-1x70-1x5",
-            "battleTime": 143,
-            "battleTimestamp": "20260731T165537.000Z",
+            "armyShareCode": "h0p11e10_51-1p3e39_48-2p16e24_5-7p4e53_52i1x87-1x64-1x147d1x9-1x98-1x17u11x132-1x58-5x7-2x28-2x5-2x3-1x82-1x123-1x23-4x26-1x1-1x10s2x10-3x0-3x120-1x70-1x5",
+            "battleTime": 157,
+            "battleTimestamp": "20260731T170314.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "VTC Synthé",
-            "opponentTag": "#8J2YCG008",
+            "opponentName": "UD⚡️奏弦之旋律",
+            "opponentTag": "#2029PYRGL",
             "opponentTownHallLevel": 17,
             "playerName": "STRN Aquiles",
             "playerTag": "#LLC02CULL",
             "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T16:57:22.806241+00:00",
-            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
             "spellStyle": "Balanced",
             "stars": 3,
             "tracking_day": "2026-07-31"
           },
           "name": "STRN Aquiles",
           "stats": {
-            "attack_count": 5,
-            "avg_destruction": 100.0,
-            "avg_stars": 3.0,
-            "destruction_total": 500,
-            "stars_total": 15,
-            "three_star_rate": 100.0
+            "attack_count": 7,
+            "avg_destruction": 97.0,
+            "avg_stars": 2.857,
+            "destruction_total": 679,
+            "stars_total": 20,
+            "three_star_rate": 85.714
           },
           "tag": "#LLC02CULL"
         },
@@ -28375,12 +29072,12 @@
         }
       ],
       "stats": {
-        "attack_count": 56,
-        "avg_destruction": 96.857,
-        "avg_stars": 2.643,
-        "destruction_total": 5424,
-        "stars_total": 148,
-        "three_star_rate": 69.643
+        "attack_count": 58,
+        "avg_destruction": 96.603,
+        "avg_stars": 2.638,
+        "destruction_total": 5603,
+        "stars_total": 153,
+        "three_star_rate": 68.966
       },
       "uniqueUsers": 12
     },
@@ -30762,6 +31459,910 @@
       "uniqueUsers": 10
     },
     {
+      "count": 17,
+      "example": {
+        "decoded": true,
+        "fullArmy": true,
+        "raw": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u2x5-8x7-11x132-2x28-4x1-1x23-4x10-1x123s1x10-8x120-1x17-1x9",
+        "sections": {
+          "clanCastleSpells": [
+            {
+              "count": 1,
+              "id": 70,
+              "name": "Overgrowth Spell"
+            },
+            {
+              "count": 1,
+              "id": 98,
+              "name": "Revive Spell"
+            }
+          ],
+          "heroes": [
+            {
+              "equipment": [
+                {
+                  "id": 8,
+                  "name": "Earthquake Boots"
+                },
+                {
+                  "id": 14,
+                  "name": "Spiky Ball"
+                }
+              ],
+              "id": 0,
+              "name": "Barbarian King",
+              "pets": [
+                {
+                  "id": 4,
+                  "name": "Phoenix"
+                }
+              ]
+            },
+            {
+              "equipment": [
+                {
+                  "id": 48,
+                  "name": "Action Figure"
+                },
+                {
+                  "id": 39,
+                  "name": "Magic Mirror"
+                }
+              ],
+              "id": 1,
+              "name": "Archer Queen",
+              "pets": [
+                {
+                  "id": 16,
+                  "name": "Sneezy"
+                }
+              ]
+            },
+            {
+              "equipment": [
+                {
+                  "id": 5,
+                  "name": "Life Gem"
+                },
+                {
+                  "id": 24,
+                  "name": "Rage Gem"
+                }
+              ],
+              "id": 2,
+              "name": "Grand Warden",
+              "pets": [
+                {
+                  "id": 3,
+                  "name": "Unicorn"
+                }
+              ]
+            },
+            {
+              "equipment": [
+                {
+                  "id": 57,
+                  "name": "Flame Blower"
+                },
+                {
+                  "id": 53,
+                  "name": "Rocket Backpack"
+                }
+              ],
+              "id": 7,
+              "name": "Dragon Duke",
+              "pets": [
+                {
+                  "id": 11,
+                  "name": "Angry Jelly"
+                }
+              ]
+            }
+          ],
+          "reinforcements": [
+            {
+              "count": 1,
+              "id": 135,
+              "name": "Troop Launcher"
+            },
+            {
+              "count": 1,
+              "id": 1,
+              "name": "Archer"
+            },
+            {
+              "count": 3,
+              "id": 53,
+              "name": "Yeti"
+            }
+          ],
+          "spells": [
+            {
+              "count": 1,
+              "id": 10,
+              "name": "Earthquake Spell"
+            },
+            {
+              "count": 8,
+              "id": 120,
+              "name": "Totem Spell"
+            },
+            {
+              "count": 1,
+              "id": 17,
+              "name": "Skeleton Spell"
+            },
+            {
+              "count": 1,
+              "id": 9,
+              "name": "Poison Spell"
+            }
+          ],
+          "troops": [
+            {
+              "count": 2,
+              "id": 5,
+              "name": "Balloon"
+            },
+            {
+              "count": 8,
+              "id": 7,
+              "name": "Healer"
+            },
+            {
+              "count": 11,
+              "id": 132,
+              "name": "Thrower"
+            },
+            {
+              "count": 2,
+              "id": 28,
+              "name": "Super Wall Breaker"
+            },
+            {
+              "count": 4,
+              "id": 1,
+              "name": "Archer"
+            },
+            {
+              "count": 1,
+              "id": 23,
+              "name": "Baby Dragon"
+            },
+            {
+              "count": 4,
+              "id": 10,
+              "name": "Minion"
+            },
+            {
+              "count": 1,
+              "id": 123,
+              "name": "Druid"
+            }
+          ]
+        }
+      },
+      "label": "Thrower Smash - Totem Spam",
+      "players": [
+        {
+          "attack_count": 7,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p11e51_10-1p3e16_48-2p16e24_5-7p4e57_53i1x135-3x10-1x5-1x57-2x53d1x17-2x5-1x9u1x10-2x58-9x132-5x7-3x28-1x123-5x57-1x23-2x6-2x1-1x82s2x10-3x0-4x120-1x98",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 10,
+                        "name": "Giant Gauntlet"
+                      },
+                      {
+                        "id": 51,
+                        "name": "Stick Horse"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 11,
+                        "name": "Angry Jelly"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 16,
+                        "name": "Monolith Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 3,
+                        "name": "Unicorn"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 5,
+                        "name": "Life Gem"
+                      },
+                      {
+                        "id": 24,
+                        "name": "Rage Gem"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 135,
+                    "name": "Troop Launcher"
+                  },
+                  {
+                    "count": 3,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 1,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 2,
+                    "id": 53,
+                    "name": "Yeti"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 2,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 3,
+                    "id": 0,
+                    "name": "Lightning Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 9,
+                    "id": 132,
+                    "name": "Thrower"
+                  },
+                  {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 3,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 1,
+                    "id": 123,
+                    "name": "Druid"
+                  },
+                  {
+                    "count": 5,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 2,
+                    "id": 6,
+                    "name": "Wizard"
+                  },
+                  {
+                    "count": 2,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 82,
+                    "name": "Headhunter"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Thrower Smash",
+            "armyShareCode": "h0p11e51_10-1p3e16_48-2p16e24_5-7p4e57_53i1x135-3x10-1x5-1x57-2x53d1x17-2x5-1x9u1x10-2x58-9x132-5x7-3x28-1x123-5x57-1x23-2x6-2x1-1x82s2x10-3x0-4x120-1x98",
+            "battleTime": 141,
+            "battleTimestamp": "20260731T065105.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "elfuenkchen",
+            "opponentTag": "#YJ902QL2",
+            "opponentTownHallLevel": 17,
+            "playerName": "本土❤️CXdf$4",
+            "playerTag": "#2VGYP2YCG",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T07:23:59.521815+00:00",
+            "sourcePollAt": "2026-07-31T07:23:59.521815+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "本土❤️CXdf$4",
+          "stats": {
+            "attack_count": 7,
+            "avg_destruction": 100.0,
+            "avg_stars": 3.0,
+            "destruction_total": 700,
+            "stars_total": 21,
+            "three_star_rate": 100.0
+          },
+          "tag": "#2VGYP2YCG"
+        },
+        {
+          "attack_count": 2,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p10e14_32-1p9e48_17-2p16e24_5-7p4e52_53i1x87-1x4-2x5-1x57-1x58-1x110d1x70-1x98u2x1-10x132-3x5-5x7-2x58-2x28-1x123-3x4-6x26-1x82-1x0s3x10-4x120-1x9-2x5-1x35",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 32,
+                        "name": "Snake Bracelet"
+                      },
+                      {
+                        "id": 14,
+                        "name": "Spiky Ball"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 10,
+                        "name": "Spirit Fox"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 17,
+                        "name": "Giant Arrow"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 9,
+                        "name": "Frosty"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 5,
+                        "name": "Life Gem"
+                      },
+                      {
+                        "id": 24,
+                        "name": "Rage Gem"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 52,
+                        "name": "Fire Heart"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 87,
+                    "name": "Log Launcher"
+                  },
+                  {
+                    "count": 1,
+                    "id": 4,
+                    "name": "Wall Breaker"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 57,
+                    "name": "Rocket Balloon"
+                  },
+                  {
+                    "count": 1,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 1,
+                    "id": 110,
+                    "name": "Root Rider"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 3,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Freeze Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 35,
+                    "name": "Invisibility Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 2,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 10,
+                    "id": 132,
+                    "name": "Thrower"
+                  },
+                  {
+                    "count": 3,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 5,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
+                  },
+                  {
+                    "count": 2,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 1,
+                    "id": 123,
+                    "name": "Druid"
+                  },
+                  {
+                    "count": 3,
+                    "id": 4,
+                    "name": "Wall Breaker"
+                  },
+                  {
+                    "count": 6,
+                    "id": 26,
+                    "name": "Super Barbarian"
+                  },
+                  {
+                    "count": 1,
+                    "id": 82,
+                    "name": "Headhunter"
+                  },
+                  {
+                    "count": 1,
+                    "id": 0,
+                    "name": "Barbarian"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Thrower Smash",
+            "armyShareCode": "h0p10e14_32-1p9e48_17-2p16e24_5-7p4e52_53i1x87-1x4-2x5-1x57-1x58-1x110d1x70-1x98u2x1-10x132-3x5-5x7-2x58-2x28-1x123-3x4-6x26-1x82-1x0s3x10-4x120-1x9-2x5-1x35",
+            "battleTime": 133,
+            "battleTimestamp": "20260731T175529.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "SKRR",
+            "opponentTag": "#2G898LCG",
+            "opponentTownHallLevel": 17,
+            "playerName": "ＡＴＣ❄️ＹＥＨＩＡ",
+            "playerTag": "#PG9CJ8UJV",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "ＡＴＣ❄️ＹＥＨＩＡ",
+          "stats": {
+            "attack_count": 2,
+            "avg_destruction": 100.0,
+            "avg_stars": 3.0,
+            "destruction_total": 200,
+            "stars_total": 6,
+            "three_star_rate": 100.0
+          },
+          "tag": "#PG9CJ8UJV"
+        },
+        {
+          "attack_count": 8,
+          "best_attack": {
+            "armyDecoded": {
+              "decoded": true,
+              "fullArmy": true,
+              "raw": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u4x10-2x5-8x7-2x28-11x132-1x23-4x1-1x123s1x10-8x120-1x9-1x17",
+              "sections": {
+                "clanCastleSpells": [
+                  {
+                    "count": 1,
+                    "id": 70,
+                    "name": "Overgrowth Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
+                  }
+                ],
+                "heroes": [
+                  {
+                    "equipment": [
+                      {
+                        "id": 8,
+                        "name": "Earthquake Boots"
+                      },
+                      {
+                        "id": 14,
+                        "name": "Spiky Ball"
+                      }
+                    ],
+                    "id": 0,
+                    "name": "Barbarian King",
+                    "pets": [
+                      {
+                        "id": 4,
+                        "name": "Phoenix"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 48,
+                        "name": "Action Figure"
+                      },
+                      {
+                        "id": 39,
+                        "name": "Magic Mirror"
+                      }
+                    ],
+                    "id": 1,
+                    "name": "Archer Queen",
+                    "pets": [
+                      {
+                        "id": 16,
+                        "name": "Sneezy"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 5,
+                        "name": "Life Gem"
+                      },
+                      {
+                        "id": 24,
+                        "name": "Rage Gem"
+                      }
+                    ],
+                    "id": 2,
+                    "name": "Grand Warden",
+                    "pets": [
+                      {
+                        "id": 3,
+                        "name": "Unicorn"
+                      }
+                    ]
+                  },
+                  {
+                    "equipment": [
+                      {
+                        "id": 57,
+                        "name": "Flame Blower"
+                      },
+                      {
+                        "id": 53,
+                        "name": "Rocket Backpack"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "Dragon Duke",
+                    "pets": [
+                      {
+                        "id": 11,
+                        "name": "Angry Jelly"
+                      }
+                    ]
+                  }
+                ],
+                "reinforcements": [
+                  {
+                    "count": 1,
+                    "id": 135,
+                    "name": "Troop Launcher"
+                  },
+                  {
+                    "count": 1,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 3,
+                    "id": 53,
+                    "name": "Yeti"
+                  }
+                ],
+                "spells": [
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Earthquake Spell"
+                  },
+                  {
+                    "count": 8,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 17,
+                    "name": "Skeleton Spell"
+                  }
+                ],
+                "troops": [
+                  {
+                    "count": 4,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 2,
+                    "id": 5,
+                    "name": "Balloon"
+                  },
+                  {
+                    "count": 8,
+                    "id": 7,
+                    "name": "Healer"
+                  },
+                  {
+                    "count": 2,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
+                  },
+                  {
+                    "count": 11,
+                    "id": 132,
+                    "name": "Thrower"
+                  },
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
+                  {
+                    "count": 4,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 1,
+                    "id": 123,
+                    "name": "Druid"
+                  }
+                ]
+              }
+            },
+            "armyLabel": "Thrower Smash",
+            "armyShareCode": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u4x10-2x5-8x7-2x28-11x132-1x23-4x1-1x123s1x10-8x120-1x9-1x17",
+            "battleTime": 159,
+            "battleTimestamp": "20260731T061101.000Z",
+            "battleType": "legend",
+            "destructionPercentage": 100,
+            "opponentName": "VN ☯️ Craven",
+            "opponentTag": "#9YQUG88V",
+            "opponentTownHallLevel": 17,
+            "playerName": "เปรียว",
+            "playerTag": "#22URVQLPC",
+            "playerTownHallLevel": null,
+            "polled_at": "2026-07-31T06:22:47.056195+00:00",
+            "sourcePollAt": "2026-07-31T06:22:47.056195+00:00",
+            "spellStyle": "Totem Spam",
+            "stars": 3,
+            "tracking_day": "2026-07-31"
+          },
+          "name": "เปรียว",
+          "stats": {
+            "attack_count": 8,
+            "avg_destruction": 96.875,
+            "avg_stars": 2.625,
+            "destruction_total": 775,
+            "stars_total": 21,
+            "three_star_rate": 62.5
+          },
+          "tag": "#22URVQLPC"
+        }
+      ],
+      "stats": {
+        "attack_count": 17,
+        "avg_destruction": 98.529,
+        "avg_stars": 2.824,
+        "destruction_total": 1675,
+        "stars_total": 48,
+        "three_star_rate": 82.353
+      },
+      "uniqueUsers": 3
+    },
+    {
       "count": 5,
       "example": {
         "decoded": true,
@@ -31664,661 +33265,6 @@
         "three_star_rate": 60.0
       },
       "uniqueUsers": 3
-    },
-    {
-      "count": 15,
-      "example": {
-        "decoded": true,
-        "fullArmy": true,
-        "raw": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u2x5-8x7-11x132-2x28-4x1-1x23-4x10-1x123s1x10-8x120-1x17-1x9",
-        "sections": {
-          "clanCastleSpells": [
-            {
-              "count": 1,
-              "id": 70,
-              "name": "Overgrowth Spell"
-            },
-            {
-              "count": 1,
-              "id": 98,
-              "name": "Revive Spell"
-            }
-          ],
-          "heroes": [
-            {
-              "equipment": [
-                {
-                  "id": 8,
-                  "name": "Earthquake Boots"
-                },
-                {
-                  "id": 14,
-                  "name": "Spiky Ball"
-                }
-              ],
-              "id": 0,
-              "name": "Barbarian King",
-              "pets": [
-                {
-                  "id": 4,
-                  "name": "Phoenix"
-                }
-              ]
-            },
-            {
-              "equipment": [
-                {
-                  "id": 48,
-                  "name": "Action Figure"
-                },
-                {
-                  "id": 39,
-                  "name": "Magic Mirror"
-                }
-              ],
-              "id": 1,
-              "name": "Archer Queen",
-              "pets": [
-                {
-                  "id": 16,
-                  "name": "Sneezy"
-                }
-              ]
-            },
-            {
-              "equipment": [
-                {
-                  "id": 5,
-                  "name": "Life Gem"
-                },
-                {
-                  "id": 24,
-                  "name": "Rage Gem"
-                }
-              ],
-              "id": 2,
-              "name": "Grand Warden",
-              "pets": [
-                {
-                  "id": 3,
-                  "name": "Unicorn"
-                }
-              ]
-            },
-            {
-              "equipment": [
-                {
-                  "id": 57,
-                  "name": "Flame Blower"
-                },
-                {
-                  "id": 53,
-                  "name": "Rocket Backpack"
-                }
-              ],
-              "id": 7,
-              "name": "Dragon Duke",
-              "pets": [
-                {
-                  "id": 11,
-                  "name": "Angry Jelly"
-                }
-              ]
-            }
-          ],
-          "reinforcements": [
-            {
-              "count": 1,
-              "id": 135,
-              "name": "Troop Launcher"
-            },
-            {
-              "count": 1,
-              "id": 1,
-              "name": "Archer"
-            },
-            {
-              "count": 3,
-              "id": 53,
-              "name": "Yeti"
-            }
-          ],
-          "spells": [
-            {
-              "count": 1,
-              "id": 10,
-              "name": "Earthquake Spell"
-            },
-            {
-              "count": 8,
-              "id": 120,
-              "name": "Totem Spell"
-            },
-            {
-              "count": 1,
-              "id": 17,
-              "name": "Skeleton Spell"
-            },
-            {
-              "count": 1,
-              "id": 9,
-              "name": "Poison Spell"
-            }
-          ],
-          "troops": [
-            {
-              "count": 2,
-              "id": 5,
-              "name": "Balloon"
-            },
-            {
-              "count": 8,
-              "id": 7,
-              "name": "Healer"
-            },
-            {
-              "count": 11,
-              "id": 132,
-              "name": "Thrower"
-            },
-            {
-              "count": 2,
-              "id": 28,
-              "name": "Super Wall Breaker"
-            },
-            {
-              "count": 4,
-              "id": 1,
-              "name": "Archer"
-            },
-            {
-              "count": 1,
-              "id": 23,
-              "name": "Baby Dragon"
-            },
-            {
-              "count": 4,
-              "id": 10,
-              "name": "Minion"
-            },
-            {
-              "count": 1,
-              "id": 123,
-              "name": "Druid"
-            }
-          ]
-        }
-      },
-      "label": "Thrower Smash - Totem Spam",
-      "players": [
-        {
-          "attack_count": 7,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h0p11e51_10-1p3e16_48-2p16e24_5-7p4e57_53i1x135-3x10-1x5-1x57-2x53d1x17-2x5-1x9u1x10-2x58-9x132-5x7-3x28-1x123-5x57-1x23-2x6-2x1-1x82s2x10-3x0-4x120-1x98",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Freeze Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 10,
-                        "name": "Giant Gauntlet"
-                      },
-                      {
-                        "id": 51,
-                        "name": "Stick Horse"
-                      }
-                    ],
-                    "id": 0,
-                    "name": "Barbarian King",
-                    "pets": [
-                      {
-                        "id": 11,
-                        "name": "Angry Jelly"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 16,
-                        "name": "Monolith Arrow"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 3,
-                        "name": "Unicorn"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 5,
-                        "name": "Life Gem"
-                      },
-                      {
-                        "id": 24,
-                        "name": "Rage Gem"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 4,
-                        "name": "Phoenix"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 135,
-                    "name": "Troop Launcher"
-                  },
-                  {
-                    "count": 3,
-                    "id": 10,
-                    "name": "Minion"
-                  },
-                  {
-                    "count": 1,
-                    "id": 5,
-                    "name": "Balloon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 2,
-                    "id": 53,
-                    "name": "Yeti"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 2,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 3,
-                    "id": 0,
-                    "name": "Lightning Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
-                  },
-                  {
-                    "count": 2,
-                    "id": 58,
-                    "name": "Ice Golem"
-                  },
-                  {
-                    "count": 9,
-                    "id": 132,
-                    "name": "Thrower"
-                  },
-                  {
-                    "count": 5,
-                    "id": 7,
-                    "name": "Healer"
-                  },
-                  {
-                    "count": 3,
-                    "id": 28,
-                    "name": "Super Wall Breaker"
-                  },
-                  {
-                    "count": 1,
-                    "id": 123,
-                    "name": "Druid"
-                  },
-                  {
-                    "count": 5,
-                    "id": 57,
-                    "name": "Rocket Balloon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 2,
-                    "id": 6,
-                    "name": "Wizard"
-                  },
-                  {
-                    "count": 2,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 1,
-                    "id": 82,
-                    "name": "Headhunter"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Thrower Smash",
-            "armyShareCode": "h0p11e51_10-1p3e16_48-2p16e24_5-7p4e57_53i1x135-3x10-1x5-1x57-2x53d1x17-2x5-1x9u1x10-2x58-9x132-5x7-3x28-1x123-5x57-1x23-2x6-2x1-1x82s2x10-3x0-4x120-1x98",
-            "battleTime": 141,
-            "battleTimestamp": "20260731T065105.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "elfuenkchen",
-            "opponentTag": "#YJ902QL2",
-            "opponentTownHallLevel": 17,
-            "playerName": "本土❤️CXdf$4",
-            "playerTag": "#2VGYP2YCG",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T07:23:59.521815+00:00",
-            "sourcePollAt": "2026-07-31T07:23:59.521815+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "本土❤️CXdf$4",
-          "stats": {
-            "attack_count": 7,
-            "avg_destruction": 100.0,
-            "avg_stars": 3.0,
-            "destruction_total": 700,
-            "stars_total": 21,
-            "three_star_rate": 100.0
-          },
-          "tag": "#2VGYP2YCG"
-        },
-        {
-          "attack_count": 8,
-          "best_attack": {
-            "armyDecoded": {
-              "decoded": true,
-              "fullArmy": true,
-              "raw": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u4x10-2x5-8x7-2x28-11x132-1x23-4x1-1x123s1x10-8x120-1x9-1x17",
-              "sections": {
-                "clanCastleSpells": [
-                  {
-                    "count": 1,
-                    "id": 70,
-                    "name": "Overgrowth Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  }
-                ],
-                "heroes": [
-                  {
-                    "equipment": [
-                      {
-                        "id": 8,
-                        "name": "Earthquake Boots"
-                      },
-                      {
-                        "id": 14,
-                        "name": "Spiky Ball"
-                      }
-                    ],
-                    "id": 0,
-                    "name": "Barbarian King",
-                    "pets": [
-                      {
-                        "id": 4,
-                        "name": "Phoenix"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 48,
-                        "name": "Action Figure"
-                      },
-                      {
-                        "id": 39,
-                        "name": "Magic Mirror"
-                      }
-                    ],
-                    "id": 1,
-                    "name": "Archer Queen",
-                    "pets": [
-                      {
-                        "id": 16,
-                        "name": "Sneezy"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 5,
-                        "name": "Life Gem"
-                      },
-                      {
-                        "id": 24,
-                        "name": "Rage Gem"
-                      }
-                    ],
-                    "id": 2,
-                    "name": "Grand Warden",
-                    "pets": [
-                      {
-                        "id": 3,
-                        "name": "Unicorn"
-                      }
-                    ]
-                  },
-                  {
-                    "equipment": [
-                      {
-                        "id": 57,
-                        "name": "Flame Blower"
-                      },
-                      {
-                        "id": 53,
-                        "name": "Rocket Backpack"
-                      }
-                    ],
-                    "id": 7,
-                    "name": "Dragon Duke",
-                    "pets": [
-                      {
-                        "id": 11,
-                        "name": "Angry Jelly"
-                      }
-                    ]
-                  }
-                ],
-                "reinforcements": [
-                  {
-                    "count": 1,
-                    "id": 135,
-                    "name": "Troop Launcher"
-                  },
-                  {
-                    "count": 1,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 3,
-                    "id": 53,
-                    "name": "Yeti"
-                  }
-                ],
-                "spells": [
-                  {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Earthquake Spell"
-                  },
-                  {
-                    "count": 8,
-                    "id": 120,
-                    "name": "Totem Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
-                  }
-                ],
-                "troops": [
-                  {
-                    "count": 4,
-                    "id": 10,
-                    "name": "Minion"
-                  },
-                  {
-                    "count": 2,
-                    "id": 5,
-                    "name": "Balloon"
-                  },
-                  {
-                    "count": 8,
-                    "id": 7,
-                    "name": "Healer"
-                  },
-                  {
-                    "count": 2,
-                    "id": 28,
-                    "name": "Super Wall Breaker"
-                  },
-                  {
-                    "count": 11,
-                    "id": 132,
-                    "name": "Thrower"
-                  },
-                  {
-                    "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 4,
-                    "id": 1,
-                    "name": "Archer"
-                  },
-                  {
-                    "count": 1,
-                    "id": 123,
-                    "name": "Druid"
-                  }
-                ]
-              }
-            },
-            "armyLabel": "Thrower Smash",
-            "armyShareCode": "h0p4e8_14-1p16e39_48-2p3e24_5-7p11e53_57i1x135-1x1-3x53d1x70-1x98u4x10-2x5-8x7-2x28-11x132-1x23-4x1-1x123s1x10-8x120-1x9-1x17",
-            "battleTime": 159,
-            "battleTimestamp": "20260731T061101.000Z",
-            "battleType": "legend",
-            "destructionPercentage": 100,
-            "opponentName": "VN ☯️ Craven",
-            "opponentTag": "#9YQUG88V",
-            "opponentTownHallLevel": 17,
-            "playerName": "เปรียว",
-            "playerTag": "#22URVQLPC",
-            "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T06:22:47.056195+00:00",
-            "sourcePollAt": "2026-07-31T06:22:47.056195+00:00",
-            "spellStyle": "Totem Spam",
-            "stars": 3,
-            "tracking_day": "2026-07-31"
-          },
-          "name": "เปรียว",
-          "stats": {
-            "attack_count": 8,
-            "avg_destruction": 96.875,
-            "avg_stars": 2.625,
-            "destruction_total": 775,
-            "stars_total": 21,
-            "three_star_rate": 62.5
-          },
-          "tag": "#22URVQLPC"
-        }
-      ],
-      "stats": {
-        "attack_count": 15,
-        "avg_destruction": 98.333,
-        "avg_stars": 2.8,
-        "destruction_total": 1475,
-        "stars_total": 42,
-        "three_star_rate": 80.0
-      },
-      "uniqueUsers": 2
     },
     {
       "count": 14,
@@ -35816,7 +36762,7 @@
       "uniqueUsers": 1
     },
     {
-      "count": 4,
+      "count": 6,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -36007,12 +36953,12 @@
       "label": "Thrower Smash - Earthquake Heavy",
       "players": [
         {
-          "attack_count": 4,
+          "attack_count": 6,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h0p9e14_32-1p3e17_48-2p16e5_24-7p4e52_53i1x135-1x64-1x147d1x9-1x5-1x70u3x1-12x132-5x5-5x7-2x28-2x58-2x6-1x10-1x82s4x10-3x120-2x98",
+              "raw": "h0p9e14_32-1p3e17_48-2p16e5_24-7p4e52_53i1x135-1x64-1x147d1x9-1x5-1x70u2x58-12x132-5x7-5x5-2x6-3x1-2x28-1x82-1x10s4x10-3x120-2x98",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -36149,9 +37095,9 @@
                 ],
                 "troops": [
                   {
-                    "count": 3,
-                    "id": 1,
-                    "name": "Archer"
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
                   },
                   {
                     "count": 12,
@@ -36160,23 +37106,13 @@
                   },
                   {
                     "count": 5,
-                    "id": 5,
-                    "name": "Balloon"
-                  },
-                  {
-                    "count": 5,
                     "id": 7,
                     "name": "Healer"
                   },
                   {
-                    "count": 2,
-                    "id": 28,
-                    "name": "Super Wall Breaker"
-                  },
-                  {
-                    "count": 2,
-                    "id": 58,
-                    "name": "Ice Golem"
+                    "count": 5,
+                    "id": 5,
+                    "name": "Balloon"
                   },
                   {
                     "count": 2,
@@ -36184,54 +37120,64 @@
                     "name": "Wizard"
                   },
                   {
-                    "count": 1,
-                    "id": 10,
-                    "name": "Minion"
+                    "count": 3,
+                    "id": 1,
+                    "name": "Archer"
+                  },
+                  {
+                    "count": 2,
+                    "id": 28,
+                    "name": "Super Wall Breaker"
                   },
                   {
                     "count": 1,
                     "id": 82,
                     "name": "Headhunter"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
                   }
                 ]
               }
             },
             "armyLabel": "Thrower Smash",
-            "armyShareCode": "h0p9e14_32-1p3e17_48-2p16e5_24-7p4e52_53i1x135-1x64-1x147d1x9-1x5-1x70u3x1-12x132-5x5-5x7-2x28-2x58-2x6-1x10-1x82s4x10-3x120-2x98",
-            "battleTime": 143,
-            "battleTimestamp": "20260731T161912.000Z",
+            "armyShareCode": "h0p9e14_32-1p3e17_48-2p16e5_24-7p4e52_53i1x135-1x64-1x147d1x9-1x5-1x70u2x58-12x132-5x7-5x5-2x6-3x1-2x28-1x82-1x10s4x10-3x120-2x98",
+            "battleTime": 157,
+            "battleTimestamp": "20260731T170107.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "Ranger❤️Rajat™",
-            "opponentTag": "#JRGCJ02L",
+            "opponentName": "阿～DIU❤️",
+            "opponentTag": "#LL2GGUQL0",
             "opponentTownHallLevel": 17,
             "playerName": "爪乇丂ㄒ尺乇 丂丂™",
             "playerTag": "#L2UV0PU29",
             "playerTownHallLevel": null,
-            "polled_at": "2026-07-31T16:57:22.806241+00:00",
-            "sourcePollAt": "2026-07-31T16:57:22.806241+00:00",
+            "polled_at": "2026-07-31T17:58:39.947309+00:00",
+            "sourcePollAt": "2026-07-31T17:58:39.947309+00:00",
             "spellStyle": "Earthquake Heavy",
             "stars": 3,
             "tracking_day": "2026-07-31"
           },
           "name": "爪乇丂ㄒ尺乇 丂丂™",
           "stats": {
-            "attack_count": 4,
-            "avg_destruction": 96.0,
+            "attack_count": 6,
+            "avg_destruction": 95.5,
             "avg_stars": 2.5,
-            "destruction_total": 384,
-            "stars_total": 10,
+            "destruction_total": 573,
+            "stars_total": 15,
             "three_star_rate": 50.0
           },
           "tag": "#L2UV0PU29"
         }
       ],
       "stats": {
-        "attack_count": 4,
-        "avg_destruction": 96.0,
+        "attack_count": 6,
+        "avg_destruction": 95.5,
         "avg_stars": 2.5,
-        "destruction_total": 384,
-        "stars_total": 10,
+        "destruction_total": 573,
+        "stars_total": 15,
         "three_star_rate": 50.0
       },
       "uniqueUsers": 1
@@ -36788,14 +37734,14 @@
       }
     },
     "#22VGGQV02": {
-      "best_army_count": 3,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 3,
-        "avg_destruction": 94.333,
-        "avg_stars": 2.667,
-        "destruction_total": 283,
-        "stars_total": 8,
-        "three_star_rate": 66.667
+        "attack_count": 7,
+        "avg_destruction": 97.571,
+        "avg_stars": 2.857,
+        "destruction_total": 683,
+        "stars_total": 20,
+        "three_star_rate": 85.714
       }
     },
     "#28RYPY0CU": {
@@ -36917,6 +37863,17 @@
         "destruction_total": 796,
         "stars_total": 23,
         "three_star_rate": 87.5
+      }
+    },
+    "#2QQVPPLUV": {
+      "best_army_count": 3,
+      "stats": {
+        "attack_count": 3,
+        "avg_destruction": 100.0,
+        "avg_stars": 3.0,
+        "destruction_total": 300,
+        "stars_total": 9,
+        "three_star_rate": 100.0
       }
     },
     "#2R89CGV8Y": {
@@ -37041,14 +37998,14 @@
       }
     },
     "#889LUJCVL": {
-      "best_army_count": 6,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 6,
-        "avg_destruction": 95.333,
-        "avg_stars": 2.5,
-        "destruction_total": 572,
-        "stars_total": 15,
-        "three_star_rate": 50.0
+        "attack_count": 7,
+        "avg_destruction": 96.0,
+        "avg_stars": 2.571,
+        "destruction_total": 672,
+        "stars_total": 18,
+        "three_star_rate": 57.143
       }
     },
     "#88L9G2Y8G": {
@@ -37195,13 +38152,13 @@
       }
     },
     "#8QG8LV8Q": {
-      "best_army_count": 5,
+      "best_army_count": 6,
       "stats": {
-        "attack_count": 5,
+        "attack_count": 6,
         "avg_destruction": 100.0,
         "avg_stars": 3.0,
-        "destruction_total": 500,
-        "stars_total": 15,
+        "destruction_total": 600,
+        "stars_total": 18,
         "three_star_rate": 100.0
       }
     },
@@ -37580,13 +38537,13 @@
       }
     },
     "#L2UV0PU29": {
-      "best_army_count": 4,
+      "best_army_count": 6,
       "stats": {
-        "attack_count": 4,
-        "avg_destruction": 96.0,
+        "attack_count": 6,
+        "avg_destruction": 95.5,
         "avg_stars": 2.5,
-        "destruction_total": 384,
-        "stars_total": 10,
+        "destruction_total": 573,
+        "stars_total": 15,
         "three_star_rate": 50.0
       }
     },
@@ -37635,14 +38592,14 @@
       }
     },
     "#LLC02CULL": {
-      "best_army_count": 5,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 5,
-        "avg_destruction": 100.0,
-        "avg_stars": 3.0,
-        "destruction_total": 500,
-        "stars_total": 15,
-        "three_star_rate": 100.0
+        "attack_count": 7,
+        "avg_destruction": 97.0,
+        "avg_stars": 2.857,
+        "destruction_total": 679,
+        "stars_total": 20,
+        "three_star_rate": 85.714
       }
     },
     "#LR2C9LRRL": {
@@ -37755,6 +38712,17 @@
         "three_star_rate": 25.0
       }
     },
+    "#PG9CJ8UJV": {
+      "best_army_count": 2,
+      "stats": {
+        "attack_count": 2,
+        "avg_destruction": 100.0,
+        "avg_stars": 3.0,
+        "destruction_total": 200,
+        "stars_total": 6,
+        "three_star_rate": 100.0
+      }
+    },
     "#PGLLVRJRV": {
       "best_army_count": 8,
       "stats": {
@@ -37811,14 +38779,14 @@
       }
     },
     "#PRJC2PQPP": {
-      "best_army_count": 6,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 6,
-        "avg_destruction": 98.833,
-        "avg_stars": 2.833,
-        "destruction_total": 593,
-        "stars_total": 17,
-        "three_star_rate": 83.333
+        "attack_count": 7,
+        "avg_destruction": 98.429,
+        "avg_stars": 2.714,
+        "destruction_total": 689,
+        "stars_total": 19,
+        "three_star_rate": 71.429
       }
     },
     "#PRLLCQU0U": {
@@ -37833,14 +38801,14 @@
       }
     },
     "#PRQLYLRY0": {
-      "best_army_count": 6,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 6,
-        "avg_destruction": 95.0,
-        "avg_stars": 2.667,
-        "destruction_total": 570,
-        "stars_total": 16,
-        "three_star_rate": 66.667
+        "attack_count": 7,
+        "avg_destruction": 95.714,
+        "avg_stars": 2.714,
+        "destruction_total": 670,
+        "stars_total": 19,
+        "three_star_rate": 71.429
       }
     },
     "#PRU8Y9UPQ": {
@@ -38239,6 +39207,17 @@
         "three_star_rate": 100.0
       }
     },
+    "#YJC8L8LPV": {
+      "best_army_count": 5,
+      "stats": {
+        "attack_count": 5,
+        "avg_destruction": 95.8,
+        "avg_stars": 2.8,
+        "destruction_total": 479,
+        "stars_total": 14,
+        "three_star_rate": 80.0
+      }
+    },
     "#YPLYJ9PQ2": {
       "best_army_count": 3,
       "stats": {
@@ -38316,6 +39295,17 @@
         "three_star_rate": 100.0
       }
     },
+    "#YY0820QJ": {
+      "best_army_count": 7,
+      "stats": {
+        "attack_count": 7,
+        "avg_destruction": 100.0,
+        "avg_stars": 3.0,
+        "destruction_total": 700,
+        "stars_total": 21,
+        "three_star_rate": 100.0
+      }
+    },
     "#YY229RY08": {
       "best_army_count": 5,
       "stats": {
@@ -38367,17 +39357,17 @@
     "tracking_day": "2026-07-31"
   },
   "stats": {
-    "attack_records": 1141,
-    "avg_attacks_per_player": 6.0,
+    "attack_records": 1178,
+    "avg_attacks_per_player": 6.1,
     "favorite_groups": 16,
-    "most_popular_army": 431,
+    "most_popular_army": 439,
     "overall": {
-      "attack_count": 909,
-      "avg_destruction": 97.051,
-      "avg_stars": 2.702,
-      "destruction_total": 88219,
-      "stars_total": 2456,
-      "three_star_rate": 71.837
+      "attack_count": 938,
+      "avg_destruction": 97.081,
+      "avg_stars": 2.707,
+      "destruction_total": 91062,
+      "stars_total": 2539,
+      "three_star_rate": 72.281
     },
     "top_players": 200
   },
