@@ -874,6 +874,59 @@
       "Yeti": 18
     };
 
+
+    const EQUIPMENT_NAMES = {
+      0: "Barbarian Puppet",
+      1: "Rage Vial",
+      2: "Archer Puppet",
+      3: "Invisibility Vial",
+      4: "Eternal Tome",
+      5: "Life Gem",
+      6: "Seeking Shield",
+      7: "Royal Gem",
+      8: "Earthquake Boots",
+      9: "Hog Rider Puppet",
+      10: "Giant Gauntlet",
+      11: "Vampstache",
+      12: "Haste Vial",
+      13: "Rocket Spear",
+      14: "Spiky Ball",
+      15: "Frozen Arrow",
+      16: "Monolith Arrow",
+      17: "Giant Arrow",
+      19: "Heroic Torch",
+      20: "Healer Puppet",
+      22: "Fireball",
+      24: "Rage Gem",
+      32: "Snake Bracelet",
+      34: "Healing Tome",
+      35: "Dark Crown",
+      39: "Magic Mirror",
+      40: "Electro Boots",
+      41: "Lavaloon Puppet",
+      42: "Henchmen Puppet",
+      43: "Dark Orb",
+      44: "Metal Pants",
+      47: "Noble Iron",
+      48: "Action Figure",
+      49: "Meteor Staff",
+      50: "Frost Flake",
+      51: "Stick Horse",
+      52: "Fire Heart",
+      53: "Rocket Backpack",
+      56: "Stun Blaster",
+      57: "Flame Blower",
+      59: "Electro Fangs",
+    };
+
+    const EQUIPMENT_ORDER = Object.entries(EQUIPMENT_NAMES).map(([id, name]) => ({ id: Number(id), name }));
+    const HERO_EQUIPMENT_GROUPS = [
+      ["Barbarian Puppet", "Rage Vial", "Giant Gauntlet", "Vampstache", "Earthquake Boots", "Heroic Torch"],
+      ["Archer Puppet", "Invisibility Vial", "Healer Puppet", "Frozen Arrow", "Magic Mirror", "Fireball", "Rage Gem"],
+      ["Eternal Tome", "Life Gem", "Seeking Shield", "Royal Gem", "Haste Vial", "Dark Crown", "Healing Tome", "Dark Orb", "Metal Pants", "Noble Iron", "Action Figure", "Electro Boots"],
+      ["Hog Rider Puppet", "Rocket Spear", "Spiky Ball", "Monolith Arrow", "Giant Arrow", "Heroic Torch", "Lavaloon Puppet"],
+      ["Snake Bracelet", "Meteor Staff", "Frost Flake", "Stick Horse", "Fire Heart", "Rocket Backpack", "Stun Blaster", "Flame Blower", "Electro Fangs"],
+    ];
     const HERO_ABBREVIATIONS = {
       "Barbarian King": "BK",
       "Archer Queen": "AQ",
@@ -1055,7 +1108,7 @@
       const names = [];
       for (const hero of sections.heroes || []) {
         for (const piece of hero.equipment || []) {
-          if (piece?.name && isEpicEquipment(piece.name)) names.push(piece.name);
+          if (piece?.name && EQUIPMENT_NAMES && Object.values(EQUIPMENT_NAMES).includes(piece.name)) names.push(piece.name);
         }
       }
       return [...new Set(names)];
@@ -1085,7 +1138,7 @@
     }
 
     function renderEquipmentFilter() {
-      equipmentFilterGridEl.innerHTML = EPIC_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">${HERO_GROUP_LABELS[index] || `Hero ${index + 1}`}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name.replace(/\s+/g, '<br>')}</button>`).join('')}</div></div>`).join('');
+      equipmentFilterGridEl.innerHTML = HERO_EQUIPMENT_GROUPS.map((group, index) => `<div class="equipment-group"><div class="equipment-group-label">${['Barbarian King','Archer Queen','Grand Warden','Royal Champion','Battle Copter'][index] || `Hero ${index + 1}`}</div><div class="equipment-pills">${group.map(name => `<button class="equipment-pill ${ownedEpicEquipment.has(name) ? 'active' : ''}" type="button" data-equipment="${name}">${name.replace(/\s+/g, '<br>')}</button>`).join('')}</div></div>`).join('');
       equipmentFilterGridEl.querySelectorAll('.equipment-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.dataset.equipment;
