@@ -99,6 +99,7 @@ EQUIPMENT_NAMES = {
     56: "Stun Blaster",
     57: "Flame Blower",
     59: "Electro Fangs",
+    60: "Revenge Deck",
 }
 
 TROOP_AND_SIEGE_NAMES = {
@@ -138,7 +139,7 @@ TROOP_AND_SIEGE_NAMES = {
     57: "Rocket Balloon",
     58: "Ice Golem",
     59: "Electro Dragon",
-    60: "Revenge Deck",
+    60: "Golden Dragon",
     61: "Skeleton Barrel",
     62: "Stone Slammer",
     63: "Inferno Dragon",
