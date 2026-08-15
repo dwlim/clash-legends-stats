@@ -138,7 +138,7 @@ TROOP_AND_SIEGE_NAMES = {
     57: "Rocket Balloon",
     58: "Ice Golem",
     59: "Electro Dragon",
-    60: "Golden Dragon",
+    60: "Revenge Deck",
     61: "Skeleton Barrel",
     62: "Stone Slammer",
     63: "Inferno Dragon",
