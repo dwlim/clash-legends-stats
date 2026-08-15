@@ -11,6 +11,7 @@ on:
       - "run_hourly_poll.sh"
       - "requirements.txt"
       - ".github/workflows/pages.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
