@@ -1,6 +1,6 @@
 # Clash Legends Stats
 
-Small Clash of Clans Legends League tracker with a static GitHub Pages site.
+Small Clash of Clans Legends League tracker with a static GitHub Pages site. Built to keep the current day refreshed automatically.
 
 ## What it does
 
