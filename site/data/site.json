@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T19:09:55.475639+00:00",
+  "generated_at": "2026-08-30T20:11:22.663206+00:00",
   "groups": [
     {
       "count": 225,
@@ -6897,7 +6897,7 @@
       "uniqueUsers": 32
     },
     {
-      "count": 110,
+      "count": 112,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -11370,12 +11370,12 @@
           "tag": "#Y8R9RVU8"
         },
         {
-          "attack_count": 3,
+          "attack_count": 5,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h0p9e14_32-1p17e48_16-2p7e19_4-7p10e59_52i1x64-1x147d2x2u3x28-1x23-3x5-5x7-2x58-5x80-1x97-1x135-1x82-1x53-3x1-1x10-1x6s3x35-1x98-1x53-1x9-1x17-2x120",
+              "raw": "h0p9e14_32-1p17e48_16-2p7e19_4-7p10e59_52i1x64-1x147d2x2u1x23-3x28-2x58-3x5-5x7-1x6-5x80-1x97-1x135-1x82-1x53-3x1-1x10s3x35-1x53-1x9-2x120-1x17-1x98",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -11486,11 +11486,6 @@
                   },
                   {
                     "count": 1,
-                    "id": 98,
-                    "name": "Revive Spell"
-                  },
-                  {
-                    "count": 1,
                     "id": 53,
                     "name": "Recall Spell"
                   },
@@ -11500,26 +11495,36 @@
                     "name": "Poison Spell"
                   },
                   {
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
                     "count": 1,
                     "id": 17,
                     "name": "Skeleton Spell"
                   },
                   {
-                    "count": 2,
-                    "id": 120,
-                    "name": "Totem Spell"
+                    "count": 1,
+                    "id": 98,
+                    "name": "Revive Spell"
                   }
                 ],
                 "troops": [
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
                   {
                     "count": 3,
                     "id": 28,
                     "name": "Super Wall Breaker"
                   },
                   {
-                    "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
+                    "count": 2,
+                    "id": 58,
+                    "name": "Ice Golem"
                   },
                   {
                     "count": 3,
@@ -11532,9 +11537,9 @@
                     "name": "Healer"
                   },
                   {
-                    "count": 2,
-                    "id": 58,
-                    "name": "Ice Golem"
+                    "count": 1,
+                    "id": 6,
+                    "name": "Wizard"
                   },
                   {
                     "count": 5,
@@ -11570,52 +11575,47 @@
                     "count": 1,
                     "id": 10,
                     "name": "Minion"
-                  },
-                  {
-                    "count": 1,
-                    "id": 6,
-                    "name": "Wizard"
                   }
                 ]
               }
             },
             "armyLabel": "Super Bowler Smash",
-            "armyShareCode": "h0p9e14_32-1p17e48_16-2p7e19_4-7p10e59_52i1x64-1x147d2x2u3x28-1x23-3x5-5x7-2x58-5x80-1x97-1x135-1x82-1x53-3x1-1x10-1x6s3x35-1x98-1x53-1x9-1x17-2x120",
-            "battleTime": 119,
-            "battleTimestamp": "20260830T183840.000Z",
+            "armyShareCode": "h0p9e14_32-1p17e48_16-2p7e19_4-7p10e59_52i1x64-1x147d2x2u1x23-3x28-2x58-3x5-5x7-1x6-5x80-1x97-1x135-1x82-1x53-3x1-1x10s3x35-1x53-1x9-2x120-1x17-1x98",
+            "battleTime": 180,
+            "battleTimestamp": "20260830T192938.000Z",
             "battleType": "legend",
-            "destructionPercentage": 85,
-            "opponentName": "♪「M」♤ＱＵＥＥＮ★★٭",
-            "opponentTag": "#8PQRUPVP",
+            "destructionPercentage": 92,
+            "opponentName": "Klaus♦️MAD",
+            "opponentTag": "#UQV9982J",
             "opponentTownHallLevel": 17,
             "playerName": "⚡ᴇ ʟ ᴇ ᴄ ᴛ ʀ ᴀ⚡",
             "playerTag": "#P02P8GGLG",
             "playerTownHallLevel": null,
-            "polled_at": "2026-08-30T19:08:31.377985+00:00",
-            "sourcePollAt": "2026-08-30T19:08:31.377985+00:00",
+            "polled_at": "2026-08-30T20:10:05.795693+00:00",
+            "sourcePollAt": "2026-08-30T20:10:05.795693+00:00",
             "spellStyle": "Balanced",
             "stars": 2,
             "tracking_day": "2026-08-30"
           },
           "name": "⚡ᴇ ʟ ᴇ ᴄ ᴛ ʀ ᴀ⚡",
           "stats": {
-            "attack_count": 3,
-            "avg_destruction": 81.667,
+            "attack_count": 5,
+            "avg_destruction": 85.6,
             "avg_stars": 2.0,
-            "destruction_total": 245,
-            "stars_total": 6,
+            "destruction_total": 428,
+            "stars_total": 10,
             "three_star_rate": 0.0
           },
           "tag": "#P02P8GGLG"
         }
       ],
       "stats": {
-        "attack_count": 110,
-        "avg_destruction": 96.027,
-        "avg_stars": 2.564,
-        "destruction_total": 10563,
-        "stars_total": 282,
-        "three_star_rate": 60.909
+        "attack_count": 112,
+        "avg_destruction": 95.946,
+        "avg_stars": 2.554,
+        "destruction_total": 10746,
+        "stars_total": 286,
+        "three_star_rate": 59.821
       },
       "uniqueUsers": 19
     },
@@ -44932,13 +44932,13 @@
       }
     },
     "#P02P8GGLG": {
-      "best_army_count": 3,
+      "best_army_count": 5,
       "stats": {
-        "attack_count": 3,
-        "avg_destruction": 81.667,
+        "attack_count": 5,
+        "avg_destruction": 85.6,
         "avg_stars": 2.0,
-        "destruction_total": 245,
-        "stars_total": 6,
+        "destruction_total": 428,
+        "stars_total": 10,
         "three_star_rate": 0.0
       }
     },
@@ -45829,17 +45829,17 @@
     "tracking_day": "2026-08-30"
   },
   "stats": {
-    "attack_records": 1409,
+    "attack_records": 1411,
     "avg_attacks_per_player": 5.8,
     "favorite_groups": 22,
     "most_popular_army": 225,
     "overall": {
-      "attack_count": 1033,
-      "avg_destruction": 96.239,
-      "avg_stars": 2.631,
-      "destruction_total": 99415,
-      "stars_total": 2718,
-      "three_star_rate": 66.989
+      "attack_count": 1035,
+      "avg_destruction": 96.23,
+      "avg_stars": 2.63,
+      "destruction_total": 99598,
+      "stars_total": 2722,
+      "three_star_rate": 66.86
     },
     "top_players": 200
   },
