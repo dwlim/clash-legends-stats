@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T16:04:57.873415+00:00",
+  "generated_at": "2026-08-30T17:06:55.682778+00:00",
   "groups": [
     {
       "count": 225,
@@ -31353,7 +31353,7 @@
       "uniqueUsers": 9
     },
     {
-      "count": 39,
+      "count": 45,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -31544,12 +31544,12 @@
       "label": "Dragon Rider Air (DD Electro Fangs) - Invis Charge",
       "players": [
         {
-          "attack_count": 1,
+          "attack_count": 7,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h2m1p16e34_4-4p4e6_13-6p17e49_43-7p10e52_59i1x5-2x65d1x70-1x98u7x57-1x10-1x188-1x17-8x65-3x63-1x6-1x23-1x0-3x1s6x35-2x120-2x5-1x9",
+              "raw": "h2m1p16e34_4-4p4e6_13-6p17e49_43-7p10e52_59i1x5-2x65d1x70-1x98u1x23-7x57-1x0-4x1-1x188-8x65-3x63-1x17-1x10-1x6s6x35-1x9-2x5-2x120",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -31664,9 +31664,9 @@
                     "name": "Invisibility Spell"
                   },
                   {
-                    "count": 2,
-                    "id": 120,
-                    "name": "Totem Spell"
+                    "count": 1,
+                    "id": 9,
+                    "name": "Poison Spell"
                   },
                   {
                     "count": 2,
@@ -31674,12 +31674,17 @@
                     "name": "Freeze Spell"
                   },
                   {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
+                    "count": 2,
+                    "id": 120,
+                    "name": "Totem Spell"
                   }
                 ],
                 "troops": [
+                  {
+                    "count": 1,
+                    "id": 23,
+                    "name": "Baby Dragon"
+                  },
                   {
                     "count": 7,
                     "id": 57,
@@ -31687,18 +31692,18 @@
                   },
                   {
                     "count": 1,
-                    "id": 10,
-                    "name": "Minion"
+                    "id": 0,
+                    "name": "Barbarian"
+                  },
+                  {
+                    "count": 4,
+                    "id": 1,
+                    "name": "Archer"
                   },
                   {
                     "count": 1,
                     "id": 188,
                     "name": "Sky Wagon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 17,
-                    "name": "Lava Hound"
                   },
                   {
                     "count": 8,
@@ -31712,52 +31717,47 @@
                   },
                   {
                     "count": 1,
+                    "id": 17,
+                    "name": "Lava Hound"
+                  },
+                  {
+                    "count": 1,
+                    "id": 10,
+                    "name": "Minion"
+                  },
+                  {
+                    "count": 1,
                     "id": 6,
                     "name": "Wizard"
-                  },
-                  {
-                    "count": 1,
-                    "id": 23,
-                    "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 1,
-                    "id": 0,
-                    "name": "Barbarian"
-                  },
-                  {
-                    "count": 3,
-                    "id": 1,
-                    "name": "Archer"
                   }
                 ]
               }
             },
             "armyLabel": "Dragon Rider Air (DD Electro Fangs)",
-            "armyShareCode": "h2m1p16e34_4-4p4e6_13-6p17e49_43-7p10e52_59i1x5-2x65d1x70-1x98u7x57-1x10-1x188-1x17-8x65-3x63-1x6-1x23-1x0-3x1s6x35-2x120-2x5-1x9",
-            "battleTime": 156,
-            "battleTimestamp": "20260830T155705.000Z",
+            "armyShareCode": "h2m1p16e34_4-4p4e6_13-6p17e49_43-7p10e52_59i1x5-2x65d1x70-1x98u1x23-7x57-1x0-4x1-1x188-8x65-3x63-1x17-1x10-1x6s6x35-1x9-2x5-2x120",
+            "battleTime": 155,
+            "battleTimestamp": "20260830T163410.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "Reze",
-            "opponentTag": "#2V0PRRRPJ",
+            "opponentName": "爪乇丂ㄒ尺乇 丂丂™",
+            "opponentTag": "#L2UV0PU29",
             "opponentTownHallLevel": 17,
             "playerName": "XiYan✨FC",
             "playerTag": "#2V2LRCL2U",
             "playerTownHallLevel": null,
-            "polled_at": "2026-08-30T16:03:08.048929+00:00",
-            "sourcePollAt": "2026-08-30T16:03:08.048929+00:00",
+            "polled_at": "2026-08-30T17:05:08.160960+00:00",
+            "sourcePollAt": "2026-08-30T17:05:08.160960+00:00",
             "spellStyle": "Invis Charge",
             "stars": 3,
             "tracking_day": "2026-08-30"
           },
           "name": "XiYan✨FC",
           "stats": {
-            "attack_count": 1,
+            "attack_count": 7,
             "avg_destruction": 100.0,
             "avg_stars": 3.0,
-            "destruction_total": 100,
-            "stars_total": 3,
+            "destruction_total": 700,
+            "stars_total": 21,
             "three_star_rate": 100.0
           },
           "tag": "#2V2LRCL2U"
@@ -32859,12 +32859,12 @@
         }
       ],
       "stats": {
-        "attack_count": 39,
-        "avg_destruction": 96.538,
-        "avg_stars": 2.744,
-        "destruction_total": 3765,
-        "stars_total": 107,
-        "three_star_rate": 76.923
+        "attack_count": 45,
+        "avg_destruction": 97.0,
+        "avg_stars": 2.778,
+        "destruction_total": 4365,
+        "stars_total": 125,
+        "three_star_rate": 80.0
       },
       "uniqueUsers": 6
     },
@@ -43683,13 +43683,13 @@
       }
     },
     "#2V2LRCL2U": {
-      "best_army_count": 1,
+      "best_army_count": 7,
       "stats": {
-        "attack_count": 1,
+        "attack_count": 7,
         "avg_destruction": 100.0,
         "avg_stars": 3.0,
-        "destruction_total": 100,
-        "stars_total": 3,
+        "destruction_total": 700,
+        "stars_total": 21,
         "three_star_rate": 100.0
       }
     },
@@ -45339,17 +45339,17 @@
     "tracking_day": "2026-08-30"
   },
   "stats": {
-    "attack_records": 1390,
+    "attack_records": 1396,
     "avg_attacks_per_player": 5.8,
     "favorite_groups": 22,
     "most_popular_army": 225,
     "overall": {
-      "attack_count": 1019,
-      "avg_destruction": 96.242,
-      "avg_stars": 2.63,
-      "destruction_total": 98071,
-      "stars_total": 2680,
-      "three_star_rate": 66.928
+      "attack_count": 1025,
+      "avg_destruction": 96.264,
+      "avg_stars": 2.632,
+      "destruction_total": 98671,
+      "stars_total": 2698,
+      "three_star_rate": 67.122
     },
     "top_players": 200
   },
