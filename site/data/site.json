@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T11:54:02.604052+00:00",
+  "generated_at": "2026-11-03T12:55:45.452436+00:00",
   "groups": [
     {
       "count": 256,
@@ -40841,7 +40841,7 @@
       "uniqueUsers": 5
     },
     {
-      "count": 24,
+      "count": 26,
       "example": {
         "decoded": true,
         "fullArmy": true,
@@ -41017,12 +41017,12 @@
       "label": "Dragon Rider Air (DD Electro Fangs) - Totem Spam",
       "players": [
         {
-          "attack_count": 3,
+          "attack_count": 5,
           "best_attack": {
             "armyDecoded": {
               "decoded": true,
               "fullArmy": true,
-              "raw": "h1p9e17_48-2m1p16e4_34-6p17e49_43-7p4e59_53i1x63-1x76d1x70-1x98u5x65-8x8-1x188-1x23-7x57-1x1s1x17-3x5-1x2-1x9-4x120",
+              "raw": "h1p9e17_48-2m1p16e4_34-6p17e49_43-7p4e59_53i1x63-1x76d1x70-1x98u7x57-8x8-1x188-5x65-1x23-1x1s1x9-4x120-1x2-3x5-1x17",
               "sections": {
                 "clanCastleSpells": [
                   {
@@ -41133,8 +41133,18 @@
                 "spells": [
                   {
                     "count": 1,
-                    "id": 17,
-                    "name": "Skeleton Spell"
+                    "id": 9,
+                    "name": "Poison Spell"
+                  },
+                  {
+                    "count": 4,
+                    "id": 120,
+                    "name": "Totem Spell"
+                  },
+                  {
+                    "count": 1,
+                    "id": 2,
+                    "name": "Rage Spell"
                   },
                   {
                     "count": 3,
@@ -41143,25 +41153,15 @@
                   },
                   {
                     "count": 1,
-                    "id": 2,
-                    "name": "Rage Spell"
-                  },
-                  {
-                    "count": 1,
-                    "id": 9,
-                    "name": "Poison Spell"
-                  },
-                  {
-                    "count": 4,
-                    "id": 120,
-                    "name": "Totem Spell"
+                    "id": 17,
+                    "name": "Skeleton Spell"
                   }
                 ],
                 "troops": [
                   {
-                    "count": 5,
-                    "id": 65,
-                    "name": "Dragon Rider"
+                    "count": 7,
+                    "id": 57,
+                    "name": "Rocket Balloon"
                   },
                   {
                     "count": 8,
@@ -41174,14 +41174,14 @@
                     "name": "Sky Wagon"
                   },
                   {
+                    "count": 5,
+                    "id": 65,
+                    "name": "Dragon Rider"
+                  },
+                  {
                     "count": 1,
                     "id": 23,
                     "name": "Baby Dragon"
-                  },
-                  {
-                    "count": 7,
-                    "id": 57,
-                    "name": "Rocket Balloon"
                   },
                   {
                     "count": 1,
@@ -41192,30 +41192,30 @@
               }
             },
             "armyLabel": "Dragon Rider Air (DD Electro Fangs)",
-            "armyShareCode": "h1p9e17_48-2m1p16e4_34-6p17e49_43-7p4e59_53i1x63-1x76d1x70-1x98u5x65-8x8-1x188-1x23-7x57-1x1s1x17-3x5-1x2-1x9-4x120",
+            "armyShareCode": "h1p9e17_48-2m1p16e4_34-6p17e49_43-7p4e59_53i1x63-1x76d1x70-1x98u7x57-8x8-1x188-5x65-1x23-1x1s1x9-4x120-1x2-3x5-1x17",
             "battleTime": 98,
-            "battleTimestamp": "20261103T053538.000Z",
+            "battleTimestamp": "20261103T124430.000Z",
             "battleType": "legend",
             "destructionPercentage": 100,
-            "opponentName": "夏娜Crimson",
-            "opponentTag": "#Q8J8GCJUJ",
+            "opponentName": "super_ti",
+            "opponentTag": "#28J8JYVC9",
             "opponentTownHallLevel": 17,
             "playerName": "PQN-❤️❣️",
             "playerTag": "#YV8L8L0Q0",
             "playerTownHallLevel": null,
-            "polled_at": "2026-11-03T05:42:07.423787+00:00",
-            "sourcePollAt": "2026-11-03T05:42:07.423787+00:00",
+            "polled_at": "2026-11-03T12:54:18.300319+00:00",
+            "sourcePollAt": "2026-11-03T12:54:18.300319+00:00",
             "spellStyle": "Totem Spam",
             "stars": 3,
             "tracking_day": "2026-11-03"
           },
           "name": "PQN-❤️❣️",
           "stats": {
-            "attack_count": 3,
+            "attack_count": 5,
             "avg_destruction": 100.0,
             "avg_stars": 3.0,
-            "destruction_total": 300,
-            "stars_total": 9,
+            "destruction_total": 500,
+            "stars_total": 15,
             "three_star_rate": 100.0
           },
           "tag": "#YV8L8L0Q0"
@@ -41804,12 +41804,12 @@
         }
       ],
       "stats": {
-        "attack_count": 24,
-        "avg_destruction": 92.333,
-        "avg_stars": 2.417,
-        "destruction_total": 2216,
-        "stars_total": 58,
-        "three_star_rate": 41.667
+        "attack_count": 26,
+        "avg_destruction": 92.923,
+        "avg_stars": 2.462,
+        "destruction_total": 2416,
+        "stars_total": 64,
+        "three_star_rate": 46.154
       },
       "uniqueUsers": 4
     },
@@ -52206,13 +52206,13 @@
       }
     },
     "#YV8L8L0Q0": {
-      "best_army_count": 3,
+      "best_army_count": 5,
       "stats": {
-        "attack_count": 3,
+        "attack_count": 5,
         "avg_destruction": 100.0,
         "avg_stars": 3.0,
-        "destruction_total": 300,
-        "stars_total": 9,
+        "destruction_total": 500,
+        "stars_total": 15,
         "three_star_rate": 100.0
       }
     },
@@ -52256,17 +52256,17 @@
     "tracking_day": "2026-11-03"
   },
   "stats": {
-    "attack_records": 1594,
-    "avg_attacks_per_player": 5.8,
+    "attack_records": 1596,
+    "avg_attacks_per_player": 5.9,
     "favorite_groups": 30,
     "most_popular_army": 256,
     "overall": {
-      "attack_count": 1170,
-      "avg_destruction": 93.534,
+      "attack_count": 1172,
+      "avg_destruction": 93.545,
       "avg_stars": 2.468,
-      "destruction_total": 109435,
-      "stars_total": 2887,
-      "three_star_rate": 51.026
+      "destruction_total": 109635,
+      "stars_total": 2893,
+      "three_star_rate": 51.109
     },
     "top_players": 200
   },
